@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - GameObject_Sea_Shell
+  - Login
+  - Join
+  - Nickname
+  - Select_char
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Platforms
+  - Player
+  - Volumes
+  - OneWayPlatforms
+  - Projectiles
+  - Enemies
+  - LevelBounds
+  - Ladders
+  - PlayerProjectiles
+  - MovingObjects
+  - Foreground
+  - MovingOnWayPlatforms
+  - MovingPlatforms
+  - NoCollision
+  - Background
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2790061649
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: gameobjects
+    uniqueID: 426637763
+    locked: 0
+  - name: gameUI
+    uniqueID: 469649083
+    locked: 0
+  - name: gameResult
+    uniqueID: 3709109915
+    locked: 0

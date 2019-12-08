@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e2527409bc5621345b49b347ff1376a8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PearlShell: {fileID: 405837507606224040, guid: 0c903d103592fe24387f1d5eaed87d26,
+      type: 3}
+  - numPearlShell: {fileID: 6107323347934902608, guid: 9e825ed2009dc6e429caa03592c18e22,
+      type: 3}
+  - Shell: {fileID: 3843346812480301956, guid: dd643cae1abd83e4386243d18216af15, type: 3}
+  - numNonPearlShell: {fileID: 5408536761964969735, guid: 6fd8104c3c2306d4699581a520b3babc,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
