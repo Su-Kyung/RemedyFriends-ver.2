@@ -3512,16 +3512,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086563, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 469649083
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086563, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
@@ -3556,6 +3546,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_AlignByGeometry
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_Text
+      value: '3,001
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086563, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 469649083
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086563, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e112c86fddf9f24381d99a51d92bc79, type: 3}
