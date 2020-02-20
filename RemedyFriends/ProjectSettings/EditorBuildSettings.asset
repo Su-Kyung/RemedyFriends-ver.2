@@ -12,36 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/main.unity
     guid: 8f62128a85d13c64389fde8250ffb77a
   - enabled: 1
-    path: Assets/Scenes/gameList_stage_1.unity
+    path: Assets/Scenes/gameList.unity
     guid: 97a8a91a1928b214684fece251e27cb5
-  - enabled: 1
-    path: Assets/Scenes/gameList_stage_2.unity
-    guid: e49bc7bbcb0ff104d8d1db6354f84f69
   - enabled: 1
     path: Assets/Scenes/game/game1_Find the Pearl Shell.unity
     guid: 234382bf9202ab24991c26ed71855cad
-  - enabled: 1
-    path: Assets/Scenes/game/game1_Fix the Broken Submarine.unity
-    guid: 4347cef56b52698418268da5a15453c9
-  - enabled: 1
-    path: Assets/Scenes/game/game1_To Play BlupBlup.unity
-    guid: 18676add61440384980b1e1f9f14813d
-  - enabled: 1
-    path: Assets/Scenes/game/game1_Sneak the Shark.unity
-    guid: 1e4e0fcc21460c240bc0b4d555b72e5b
-  - enabled: 1
-    path: Assets/Scenes/game/game2_We are thirsty.unity
-    guid: ff236c6140d1d734bb5c35884dbfd4a2
-  - enabled: 1
-    path: Assets/Scenes/game/game2_Find my camel.unity
-    guid: 3fc5a1064f3260f42bf2d914450966ec
-  - enabled: 1
-    path: Assets/Scenes/game/game2_Find the object in the bag.unity
-    guid: cee10d2feec598e48a2312e79442dc4e
-  - enabled: 1
-    path: Assets/Scenes/game/game2_Luna and Hide and Seek.unity
-    guid: 80b6f6b52e2dcd043a7fc12d37f3d2a2
-  - enabled: 1
-    path: Assets/Scenes/game/game2_Puzzle of Memories.unity
-    guid: 548bf9e18876be9429d76844f7e9777f
   m_configObjects: {}
