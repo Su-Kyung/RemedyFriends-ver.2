@@ -64,18 +64,19 @@ public class SceneChange : MonoBehaviour
             if (target.name == "main_stageBtn_1st")
             {
                 // 게임리스트 씬으로 넘어간다
-                SceneManager.LoadScene("gameList_stage_1");
-            }
-            else if (target.name == "main_stageBtn_lock_2") //향후 수정 //콜라이더도 삭제
-            {
-                // 게임리스트 씬으로 넘어간다
-                SceneManager.LoadScene("gameList_stage_2");
+                SceneManager.LoadScene("gameList");
             }
             // 바다 리스트에서 뒤로가기 클릭했을 때
             else if (target.name == "game_pick_backBtn")
             {
                 // main 씬으로 넘어간다
                 SceneManager.LoadScene("main");
+            }
+            // 게임시작 버튼 눌렀을 때(이거 리스트에서 게임 선택해서 바껴도 시작은 그대로임.. 걍 시작버튼에 콜라이더만 달랑 띄워둔 상태라 ㅎㅎ...)
+            else if (target.name == "game_pick_startBtn")
+            {
+                // 진주조개 게임 씬으로 넘어간다.
+                SceneManager.LoadScene("game1_Find the Pearl Shell");
             }
         }
     }
