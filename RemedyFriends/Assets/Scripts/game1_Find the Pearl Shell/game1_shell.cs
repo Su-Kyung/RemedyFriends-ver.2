@@ -7,14 +7,14 @@ public class game1_shell : MonoBehaviour
 {
     // 선택한 진주조개 수 세기 위한 변수
     public Text numPearlShell;
-    private int countPearlShell;
+    private int countPearlShell = 0;
     // 점수 위한 변수
-    private int scorePearlShell;    // 점수
+    private int scorePearlShell = 0;    // 점수
     public Text txtScore;
 
     // 선택한 진주없는 조개 수 세기 위한 변수
     public Text numNonPearlShell;
-    private int countNonPearlShell;
+    private int countNonPearlShell = 0;
 
     private GameObject target;
  
@@ -41,7 +41,7 @@ public class game1_shell : MonoBehaviour
                     gameTimeSlider.remainTime += 5;   // remainTime멤버변수 가져옴
 
                     // 점수 500 추가
-                    scorePearlShell += 500;
+                    scorePearlShell += 300;
                 }
                 txtScore.text = scorePearlShell.ToString();
             }

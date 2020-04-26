@@ -9,6 +9,7 @@ TagManager:
   - Join
   - Nickname
   - Select_char
+  - GameObject_Sea_Bubble
   layers:
   - Default
   - TransparentFX
