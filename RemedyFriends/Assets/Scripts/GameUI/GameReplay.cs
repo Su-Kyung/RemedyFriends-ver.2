@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class game1_gameover : MonoBehaviour
+
+// 게임 전체를 관장하고, 점수를 계산한다.
+public class GameReplay : MonoBehaviour
 {
     private GameObject target;
+    public Scene currentScene;
+    public Scene listScene;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -17,13 +21,14 @@ public class game1_gameover : MonoBehaviour
             // 나가기 클릭했을 때
             if (target.name == "game_score_popup_exit")
             {
-                SceneManager.LoadScene("gameList");
+                //SceneManager.LoadScene("gameList_2nd");
+                SceneManager.LoadScene(listScene.name);
             }
             // 다시하기 클릭했을 때
             else if (target.name == "game_score_popup_replay")
             {
                 //SceneManager.LoadScene("game1_Find the Pearl Shell");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene(currentScene.name);
             }
         }
     }

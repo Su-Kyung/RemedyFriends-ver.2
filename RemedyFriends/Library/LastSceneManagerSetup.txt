@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/gameList_1st.unity
+- path: Assets/Scenes/game/game2_Find Me the Stuff.unity
   isLoaded: 1
   isActive: 1
