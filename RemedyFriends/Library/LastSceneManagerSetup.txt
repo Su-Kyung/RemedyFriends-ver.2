@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/game/game1_To Play Blup-Blup.unity
+- path: Assets/Scenes/gameList_1st.unity
   isLoaded: 1
   isActive: 1

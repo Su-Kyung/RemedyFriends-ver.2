@@ -12,9 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/main.unity
     guid: 8f62128a85d13c64389fde8250ffb77a
   - enabled: 1
-    path: Assets/Scenes/gameList.unity
+    path: Assets/Scenes/gameList_1st.unity
     guid: 97a8a91a1928b214684fece251e27cb5
+  - enabled: 1
+    path: Assets/Scenes/gameList_2nd.unity
+    guid: 5b43bebde16d30741b0bb9fd17668653
   - enabled: 1
     path: Assets/Scenes/game/game1_Find the Pearl Shell.unity
     guid: 234382bf9202ab24991c26ed71855cad
+  - enabled: 1
+    path: Assets/Scenes/game/game1_Fix the Broken Submarine.unity
+    guid: 4347cef56b52698418268da5a15453c9
+  - enabled: 1
+    path: Assets/Scenes/game/game1_Sneak the Shark.unity
+    guid: 1e4e0fcc21460c240bc0b4d555b72e5b
+  - enabled: 1
+    path: Assets/Scenes/game/game1_To Play Blup-Blup.unity
+    guid: 18676add61440384980b1e1f9f14813d
   m_configObjects: {}
