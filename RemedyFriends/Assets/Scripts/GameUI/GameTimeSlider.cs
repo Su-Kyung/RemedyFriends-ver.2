@@ -42,6 +42,9 @@ public class GameTimeSlider : MonoBehaviour
             // 추후에는 각 게임에서 여기 변수 받아오는 걸로 바꾸기
             game1_SpawnShells gameSpawn = GameObject.Find("game1_shell_GameObject").GetComponent<game1_SpawnShells>();  // game1_SpawnShells 스크립트의 객체 받아옴
             gameSpawn.enableSpawn = false;
+
+            game1_SpawnBubble gameSpawnBubble = GameObject.Find("game1_blup_GameObject").GetComponent<game1_SpawnBubble>(); // enableSpawn 받아옴
+            gameSpawnBubble.enableSpawn = false;
         }
     }
 

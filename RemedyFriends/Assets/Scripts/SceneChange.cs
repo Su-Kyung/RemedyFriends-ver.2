@@ -64,7 +64,13 @@ public class SceneChange : MonoBehaviour
             if (target.name == "main_stageBtn_1st")
             {
                 // 게임리스트 씬으로 넘어간다
-                SceneManager.LoadScene("gameList");
+                SceneManager.LoadScene("gameList_1st");
+            }
+            // 두번째 버튼 클릭했을 때
+            if (target.name == "main_stageBtn_lock_2")
+            {
+                // 게임리스트 씬으로 넘어간다
+                SceneManager.LoadScene("gameList_2st");
             }
             // 바다 리스트에서 뒤로가기 클릭했을 때
             else if (target.name == "game_pick_backBtn")
