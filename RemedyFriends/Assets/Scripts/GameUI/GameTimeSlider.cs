@@ -11,6 +11,15 @@ public class GameTimeSlider : MonoBehaviour
 
     public float remainTime;   // 게임 플레이 시 남은 시간(다른 클래스에서 접근 위해 public)
 
+    
+    /* 위에 애들 안썼을때 되던 코드
+    game1_SpawnShells SpawnShells = GameObject.Find("game1_shell_GameObject").GetComponent<game1_SpawnShells>();  // game1_SpawnShells 스크립트의 객체 받아옴
+    SpawnShells.enableSpawn = false;
+
+            game1_SpawnBubble SpawnBubble = GameObject.Find("game1_blup_GameObject").GetComponent<game1_SpawnBubble>(); // enableSpawn 받아옴
+    SpawnBubble.enableSpawn = false;
+    */
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,20 +40,16 @@ public class GameTimeSlider : MonoBehaviour
         // 시간 슬라이더 값 변경 -> 이 값에 따라 슬라이더에 표시되는 길이 정해짐
         TimeSlider.value = (float)remainTime / 60;  //60: default 게임 시간(Start()에서 설정한 remainTime 값
 
+        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+
         // 0초 남았을 때(시간 끝나면) 시간 종료 화면 띄우기
         if (remainTime <= 0)
         {
             timeover.SetActive(true);
             Invoke("score", 3);
 
-            // 게임 오브젝트 생성 (예를 들면 진주) 금지시키기 위해
-            // 각 게임에 대한 스크립트에서 enableSpawn을 다시 false로 만든다.
-            // 추후에는 각 게임에서 여기 변수 받아오는 걸로 바꾸기
-            game1_SpawnShells gameSpawn = GameObject.Find("game1_shell_GameObject").GetComponent<game1_SpawnShells>();  // game1_SpawnShells 스크립트의 객체 받아옴
-            gameSpawn.enableSpawn = false;
-
-            game1_SpawnBubble gameSpawnBubble = GameObject.Find("game1_blup_GameObject").GetComponent<game1_SpawnBubble>(); // enableSpawn 받아옴
-            gameSpawnBubble.enableSpawn = false;
+            Countdown.enableSpawn = false;
+            Debug.Log("enableSpawn is false. - GameTimeSlider");
         }
     }
 
