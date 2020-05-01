@@ -54,11 +54,19 @@ public class GameTimeLimit : MonoBehaviour
             timeover.SetActive(true);
             Invoke("score", 3);
 
+            /*
             // 게임 오브젝트 생성 (예를 들면 진주) 금지시키기 위해
             // 각 게임에 대한 스크립트에서 enableSpawn을 다시 false로 만든다.
             // 추후에는 각 게임에서 여기 변수 받아오는 걸로 바꾸기
             game1_SpawnShells gameSpawn = GameObject.Find("game1_shell_GameObject").GetComponent<game1_SpawnShells>();  // game1_SpawnShells 스크립트의 객체 받아옴
-            gameSpawn.enableSpawn = false;   
+            gameSpawn.enableSpawn = false;
+
+            game1_SpawnBubble gameSpawnBubble = GameObject.Find("game1_blup_GameObject").GetComponent<game1_SpawnBubble>(); // enableSpawn 받아옴
+            gameSpawnBubble.enableSpawn = false;
+            */
+            GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+            Countdown.enableSpawn = false;
+            Debug.Log("enableSpawn is false. - GameTimeLimit");
         }
     }
 

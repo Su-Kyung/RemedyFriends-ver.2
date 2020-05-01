@@ -9,6 +9,14 @@ TagManager:
   - Join
   - Nickname
   - Select_char
+  - GameObject_Sea_Bubble
+  - game1_Find the Pearl Shell
+  - game1_Fix the Broken Submarine
+  - game1_Sneak the Shark
+  - game2_Find Me the Stuff
+  - game2_Give Me Some Water
+  - game2_Put the Puzzle Together
+  - game1_To Play Blup-Blup
   layers:
   - Default
   - TransparentFX

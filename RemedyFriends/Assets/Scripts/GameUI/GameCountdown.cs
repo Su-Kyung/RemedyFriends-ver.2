@@ -11,11 +11,15 @@ public class GameCountdown : MonoBehaviour
     public GameObject Num_B;   //2번
     public GameObject Num_C;   //3번
     public GameObject Num_GO;   //시작 이미지
+
+    public bool enableSpawn;    // 여기서 게임오브젝트 spawn 총 지휘
     
     void Start()
     {
         //시작시 카운트 다운 초기화, 게임 시작 false 설정
         Timer = 0;
+        enableSpawn = false;
+        Debug.Log("enableSpawn is false. - GameCountdown");
 
         // 튜토리얼, 나머지 (카운트다운 이미지) 안보이기
         IMG_tutorial.SetActive(false);
@@ -66,6 +70,8 @@ public class GameCountdown : MonoBehaviour
                 Num_GO.SetActive(true);
                 StartCoroutine(this.LoadingEnd());
                 Time.timeScale = 1.0f; //게임시작
+                enableSpawn = true;
+                Debug.Log("enableSpawn is true. - GameCountdown");
             }
         }
     }
