@@ -5,6 +5,15 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# firebase
+RemedyFriends/Assets/Editor Default Resources/
+RemedyFriends/Assets/ExternalDependencyManager/
+RemedyFriends/Assets/Firebase/
+RemedyFriends/Assets/StreamingAssets/
+RemedyFriends/Assets/Parse/
+
+*.meta
+
 # Visual Studio cache directory
 .vs/
 
