@@ -6,11 +6,11 @@
 Assets/AssetStoreTools*
 
 # firebase
-Assets/Editor Default Resources/
-Assets/ExternalDependencyManager/
-Assets/Firebase/
-Assets/StreamingAssets/
-Assets/Parse/
+RemedyFriends/Assets/Editor Default Resources/
+RemedyFriends/Assets/ExternalDependencyManager/
+RemedyFriends/Assets/Firebase/
+RemedyFriends/Assets/StreamingAssets/
+RemedyFriends/Assets/Parse/
 
 *.meta
 
