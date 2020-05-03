@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/game/game2_Put the Puzzle Together.unity
     guid: b482963f09f5eb34fa6eb1bf2ce4e0ca
+  - enabled: 1
+    path: Assets/Scenes/quest.unity
+    guid: d746dd4e8393d034aaa96d31c1c8158d
+  - enabled: 1
+    path: Assets/Scenes/chart.unity
+    guid: 01d01679246b2974c8472ed58ca098fc
+  - enabled: 1
+    path: Assets/Scenes/setting.unity
+    guid: 4ef4ed80f9e25594ca94462927c2e882
   m_configObjects: {}
