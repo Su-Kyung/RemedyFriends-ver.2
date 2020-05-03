@@ -37,7 +37,7 @@ public class GetUserData : MonoBehaviour
     */
 
     public Text nickname;
-
+/*
     string character;
 
 
@@ -51,11 +51,11 @@ public class GetUserData : MonoBehaviour
     GameObject luna;
 
 
-
+    */
     void Awake()
 
     {
-
+        /*
         surl = GameObject.Find("surl_simple_char");
 
         golden = GameObject.Find("golden_simple_char");
@@ -75,9 +75,9 @@ public class GetUserData : MonoBehaviour
         luna.SetActive(false);
 
 
-
+    */
         nickname.text = PlayerPrefs.GetString("Nickname");
-
+        /*
         character = PlayerPrefs.GetString("Character");
 
         if (character == "1")
@@ -123,6 +123,6 @@ public class GetUserData : MonoBehaviour
         else { }
 
 
-
+*/
     }
 }
