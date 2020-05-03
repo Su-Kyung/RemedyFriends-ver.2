@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1018105763112",
+    "firebase_url": "https://remedy-stones.firebaseio.com",
+    "project_id": "remedy-stones",
+    "storage_bucket": "remedy-stones.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018105763112:android:9614f1a26b269b07c9ac1d",
+        "android_client_info": {
+          "package_name": "com.Company.RemedyStones"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018105763112-00oec7trahvesvm5mqukutbbmrjuho5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHzjOeN5R4dnTMGOKglWvEeH-_gx76Emg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018105763112-00oec7trahvesvm5mqukutbbmrjuho5p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
