@@ -163,11 +163,11 @@ public class ListButtonClick_adventure1 : MonoBehaviour
             }
             else if (target.name == "game_pick_startBtn" && screen == BUBBLE)
             {
-                SceneManager.LoadScene("game1_Sneak the Shark");
+                SceneManager.LoadScene("game1_To Play Blup-Blup");
             }
             else if (target.name == "game_pick_startBtn" && screen == FACE)
             {
-                SceneManager.LoadScene("game1_To Play Blup-Blup");
+                SceneManager.LoadScene("game1_Sneak the Shark");
             }
         }
     }

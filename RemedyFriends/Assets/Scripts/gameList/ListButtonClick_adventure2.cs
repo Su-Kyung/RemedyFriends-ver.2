@@ -102,7 +102,7 @@ public class ListButtonClick_adventure2 : MonoBehaviour
             //화면 이미지&소개 변경
             //추후 default인 thirsty로 변경
             game_pick_1st_listening_title.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameTitle/game02_thirsty_title", typeof(Sprite)) as Sprite;
-            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_shell_all", typeof(Sprite)) as Sprite; //데모
+            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_2nd_hot", typeof(Sprite)) as Sprite; //데모
             game_pick_1st_listening_text.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameText/game02_thirsty_text", typeof(Sprite)) as Sprite;
 
             onclick_startButton();
@@ -119,7 +119,7 @@ public class ListButtonClick_adventure2 : MonoBehaviour
             //화면 이미지&소개 변경
             //추후 default인 thirsty로 변경
             game_pick_1st_listening_title.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameTitle/game02_camel_title", typeof(Sprite)) as Sprite;
-            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_pick_1st_listening_screen", typeof(Sprite)) as Sprite;
+            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_2nd_camel", typeof(Sprite)) as Sprite;
             game_pick_1st_listening_text.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameText/game02_camel_text", typeof(Sprite)) as Sprite;
 
             onclick_startButton();
@@ -136,7 +136,7 @@ public class ListButtonClick_adventure2 : MonoBehaviour
             //화면 이미지&소개 변경
             //추후 default인 shell로 변경
             game_pick_1st_listening_title.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameTitle/game02_bag_title", typeof(Sprite)) as Sprite;
-            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_bboggeul_all", typeof(Sprite)) as Sprite;//데모
+            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/bag_bg", typeof(Sprite)) as Sprite;//데모
             game_pick_1st_listening_text.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameText/game02_bag_text", typeof(Sprite)) as Sprite;
 
             onclick_startButton();
@@ -153,7 +153,7 @@ public class ListButtonClick_adventure2 : MonoBehaviour
             //화면 이미지&소개 변경
             //추후 default인 shell로 변경
             game_pick_1st_listening_title.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameTitle/game02_luna_title", typeof(Sprite)) as Sprite;
-            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_eating_all", typeof(Sprite)) as Sprite; //데모
+            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_2nd_luna", typeof(Sprite)) as Sprite; //데모
             game_pick_1st_listening_text.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameText/game02_luna_text", typeof(Sprite)) as Sprite;
 
             onclick_startButton();
@@ -170,7 +170,7 @@ public class ListButtonClick_adventure2 : MonoBehaviour
             //화면 이미지&소개 변경
             //추후 default인 shell로 변경
             game_pick_1st_listening_title.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameTitle/game02_puzzle_title", typeof(Sprite)) as Sprite;
-            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_eating_all", typeof(Sprite)) as Sprite; //데모
+            game_pick_1st_listening_screen.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameScreen/game_2nd_puzzle", typeof(Sprite)) as Sprite; //데모
             game_pick_1st_listening_text.GetComponent<SpriteRenderer>().sprite = Resources.Load("gameText/game02_puzzle_text", typeof(Sprite)) as Sprite;
 
             onclick_startButton();
@@ -194,7 +194,7 @@ public class ListButtonClick_adventure2 : MonoBehaviour
 
             if (target.name == "game_pick_startBtn" && screen == THIRSTY)
             {
-                SceneManager.LoadScene("game2_We are thirsty");
+                SceneManager.LoadScene("game2_Give Me some Water");
             }
             else if (target.name == "game_pick_startBtn" && screen == CAMEL)
             {
@@ -202,15 +202,15 @@ public class ListButtonClick_adventure2 : MonoBehaviour
             }
             else if (target.name == "game_pick_startBtn" && screen == BAG)
             {
-                SceneManager.LoadScene("game2_Find the object in the bag");
+                SceneManager.LoadScene("game2_Find Me the Stuff");
             }
             else if (target.name == "game_pick_startBtn" && screen == LUNA)
             {
-                SceneManager.LoadScene("game2_Luna and Hide and Seek");
+                SceneManager.LoadScene("game2_Hide and seek with Luna");
             }
             else if (target.name == "game_pick_startBtn" && screen == PUZZLE)
             {
-                SceneManager.LoadScene("game2_Puzzle of Memories");
+                SceneManager.LoadScene("game2_Put the Puzzle Together");
             }
         }
     }

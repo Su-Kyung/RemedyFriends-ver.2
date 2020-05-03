@@ -33,8 +33,14 @@ EditorBuildSettings:
     path: Assets/Scenes/game/game2_Find Me the Stuff.unity
     guid: 330948a83a8ce1b4d914a022121631b0
   - enabled: 1
+    path: Assets/Scenes/game/game2_Find my camel.unity
+    guid: 3104465e994b6934ca4903ec94e02aa2
+  - enabled: 1
     path: Assets/Scenes/game/game2_Give Me some Water.unity
     guid: 3eefb3606b0333540bdabf3d54468e71
+  - enabled: 1
+    path: Assets/Scenes/game/game2_Hide and seek with Luna.unity
+    guid: 515a9244efc7b994d80ae2e695a98836
   - enabled: 1
     path: Assets/Scenes/game/game2_Put the Puzzle Together.unity
     guid: b482963f09f5eb34fa6eb1bf2ce4e0ca
