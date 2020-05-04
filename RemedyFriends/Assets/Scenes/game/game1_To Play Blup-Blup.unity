@@ -433,7 +433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &206281263
 GameObject:
@@ -1134,7 +1134,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &307245800
 GameObject:
@@ -1234,7 +1234,7 @@ RectTransform:
   - {fileID: 489211621}
   - {fileID: 206281264}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1253,8 +1253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d8b3630aff5d84593f38714c6b1212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnReplay: {fileID: 0}
-  btnExit: {fileID: 0}
+  btnReplay: {fileID: 206281263}
+  btnExit: {fileID: 489211620}
   currentScene:
     m_Handle: 7
   listScene:
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeSlider: {fileID: 370649821}
-  timeover: {fileID: 298472351}
+  timeover: {fileID: 0}
   Score: {fileID: 307245800}
   remainTime: 0
 --- !u!114 &370649821
