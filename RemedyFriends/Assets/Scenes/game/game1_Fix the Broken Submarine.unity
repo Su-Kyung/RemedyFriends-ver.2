@@ -1458,7 +1458,7 @@ GameObject:
   - component: {fileID: 484323584}
   - component: {fileID: 484323583}
   m_Layer: 5
-  m_Name: game1_shell_gameUI
+  m_Name: game1_submarinel_gameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
