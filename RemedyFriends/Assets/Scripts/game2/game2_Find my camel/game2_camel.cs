@@ -14,10 +14,10 @@ public class game2_camel : MonoBehaviour
     public Button camel2;
     public Button camel3;
     public Button camel4;
-    
+
     const int nMAX = 4;
     int[] nImg = new int[nMAX];
-    
+
     public int answer_button;
     public int[] answer;
 
@@ -35,14 +35,14 @@ public class game2_camel : MonoBehaviour
         camel3 = GameObject.Find("camel3").GetComponent<Button>();
         camel4 = GameObject.Find("camel4").GetComponent<Button>();
 
-random = Random.Range(0, question.Length);
+        random = Random.Range(0, question.Length); //음성 문제 랜덤 ( 정답)
 
-        
-        bool[] bCheckExistOfNum = new bool[question.Length];
 
-        int nAnswer = Random.Range(0, 3);
-        bCheckExistOfNum[random] = true;
-        nImg[nAnswer] = random;
+        bool[] bCheckExistOfNum = new bool[question.Length]; //랜덤 숫자 겹치지 않게
+
+        int nAnswer = Random.Range(0, 3);//낙타 중 정답
+        bCheckExistOfNum[random] = true; //정답 중복 방지
+        nImg[nAnswer] = random;//정답 저장
 
         Debug.Log(nImg[0]);
         Debug.Log(nImg[1]);
@@ -51,8 +51,8 @@ random = Random.Range(0, question.Length);
 
         for (int i = 0; i < nAnswer;)
         {
-            int nTemp = Random.Range(0, question.Length);
-            Debug.Log("nTemp"+ nTemp);
+            int nTemp = Random.Range(0, question.Length);//음성 문제 랜덤 ( 정답 아님)
+            Debug.Log("nTemp" + nTemp);
             if (bCheckExistOfNum[nTemp] == false)
             {
                 bCheckExistOfNum[nTemp] = true;
@@ -61,7 +61,7 @@ random = Random.Range(0, question.Length);
             }
         }
 
-        for (int i = nAnswer+1; i < nMAX;)
+        for (int i = nAnswer + 1; i < nMAX;)
         {
             int nTemp = Random.Range(0, question.Length);
             Debug.Log("nTemp" + nTemp);
@@ -77,10 +77,10 @@ random = Random.Range(0, question.Length);
         Debug.Log(nImg[2]);
         Debug.Log(nImg[3]);
 
-        camel1.GetComponent<Image>().sprite = Resources.Load("game2/camel/image"+nImg[0], typeof(Sprite)) as Sprite;
-        camel2.GetComponent<Image>().sprite = Resources.Load("game2/camel/image" + nImg[1], typeof(Sprite)) as Sprite;
-        camel3.GetComponent<Image>().sprite = Resources.Load("game2/camel/image" + nImg[2], typeof(Sprite)) as Sprite;
-        camel4.GetComponent<Image>().sprite = Resources.Load("game2/camel/image" + nImg[3], typeof(Sprite)) as Sprite;
+        camel1.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[0]+"_l", typeof(Sprite)) as Sprite;
+        camel2.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[1] + "_r", typeof(Sprite)) as Sprite;
+        camel3.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[2] + "_l", typeof(Sprite)) as Sprite;
+        camel4.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[3] + "_r", typeof(Sprite)) as Sprite;
 
         setCurrentQuestion();
     }
@@ -90,11 +90,11 @@ random = Random.Range(0, question.Length);
         yield return new WaitForSeconds(delay);
         Start();
     }
-    void setCurrentQuestion() {
+    void setCurrentQuestion()
+    {
         sound = playQuestion();
         sound_string = sound.name.ToString();
-
-        clickcamel(sound_string);
+        
     }
 
     AudioClip playQuestion()
@@ -105,38 +105,9 @@ random = Random.Range(0, question.Length);
         return audio.clip;
     }
 
-    void clickcamel(string sound_string)
-    {
-        Debug.Log(sound_string);
-        if (sound_string == "bag")
-        {
-            answer_button = 0;
-        }
-        else if (sound_string == "cushion")
-        {
-            answer_button = 1;
-        }
-        else if (sound_string == "earring")
-        {
-            answer_button = 2;
-        }
-        else if (sound_string == "necklace")
-        {
-            answer_button = 3;
-        }
-        else if (sound_string == "shoes")
-        {
-            answer_button = 4;
-        }
-        else if (sound_string == "turban")
-        {
-            answer_button = 5;
-        }
-    }
-
     public void selectCamel1()
     {
-        if (answer_button == nImg[0])
+        if (random == nImg[0])
         {
             Debug.Log("correct");
             score += 30;
@@ -151,7 +122,7 @@ random = Random.Range(0, question.Length);
 
     public void selectCamel2()
     {
-        if (answer_button == nImg[1])
+        if (random == nImg[1])
         {
             Debug.Log("correct");
             score += 30;
@@ -166,7 +137,7 @@ random = Random.Range(0, question.Length);
 
     public void selectCamel3()
     {
-        if (answer_button == nImg[2])
+        if (random == nImg[2])
         {
             Debug.Log("correct");
             score += 30;
@@ -181,7 +152,7 @@ random = Random.Range(0, question.Length);
 
     public void selectCamel4()
     {
-        if (answer_button == nImg[3])
+        if (random == nImg[3])
         {
             Debug.Log("correct");
             score += 30;
