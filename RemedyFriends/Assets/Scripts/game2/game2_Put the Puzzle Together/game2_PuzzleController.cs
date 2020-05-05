@@ -28,7 +28,9 @@ public class game2_PuzzleController : MonoBehaviour
     {
         // GameCountdown.cs의 enablespawn 가져오기
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
-        
+
+        StartPuzzle();
+
         // 클릭 시 회전하는 함수 호출
         piece1.onClick.AddListener(RotatePiece1);
         piece2.onClick.AddListener(RotatePiece2);
@@ -62,21 +64,7 @@ public class game2_PuzzleController : MonoBehaviour
         {
             if (Puzzle.newPuzzle)
             {
-                StartPiece(piece1);
-                StartPiece(piece2);
-                StartPiece(piece3);
-                StartPiece(piece4);
-                StartPiece(piece5);
-                StartPiece(piece6);
-                StartPiece(piece7);
-                StartPiece(piece8);
-                StartPiece(piece9);
-                StartPiece(piece10);
-                StartPiece(piece11);
-                StartPiece(piece12);
-                StartPiece(piece13);
-                StartPiece(piece14);
-                StartPiece(piece15);
+                StartPuzzle();
 
                 /*
                 if (piece.transform.eulerAngles.z == 0)
@@ -97,6 +85,25 @@ public class game2_PuzzleController : MonoBehaviour
         Debug.Log(r);
         b.transform.Rotate(0, 0, 90 * r);
         Debug.Log(b.transform.eulerAngles.z);
+    }
+
+    void StartPuzzle()
+    {
+        StartPiece(piece1);
+        StartPiece(piece2);
+        StartPiece(piece3);
+        StartPiece(piece4);
+        StartPiece(piece5);
+        StartPiece(piece6);
+        StartPiece(piece7);
+        StartPiece(piece8);
+        StartPiece(piece9);
+        StartPiece(piece10);
+        StartPiece(piece11);
+        StartPiece(piece12);
+        StartPiece(piece13);
+        StartPiece(piece14);
+        StartPiece(piece15);
     }
 
     void RotatePiece1() { piece1.transform.Rotate(0, 0, -90); }
