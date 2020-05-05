@@ -27,8 +27,20 @@ public class game2_camel : MonoBehaviour
     [SerializeField]
     private float delay = 1f;
 
+    bool first = true;
+    // Update is called once per frame
+    void Update()
+    {
+        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
+
+        if (Countdown.enableSpawn && first == true)
+        {
+            StartCamelGame();
+            first = false;
+        }
+    }
     // Start is called before the first frame update
-    void Start()
+    void StartCamelGame()
     {
         camel1 = GameObject.Find("camel1").GetComponent<Button>();
         camel2 = GameObject.Find("camel2").GetComponent<Button>();
@@ -88,7 +100,7 @@ public class game2_camel : MonoBehaviour
     IEnumerator TransitionToNextQuesion()
     {
         yield return new WaitForSeconds(delay);
-        Start();
+        StartCamelGame();
     }
     void setCurrentQuestion()
     {
