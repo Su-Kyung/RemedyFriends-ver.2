@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/game/game2_Put the Puzzle Together.unity
+- path: Assets/Scenes/game/game2_Find my camel.unity
   isLoaded: 1
   isActive: 1
