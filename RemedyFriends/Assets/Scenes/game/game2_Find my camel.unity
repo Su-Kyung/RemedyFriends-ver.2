@@ -3275,7 +3275,7 @@ GameObject:
   - component: {fileID: 1486638844}
   - component: {fileID: 1486638843}
   m_Layer: 0
-  m_Name: game_shark_tutorial
+  m_Name: game_camel_tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3358,7 +3358,7 @@ SpriteRenderer:
   m_SortingLayerID: 469649083
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d2155949378b1e149a6bcdb1b37dbe3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8207259e8d67b7e4fbbc514876e802f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4396,7 +4396,7 @@ SpriteRenderer:
   m_SortingLayerID: 469649083
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7ef09146e6cadd84a91ec63123dfaa90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bebb565c490f9940a0c9ab5ecf42e51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
