@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/game/game1_Fix the Broken Submarine.unity
+- path: Assets/Scenes/game/game2_Give Me some Water.unity
   isLoaded: 1
   isActive: 1
