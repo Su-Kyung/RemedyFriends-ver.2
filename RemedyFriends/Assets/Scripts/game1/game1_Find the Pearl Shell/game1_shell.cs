@@ -8,9 +8,19 @@ public class game1_shell : MonoBehaviour
     // 선택한 진주조개 수 세기 위한 변수
     public Text numPearlShell;
     private int countPearlShell = 0;
+    //--------------------------- DB에 넘길 찾은 진주조개 수 변수 ---------------------------
+    // 위의 countPearlShell 을 그대로 써도 되면그대로 쓰고, 다른 변수가 필요하면 아래 변수 쓰기
+    // private int db_g1_pearlShell = 0;
+
+
     // 점수 위한 변수
     private int scorePearlShell = 0;    // 점수
     public Text txtScore;
+    //--------------------------- DB에 넘길 점수 변수 ---------------------------
+    // 위의 scorePearlShell 을 그대로 써도 되면그대로 쓰고, 다른 변수가 필요하면 아래 변수 쓰기
+    // 일단은 아래 변수와 이 변수와 관련된 코드는 주석처리 해두었음 (선언은 private, public중 뭐로 해야 하는지 잘 모르겠음!)
+    // private int db_g1_pearlScore = 0;
+
 
     // 선택한 진주없는 조개 수 세기 위한 변수
     public Text numNonPearlShell;
@@ -63,7 +73,12 @@ public class game1_shell : MonoBehaviour
                 Destroy(target);
             }
         }
-        
+
+        // db 에 넘길 점수 변수 (기존 변수들 그대로 해도 되면 지우기)
+        //db_g1_pearlScore = scorePearlShell;       // 점수
+        //db_g1_pearlShell = countPearlShell;       // 클릭한 진주조개 수
+
+
     }
 
     void CastRay() // 유닛 히트처리 부분.  레이를 쏴서 처리합니다. 
