@@ -70,16 +70,17 @@ public class GameCountdown : MonoBehaviour
                 Num_GO.SetActive(true);
                 StartCoroutine(this.LoadingEnd());
                 Time.timeScale = 1.0f; //게임시작
-                enableSpawn = true;
-                Debug.Log("enableSpawn is true. - GameCountdown");
             }
         }
     }
+  
     
     IEnumerator LoadingEnd()
     {
         yield return new WaitForSeconds(1.0f);
         Num_GO.SetActive(false);
+        enableSpawn = true;
+        Debug.Log("enableSpawn is true. - GameCountdown");
     }
  
     
