@@ -23,6 +23,7 @@ public class GamePause : MonoBehaviour
     // 씬 전환 위한 변수
     public Scene replayScene;   // 현재 게임중이던 씬
     public Scene exitScene;     // 어디로 나갈지
+    
 
     // Start is called before the first frame update
     void Start()
@@ -52,15 +53,17 @@ public class GamePause : MonoBehaviour
         Pause.SetActive(true);
 
         // 게임 잠시 멈춤 (이어할 수 있도록 해야 함)
+        Time.timeScale = 0;
+
     }
 
     // 함수명이 필요하기 때문에 HideHint라는 함수를 하나 만들어둔다.
     void HidePause()
     {
         Pause.SetActive(false);
-        
-        // 게임 다시 시작 (이어하기해야함)
 
+        // 게임 다시 시작 (이어하기해야함)
+        Time.timeScale = 1;
     }
 
     void ReplayGame()
