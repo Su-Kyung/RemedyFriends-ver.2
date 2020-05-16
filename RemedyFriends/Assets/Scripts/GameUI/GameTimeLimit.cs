@@ -41,9 +41,12 @@ public class GameTimeLimit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GamePause Pause = GameObject.Find("btnPause").GetComponent<GamePause>();  // GamePause 스크립트의 객체 받아옴
+
         // 매 프레임마다 1초씩 감소
         fTime -= Time.deltaTime;
         t.text = fTime.ToString("00");
+
 
         //
         //TimeSlider.value = (float)fTime*100/60; //default 시간 60
