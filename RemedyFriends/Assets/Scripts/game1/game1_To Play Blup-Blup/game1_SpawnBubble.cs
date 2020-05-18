@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,9 +17,11 @@ public class game1_SpawnBubble : MonoBehaviour
     public Button Bubble1, Bubble2, Bubble3, Bubble4, Bubble5;
 
     // 랜덤으로 순서 맞출 배열
-    // gameobject list 참고링크: https://m.blog.naver.com/PostView.nhn?blogId=hst322&logNo=220960510868&proxyReferer=https:%2F%2Fwww.google.co.kr%2F
     List<Button> BubbleList = new List<Button>();
+    // 순서 저장할 배열
+    public int[] BubbleOrder = new int[5];
 
+    private int bTimer = 0;
 
     //Button[] btnBubble;
 
@@ -46,34 +49,65 @@ public class game1_SpawnBubble : MonoBehaviour
         //InvokeRepeating("SpawnBubble4", 0, 2.3f);
         //InvokeRepeating("SpawnBubble5", 0, 2.35f);
 
+        InvokeRepeating("Bubble", 5.0f, 7.0f);
+       
+       
+        
+        
+        
+    }
 
+    void Bubble()
+    {
+        // 순서 정할때만 잠깐 쓰일 배열
+        int[] nTemp = { 0, 1, 2, 3, 4 };
+        var nTempList = nTemp.ToList(); // 리스트로 바꾸기
 
+        bTimer = 0;
 
-
+        // 순서 정하기
         for (int i = 0; i < 5; i++)
         {
+            /*
             int rand = Random.Range(0, BubbleList.Count);
+            BubbleOrder.SetValue(rand, i);  // 순서를 배열에 저장
             print(BubbleList[rand].name);
             BubbleList.RemoveAt(rand);
+            */
+            int temp = Random.Range(0, nTempList.Count);
+            int rand = nTempList[temp];
+            BubbleOrder.SetValue(rand, i);  // 순서를 배열에 저장
+            print(BubbleList[rand].name);
+            nTempList.Remove(rand);
         }
+
+        // 순서대로 Bubble 보이기
+        //if (bTimer == 0)
+        //{
+
+        //}
     }
-/*
-    void update()
-    {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
 
-        if (Countdown.enableSpawn)   // +발생해야 할 때에
+
+
+    /*
+        void update()
         {
-            for (int i = 0; i < 5; )
-            {
+            GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
 
+            if (Countdown.enableSpawn)   // +발생해야 할 때에
+            {
+                for (int i = 0; i < 5; )
+                {
+
+                }
             }
         }
-    }
-*/
+    */
     //for shuffle number from array
     void Shuffle(List<Button> list)
     {
+        
         int random;
 
         Button tmp;
