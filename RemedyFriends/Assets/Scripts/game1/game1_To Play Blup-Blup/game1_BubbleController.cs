@@ -12,14 +12,12 @@ public class game1_BubbleController : MonoBehaviour
     
     void Update()
     {
-       if (bubble.isActiveAndEnabled) // 가져온 bool 변수
+        if (bubble.isActiveAndEnabled) 
         {
             bubble.gameObject.transform.Translate(0, this.speed, 0, 0);
             speed *= 0.96f;
         }
-
         
-
         if (!bubble.isActiveAndEnabled) speed = 0.08f;
     }
 }
