@@ -19,6 +19,9 @@ public class game1_SpawnBubble : MonoBehaviour
     // gameobject list 참고링크: https://m.blog.naver.com/PostView.nhn?blogId=hst322&logNo=220960510868&proxyReferer=https:%2F%2Fwww.google.co.kr%2F
     List<Button> BubbleList = new List<Button>();
 
+
+    //Button[] btnBubble;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +39,23 @@ public class game1_SpawnBubble : MonoBehaviour
         Bubble4.gameObject.SetActive(false);
         Bubble5.gameObject.SetActive(false);
 
-        Shuffle(BubbleList);
+        //Shuffle(BubbleList);
         //InvokeRepeating("SpawnBubble1", 0, 2.2f);
         //InvokeRepeating("SpawnBubble2", 0, 2.1f);
         //InvokeRepeating("SpawnBubble3", 0, 2.4f);
         //InvokeRepeating("SpawnBubble4", 0, 2.3f);
         //InvokeRepeating("SpawnBubble5", 0, 2.35f);
+
+
+
+
+
+        for (int i = 0; i < 5; i++)
+        {
+            int rand = Random.Range(0, BubbleList.Count);
+            print(BubbleList[rand].name);
+            BubbleList.RemoveAt(rand);
+        }
     }
 /*
     void update()
@@ -60,25 +74,22 @@ public class game1_SpawnBubble : MonoBehaviour
     //for shuffle number from array
     void Shuffle(List<Button> list)
     {
-        int random1;
-        int random2;
+        int random;
 
         Button tmp;
 
         for (int index = 0; index < 5; ++index)
         {
-            random1 = UnityEngine.Random.Range(0, 5);
-            random2 = UnityEngine.Random.Range(0, 5);
+            random = Random.Range(0, 5);
 
-            tmp = list[random1];
-            list[random1] = list[random2];
-            list[random2] = tmp;
-            Debug.Log(tmp + "는 " + random2 + "번째로 생성");
+            tmp = list[index];
+            list[index] = list[random];
+            list[random] = tmp;
+            Debug.Log(index+1 + "번 버블은 " + random + "번째로 생성");
         }
         //https://minhyeokism.tistory.com/16 [programmer-dominic.kim]
     }
 
-    
 
 
 
