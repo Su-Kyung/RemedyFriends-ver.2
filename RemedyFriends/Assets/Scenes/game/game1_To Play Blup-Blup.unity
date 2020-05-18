@@ -666,7 +666,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452182740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -698,18 +698,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 452182744}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 452182740}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &452182744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,7 +865,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480593059}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -908,18 +897,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 480593063}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 480593059}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &480593063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,6 +1344,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &611582385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+    type: 3}
+  m_PrefabInstance: {fileID: 1649156487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623330385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,7 +1480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &646926568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2421,7 +2411,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009816211}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2453,18 +2443,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1009816215}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1009816211}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1009816215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3238,7 +3217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1444998810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3465,7 +3444,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527145550}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3497,18 +3476,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1527145554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1527145550}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1527145554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3603,7 +3571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534851163}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3635,18 +3603,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1534851167}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1534851163}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1534851167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4205,7 +4162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1740426000
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4337,13 +4294,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755081182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7edadfd84d1b7f4ead93b95a6f8858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   numBubble: {fileID: 0}
-  txtScore: {fileID: 0}
+  txtScore: {fileID: 611582385}
 --- !u!114 &1755081184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4356,11 +4313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b0cbacc8d0adb4cac6f3c7bf4c5755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bubble1: {fileID: 0}
-  Bubble2: {fileID: 0}
-  Bubble3: {fileID: 0}
-  Bubble4: {fileID: 0}
-  Bubble5: {fileID: 0}
+  Bubble1: {fileID: 1534851166}
+  Bubble2: {fileID: 1527145553}
+  Bubble3: {fileID: 452182743}
+  Bubble4: {fileID: 1009816214}
+  Bubble5: {fileID: 480593062}
+  BubbleOrder: 0000000000000000000000000000000000000000
 --- !u!114 &1755081185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4409,8 +4367,8 @@ Canvas:
   m_GameObject: {fileID: 1755081182}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 483950415}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4418,7 +4376,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 426637763
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1755081188

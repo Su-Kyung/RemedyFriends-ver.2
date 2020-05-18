@@ -21,13 +21,16 @@ public class game1_SpawnBubble : MonoBehaviour
     // 순서 저장할 배열
     public int[] BubbleOrder = new int[5];
 
-    private int bTimer = 0;
+    // 시간 지연
+    float timer = 0;
+    float waitingTime = 1;
 
-    //Button[] btnBubble;
+    bool blup;
 
     // Start is called before the first frame update
     void Start()
     {
+        blup = false;
         // 리스트에 버블 오브젝트들 추가
         BubbleList.Add(Bubble1);
         BubbleList.Add(Bubble2);
@@ -41,20 +44,9 @@ public class game1_SpawnBubble : MonoBehaviour
         Bubble3.gameObject.SetActive(false);
         Bubble4.gameObject.SetActive(false);
         Bubble5.gameObject.SetActive(false);
-
-        //Shuffle(BubbleList);
-        //InvokeRepeating("SpawnBubble1", 0, 2.2f);
-        //InvokeRepeating("SpawnBubble2", 0, 2.1f);
-        //InvokeRepeating("SpawnBubble3", 0, 2.4f);
-        //InvokeRepeating("SpawnBubble4", 0, 2.3f);
-        //InvokeRepeating("SpawnBubble5", 0, 2.35f);
-
-        InvokeRepeating("Bubble", 5.0f, 7.0f);
+        
+        InvokeRepeating("Bubble", 5.0f, 12.0f);
        
-       
-        
-        
-        
     }
 
     void Bubble()
@@ -62,18 +54,10 @@ public class game1_SpawnBubble : MonoBehaviour
         // 순서 정할때만 잠깐 쓰일 배열
         int[] nTemp = { 0, 1, 2, 3, 4 };
         var nTempList = nTemp.ToList(); // 리스트로 바꾸기
-
-        bTimer = 0;
-
+        
         // 순서 정하기
         for (int i = 0; i < 5; i++)
         {
-            /*
-            int rand = Random.Range(0, BubbleList.Count);
-            BubbleOrder.SetValue(rand, i);  // 순서를 배열에 저장
-            print(BubbleList[rand].name);
-            BubbleList.RemoveAt(rand);
-            */
             int temp = Random.Range(0, nTempList.Count);
             int rand = nTempList[temp];
             BubbleOrder.SetValue(rand, i);  // 순서를 배열에 저장
@@ -81,54 +65,47 @@ public class game1_SpawnBubble : MonoBehaviour
             nTempList.Remove(rand);
         }
 
-        // 순서대로 Bubble 보이기
-        //if (bTimer == 0)
-        //{
+        timer = 0.0f;
 
-        //}
+        blup = true;
     }
 
-
-
-    /*
-        void update()
+    void Update()
+    {
+        if(blup)
         {
-            GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+            timer += Time.deltaTime;
 
-            if (Countdown.enableSpawn)   // +발생해야 할 때에
+            if(timer > 0 && timer < waitingTime)
             {
-                for (int i = 0; i < 5; )
-                {
-
-                }
+                BubbleList[BubbleOrder[0]].gameObject.SetActive(true);
+            }
+            else if(timer > waitingTime && timer < waitingTime*2)
+            {
+                BubbleList[BubbleOrder[0]].gameObject.SetActive(false);
+                BubbleList[BubbleOrder[1]].gameObject.SetActive(true);
+            }
+            else if (timer > waitingTime*2 && timer < waitingTime*3)
+            {
+                BubbleList[BubbleOrder[1]].gameObject.SetActive(false);
+                BubbleList[BubbleOrder[2]].gameObject.SetActive(true);
+            }
+            else if (timer > waitingTime*3 && timer < waitingTime*4)
+            {
+                BubbleList[BubbleOrder[2]].gameObject.SetActive(false);
+                BubbleList[BubbleOrder[3]].gameObject.SetActive(true);
+            }
+            else if (timer > waitingTime*4 && timer < waitingTime*5)
+            {
+                BubbleList[BubbleOrder[3]].gameObject.SetActive(false);
+                BubbleList[BubbleOrder[4]].gameObject.SetActive(true);
+            }
+            else if (timer > waitingTime*5)
+            {
+                BubbleList[BubbleOrder[4]].gameObject.SetActive(false);
             }
         }
-    */
-    //for shuffle number from array
-    void Shuffle(List<Button> list)
-    {
-        
-        int random;
-
-        Button tmp;
-
-        for (int index = 0; index < 5; ++index)
-        {
-            random = Random.Range(0, 5);
-
-            tmp = list[index];
-            list[index] = list[random];
-            list[random] = tmp;
-            Debug.Log(index+1 + "번 버블은 " + random + "번째로 생성");
-        }
-        //https://minhyeokism.tistory.com/16 [programmer-dominic.kim]
     }
-
-
-
-
-
-
 
 
     /*
