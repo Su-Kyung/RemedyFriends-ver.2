@@ -619,7 +619,6 @@ GameObject:
   - component: {fileID: 452182745}
   - component: {fileID: 452182744}
   - component: {fileID: 452182743}
-  - component: {fileID: 452182742}
   m_Layer: 5
   m_Name: game1_blup_bubble3
   m_TagString: Untagged
@@ -643,22 +642,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142.2, y: 9.5}
+  m_AnchoredPosition: {x: 142.2, y: 6.29}
   m_SizeDelta: {x: 66.4, y: 66.4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &452182742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452182740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpawn: 0
 --- !u!114 &452182743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +804,6 @@ GameObject:
   - component: {fileID: 480593064}
   - component: {fileID: 480593063}
   - component: {fileID: 480593062}
-  - component: {fileID: 480593061}
   m_Layer: 5
   m_Name: game1_blup_bubble5
   m_TagString: Untagged
@@ -842,22 +827,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -216.9, y: 107.92}
+  m_AnchoredPosition: {x: -216.9, y: 100.82}
   m_SizeDelta: {x: 60.1, y: 60.149}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &480593061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480593059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpawn: 0
 --- !u!114 &480593062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,18 +1316,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &611582385 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-    type: 3}
-  m_PrefabInstance: {fileID: 1649156487}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &623330385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2324,6 @@ GameObject:
   - component: {fileID: 1009816216}
   - component: {fileID: 1009816215}
   - component: {fileID: 1009816214}
-  - component: {fileID: 1009816213}
   m_Layer: 5
   m_Name: game1_blup_bubble4
   m_TagString: Untagged
@@ -2388,22 +2347,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -96.3, y: 9.5}
+  m_AnchoredPosition: {x: -96.3, y: -21}
   m_SizeDelta: {x: 59.98, y: 59.98}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1009816213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009816211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpawn: 0
 --- !u!114 &1009816214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3397,7 +3343,6 @@ GameObject:
   - component: {fileID: 1527145555}
   - component: {fileID: 1527145554}
   - component: {fileID: 1527145553}
-  - component: {fileID: 1527145552}
   m_Layer: 5
   m_Name: game1_blup_bubble2
   m_TagString: Untagged
@@ -3421,22 +3366,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241.5, y: 130.5}
+  m_AnchoredPosition: {x: 241.5, y: 94}
   m_SizeDelta: {x: 46.5, y: 46.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1527145552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527145550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpawn: 0
 --- !u!114 &1527145553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3524,7 +3456,6 @@ GameObject:
   - component: {fileID: 1534851168}
   - component: {fileID: 1534851167}
   - component: {fileID: 1534851166}
-  - component: {fileID: 1534851165}
   m_Layer: 5
   m_Name: game1_blup_bubble1
   m_TagString: Untagged
@@ -3548,22 +3479,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 185}
+  m_AnchoredPosition: {x: 25, y: 137.5}
   m_SizeDelta: {x: 72.244, y: 72.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1534851165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534851163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSpawn: 0
 --- !u!114 &1534851166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4280,6 +4198,11 @@ GameObject:
   - component: {fileID: 1755081185}
   - component: {fileID: 1755081184}
   - component: {fileID: 1755081183}
+  - component: {fileID: 1755081193}
+  - component: {fileID: 1755081192}
+  - component: {fileID: 1755081191}
+  - component: {fileID: 1755081190}
+  - component: {fileID: 1755081189}
   m_Layer: 5
   m_Name: Canvas_GameObject_bubble
   m_TagString: Untagged
@@ -4299,8 +4222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7edadfd84d1b7f4ead93b95a6f8858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numBubble: {fileID: 0}
-  txtScore: {fileID: 611582385}
+  newBubble: 0
 --- !u!114 &1755081184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4403,6 +4325,76 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1755081189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755081182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  bubble: {fileID: 480593062}
+--- !u!114 &1755081190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755081182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  bubble: {fileID: 1009816214}
+--- !u!114 &1755081191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755081182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  bubble: {fileID: 452182743}
+--- !u!114 &1755081192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755081182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  bubble: {fileID: 1527145553}
+--- !u!114 &1755081193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755081182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dba6a2358ae1d47a82632f519eabb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  bubble: {fileID: 1534851166}
 --- !u!1 &1870717421
 GameObject:
   m_ObjectHideFlags: 0

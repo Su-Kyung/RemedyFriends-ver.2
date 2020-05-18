@@ -23,14 +23,31 @@ public class game1_SpawnBubble : MonoBehaviour
 
     // 시간 지연
     float timer = 0;
-    float waitingTime = 1;
+    float waitingTime = 1.2f;
 
     bool blup;
+
+    // 위치 저장
+    private UnityEngine.Vector3 pos1;
+    private UnityEngine.Vector3 pos2;
+    private UnityEngine.Vector3 pos3;
+    private UnityEngine.Vector3 pos4;
+    private UnityEngine.Vector3 pos5;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         blup = false;
+
+        // 버블 위치 저장
+        pos1 = Bubble1.transform.position;
+        pos2 = Bubble2.transform.position;
+        pos3 = Bubble3.transform.position;
+        pos4 = Bubble4.transform.position;
+        pos5 = Bubble5.transform.position;
+
         // 리스트에 버블 오브젝트들 추가
         BubbleList.Add(Bubble1);
         BubbleList.Add(Bubble2);
@@ -44,35 +61,20 @@ public class game1_SpawnBubble : MonoBehaviour
         Bubble3.gameObject.SetActive(false);
         Bubble4.gameObject.SetActive(false);
         Bubble5.gameObject.SetActive(false);
-        
-        InvokeRepeating("Bubble", 5.0f, 12.0f);
-       
     }
-
-    void Bubble()
-    {
-        // 순서 정할때만 잠깐 쓰일 배열
-        int[] nTemp = { 0, 1, 2, 3, 4 };
-        var nTempList = nTemp.ToList(); // 리스트로 바꾸기
-        
-        // 순서 정하기
-        for (int i = 0; i < 5; i++)
-        {
-            int temp = Random.Range(0, nTempList.Count);
-            int rand = nTempList[temp];
-            BubbleOrder.SetValue(rand, i);  // 순서를 배열에 저장
-            print(BubbleList[rand].name);
-            nTempList.Remove(rand);
-        }
-
-        timer = 0.0f;
-
-        blup = true;
-    }
-
+    
     void Update()
     {
-        if(blup)
+        game1_BubbleDirector Director = GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
+
+        // shuffle bubble
+        if (Director.newBubble)
+        {
+            Bubble();
+        }
+        
+        // show bubble
+        if (blup)
         {
             timer += Time.deltaTime;
 
@@ -106,77 +108,36 @@ public class game1_SpawnBubble : MonoBehaviour
             }
         }
     }
-
-
-    /*
-
-
-    // Bubble 랜덤생성 및 삭제 함수
-    void SpawnBubble1()
+    
+    void Bubble()
     {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-        
-        if (Countdown.enableSpawn)
+        game1_BubbleDirector Director = GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
+
+        Director.newBubble = false;
+
+        // 사전 설정: Bubble 위치 지정
+        Bubble1.transform.position = pos1;
+        Bubble2.transform.position = pos2;
+        Bubble3.transform.position = pos3;
+        Bubble4.transform.position = pos4;
+        Bubble5.transform.position = pos5;
+
+        // 순서 정할때만 잠깐 쓰일 배열
+        int[] nTemp = { 0, 1, 2, 3, 4 };
+        var nTempList = nTemp.ToList(); // 리스트로 바꾸기
+
+        // 순서 정하기
+        for (int i = 0; i < 5; i++)
         {
-            GameObject game1_blup_bubble1 = Instantiate(Bubble1, new Vector3(-0.3f, 1.18f, 0), Quaternion.identity);
-
-            // 일정 시간 뒤에 Bubble Clone 삭제
-            Destroy(game1_blup_bubble1, 2f);
+            int temp = Random.Range(0, nTempList.Count);
+            int rand = nTempList[temp];
+            BubbleOrder.SetValue(rand, i);  // 순서를 배열에 저장
+            print(BubbleList[rand].name);
+            nTempList.Remove(rand);
         }
+
+        timer = 0.0f;
+
+        blup = true;
     }
-
-    void SpawnBubble2()
-    {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-
-        if (Countdown.enableSpawn)
-        {
-            GameObject game1_blup_bubble2 = Instantiate(Bubble2, new Vector3(4.67f, -2.95f, 0), Quaternion.identity);
-
-            // 일정 시간 뒤에 Bubble Clone 삭제
-            Destroy(game1_blup_bubble2, 2f);
-        }
-    }
-
-    void SpawnBubble3()
-    {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-
-        if (Countdown.enableSpawn)
-        {
-            GameObject game1_blup_bubble3 = Instantiate(Bubble3, new Vector3(-8.83f, 0.1899997f, 0), Quaternion.identity);
-
-            // 일정 시간 뒤에 Bubble Clone 삭제
-            Destroy(game1_blup_bubble3, 2f);
-        }
-    }
-
-    void SpawnBubble4()
-    {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-
-        if (Countdown.enableSpawn)
-        {
-            GameObject game1_blup_bubble4 = Instantiate(Bubble4, new Vector2(-5.08f, -3.97f), Quaternion.identity);
-
-            // 일정 시간 뒤에 Bubble Clone 삭제
-            Destroy(game1_blup_bubble4, 2f);
-        }
-    }
-
-    void SpawnBubble5()
-    {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-
-        if (Countdown.enableSpawn)
-        {
-            GameObject game1_blup_bubble5 = Instantiate(Bubble5, new Vector2(9, -0.5800003f), Quaternion.identity);
-
-            // 일정 시간 뒤에 Bubble Clone 삭제
-            Destroy(game1_blup_bubble5, 2f);
-        }
-    }
-
-    */
-
 }
