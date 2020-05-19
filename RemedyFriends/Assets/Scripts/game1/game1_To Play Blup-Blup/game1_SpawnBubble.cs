@@ -10,11 +10,6 @@ using UnityEngine.UI;
 // 위에말고 랜덤생성, 움직임
 public class game1_SpawnBubble : MonoBehaviour
 {
-
-    // 진주조개 방법으로 도전
-    // 그러나 진주조개는 Clone으로 복제해서 랜덤생성하고 이 경우는 각각의 객체에
-    // 랜덤 시간값을 줘서 각각이 랜덤생성 되도록 한다.(그래서 랜덤생성 및 삭제함수에서 각각 위치 지정함)
-    
     public Button Bubble1, Bubble2, Bubble3, Bubble4, Bubble5;  // 버블
     public Button btnHole1, btnHole2, btnHole3, btnHole4, btnHole5; // 분화구 버튼
 
@@ -40,13 +35,17 @@ public class game1_SpawnBubble : MonoBehaviour
     private UnityEngine.Vector3 pos3;
     private UnityEngine.Vector3 pos4;
     private UnityEngine.Vector3 pos5;
-    
 
+    // 점수 텍스트
+    public Text txtScore;
+    // 분화구 텍스트
+    public Text txtHole1, txtHole2;
 
     // Start is called before the first frame update
     void Start()
     {
         blup = false;
+        txtScore.gameObject.SetActive(false);
 
         // 버블 위치 저장
         pos1 = Bubble1.transform.position;
@@ -90,30 +89,6 @@ public class game1_SpawnBubble : MonoBehaviour
         btnHole4.onClick.AddListener(CompareOrder4);
         btnHole5.onClick.AddListener(CompareOrder5);
     }
-    /*
-    void Update()
-    {
-        game1_BubbleDirector Director = GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-
-        if (Countdown.enableSpawn)
-        {
-            // shuffle bubble
-            if (Director.newBubble)
-            {
-                ShuffleBubble();
-            }
-
-            
-            // show bubble
-            if (blup)
-            {
-                ShowBubble();
-                
-            }
-        }
-        
-    }*/
     
     // bubble 섞는 함수
     public void ShuffleBubble()
@@ -174,6 +149,7 @@ public class game1_SpawnBubble : MonoBehaviour
         if (timer > 0 && timer < waitingTime)
         {
             BubbleList[BubbleOrder[0]].gameObject.SetActive(true);
+            txtHole1.gameObject.SetActive(false);
             
         }
         else if (timer > waitingTime && timer < waitingTime * 2)
@@ -208,6 +184,8 @@ public class game1_SpawnBubble : MonoBehaviour
             btnHole3.gameObject.SetActive(true);
             btnHole4.gameObject.SetActive(true);
             btnHole5.gameObject.SetActive(true);
+
+            txtHole1.gameObject.SetActive(true);
             
         }
         
@@ -221,6 +199,7 @@ public class game1_SpawnBubble : MonoBehaviour
         {
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
+            txtHole2.text = (order + 1).ToString();
         }
         else
         {
@@ -233,6 +212,8 @@ public class game1_SpawnBubble : MonoBehaviour
             game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
             Director.PlayBubble();
             Debug.Log("새로운 bubble 시작");
+            txtHole1.gameObject.SetActive(false);
+            txtHole2.text = "1";
         }
     }
     void CompareOrder2()
@@ -242,6 +223,7 @@ public class game1_SpawnBubble : MonoBehaviour
         {
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
+            txtHole2.text = (order + 1).ToString();
         }
         else
         {
@@ -254,6 +236,8 @@ public class game1_SpawnBubble : MonoBehaviour
             game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
             Director.PlayBubble();
             Debug.Log("새로운 bubble 시작");
+            txtHole1.gameObject.SetActive(false);
+            txtHole2.text = "1";
         }
     }
     void CompareOrder3()
@@ -263,6 +247,7 @@ public class game1_SpawnBubble : MonoBehaviour
         {
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
+            txtHole2.text = (order + 1).ToString();
         }
         else
         {
@@ -275,6 +260,8 @@ public class game1_SpawnBubble : MonoBehaviour
             game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
             Director.PlayBubble();
             Debug.Log("새로운 bubble 시작");
+            txtHole1.gameObject.SetActive(false);
+            txtHole2.text = "1";
         }
     }
     void CompareOrder4()
@@ -283,6 +270,7 @@ public class game1_SpawnBubble : MonoBehaviour
         {
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
+            txtHole2.text = (order + 1).ToString();
         }
         else
         {
@@ -295,6 +283,8 @@ public class game1_SpawnBubble : MonoBehaviour
             game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
             Director.PlayBubble();
             Debug.Log("새로운 bubble 시작");
+            txtHole1.gameObject.SetActive(false);
+            txtHole2.text = "1";
         }
     }
     void CompareOrder5()
@@ -303,6 +293,7 @@ public class game1_SpawnBubble : MonoBehaviour
         {
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
+            txtHole2.text = (order+1).ToString();
         }
         else
         {
@@ -315,29 +306,8 @@ public class game1_SpawnBubble : MonoBehaviour
             game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
             Director.PlayBubble();
             Debug.Log("새로운 bubble 시작");
+            txtHole1.gameObject.SetActive(false);
+            txtHole2.text = "1";
         }
-    }
-
-
-
-
-    // 버블 순서와 클릭 순서 비교
-    void CompareOrder()  // 매개변수: 분화구 버튼, 부여받은 순서 정수
-    {
-        //Debug.Log("선택한 분화구의 번호: " + EventSystem.current.currentSelectedGameObject + "현재 버블 순서: " + BubbleOrder[clicked]);
-        /*
-        // 제 순서에 클릭했으면
-        if (order == BubbleOrder[clicked])
-        {
-            clicked++; order++;
-        }
-        else
-        {
-            Debug.Log("틀렸습니다.");
-            game1_BubbleDirector Director = GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
-
-            Director.newBubble = true;
-        }
-        */
     }
 }
