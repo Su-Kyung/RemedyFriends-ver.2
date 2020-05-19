@@ -43,7 +43,7 @@ public class Users_login : MonoBehaviour
 
                 foreach (var userIds in snapshot.Children)
                 {
-                    Debug.LogFormat("Key = {0}", userIds.Key);
+                    //Debug.LogFormat("Key = {0}", userIds.Key);
                     if (userIds.Key == InputField_login_id.text)
                     {
                         pw = userIds.Child("password").Value.ToString();
@@ -61,15 +61,25 @@ public class Users_login : MonoBehaviour
         Debug.Log("Users_Login 실행");
         if (InputField_login_id.text != "")
         {
-            string userspw = findPasswd();
-            Debug.LogFormat("userspw = {0}", userspw);
-            if (userspw == InputField_login_pw.text)
+            StartCoroutine("findpw");
+            Debug.LogFormat("pw넘어온 값 = {0}", pw);
+            if (pw == InputField_login_pw.text)
             {
                 Debug.Log("로그인 성공");
                 return true;
             }
+            else
+                return false;
         }
         return false;
     }
+
+    IEnumerator findpw()
+    {
+        findPasswd();
+        Debug.Log("코루틴");
+        yield return new WaitForSeconds(1.1f);
+    }
+
+   
 }
-//id 유무 체크, id 중복 체크(회원가입) , 닉네임 중복( 필요시)
