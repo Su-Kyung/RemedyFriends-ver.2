@@ -7,7 +7,7 @@ using UnityEngine.UI;
 // 전체 진행로직
 public class game1_BubbleDirector : MonoBehaviour
 {
-    public bool newBubble = false;      // 새로운 버블 순서
+    public bool newBubble = true;      // 새로운 버블 순서
     
     void Start()
     {
@@ -16,9 +16,8 @@ public class game1_BubbleDirector : MonoBehaviour
     }
     void Update()
     {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-        if (Countdown.enableSpawn) newBubble = false;
+        //GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+        //if (Countdown.enableSpawn) newBubble = true;
     }
 
-   
 }
