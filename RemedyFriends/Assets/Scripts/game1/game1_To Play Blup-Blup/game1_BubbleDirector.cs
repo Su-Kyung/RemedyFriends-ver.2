@@ -16,8 +16,6 @@ public class game1_BubbleDirector : MonoBehaviour
     public void PlayBubble()
     {
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-        //if (Countdown.enableSpawn) newBubble = true;
-        //game1_SpawnBubble SpawnBubble =  GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_SpawnBubble>();  // GameCountdown 스크립트의 객체 받아옴
         
         game1_SpawnBubble SpawnBubble =  GameObject.Find("GameObject_bubble").GetComponent<game1_SpawnBubble>();  
         

@@ -48,7 +48,6 @@ public class game1_SpawnBubble : MonoBehaviour
     void Start()
     {
         blup = false;
-        txtScore.gameObject.SetActive(false);
 
         // 버블 위치 저장
         pos1 = Bubble1.transform.position;
@@ -138,6 +137,13 @@ public class game1_SpawnBubble : MonoBehaviour
         if (blup)
         {
             ShowBubble();
+        }
+
+        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+        if (!Countdown.enableSpawn)
+        {
+            scoreBubble = 0;
+            txtScore.text = scoreBubble.ToString();
         }
     }
     // 순서에 맞게 버블 나타낸 뒤 버튼 활성화 함수
@@ -341,5 +347,7 @@ public class game1_SpawnBubble : MonoBehaviour
         txtHole1.gameObject.SetActive(false);
         txtHole2.text = "1";
         scoreBubble += 300;
+        txtScore.text = scoreBubble.ToString();
     }
+
 }
