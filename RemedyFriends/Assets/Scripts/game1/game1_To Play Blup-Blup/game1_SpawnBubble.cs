@@ -169,11 +169,6 @@ public class game1_SpawnBubble : MonoBehaviour
     // 순서에 맞게 버블 나타낸 뒤 버튼 활성화 함수
     void ShowBubble()
     {
-        Debug.Log("ShowBubble()");
-        Debug.Log(timer);
-        //timer = 0;
-        //Debug.Log(timer);
-        //Update();
         timer += Time.deltaTime;
 
         if (timer > 0 && timer < waitingTime)
@@ -222,8 +217,16 @@ public class game1_SpawnBubble : MonoBehaviour
     // 버블 순서와 클릭 순서 비교
     void CompareOrder1 ()
     {
-        Debug.Log(order + 1 + "번째 버블 클릭");
-        order++;
+        if (BubbleOrder[order] == 0)
+        {
+            Debug.Log(order + 1 + "번째 버블 클릭");
+            order++;
+        }
+        else
+        {
+            Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            order = 5;
+        }
 
         if (order == 5)
         {
@@ -234,8 +237,17 @@ public class game1_SpawnBubble : MonoBehaviour
     }
     void CompareOrder2()
     {
-        Debug.Log(order + 1 + "번째 버블 클릭");
-        order++;
+
+        if (BubbleOrder[order] == 1)
+        {
+            Debug.Log(order + 1 + "번째 버블 클릭");
+            order++;
+        }
+        else
+        {
+            Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            order = 5;
+        }
 
         if (order == 5)
         {
@@ -246,8 +258,17 @@ public class game1_SpawnBubble : MonoBehaviour
     }
     void CompareOrder3()
     {
-        Debug.Log(order + 1 + "번째 버블 클릭");
-        order++;
+       
+        if (BubbleOrder[order] == 2)
+        {
+            Debug.Log(order + 1 + "번째 버블 클릭");
+            order++;
+        }
+        else
+        {
+            Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            order = 5;
+        }
 
         if (order == 5)
         {
@@ -258,8 +279,16 @@ public class game1_SpawnBubble : MonoBehaviour
     }
     void CompareOrder4()
     {
-        Debug.Log(order + 1 + "번째 버블 클릭");
-        order++;
+        if (BubbleOrder[order] == 3)
+        {
+            Debug.Log(order + 1 + "번째 버블 클릭");
+            order++;
+        }
+        else
+        {
+            Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            order = 5;
+        }
 
         if (order == 5)
         {
@@ -270,8 +299,16 @@ public class game1_SpawnBubble : MonoBehaviour
     }
     void CompareOrder5()
     {
-        Debug.Log(order + 1 + "번째 버블 클릭");
-        order++;
+        if (BubbleOrder[order] == 4)
+        {
+            Debug.Log(order + 1 + "번째 버블 클릭");
+            order++;
+        }
+        else
+        {
+            Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            order = 5;
+        }
 
         if (order == 5)
         {
