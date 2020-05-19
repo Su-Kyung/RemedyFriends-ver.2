@@ -22,7 +22,7 @@ public class game1_SpawnBubble : MonoBehaviour
 
     // 시간 지연
     float timer = 0;
-    float waitingTime = 1.2f;
+    float waitingTime = 1;
 
     bool blup;
 
@@ -37,7 +37,10 @@ public class game1_SpawnBubble : MonoBehaviour
     private UnityEngine.Vector3 pos5;
 
     // 점수 텍스트
-    public Text txtScore;
+    public Text txtScore;   // 스코어 팝업에 나타낼 텍스트
+    // 점수 위한 변수
+    private int scoreBubble = 0;    // 점수
+
     // 분화구 텍스트
     public Text txtHole1, txtHole2;
 
@@ -93,10 +96,6 @@ public class game1_SpawnBubble : MonoBehaviour
     // bubble 섞는 함수
     public void ShuffleBubble()
     {
-        game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
-
-        //Director.newBubble = false;
-
         // 사전 설정: Bubble 위치 지정
         Bubble1.transform.position = pos1;
         Bubble2.transform.position = pos2;
@@ -200,20 +199,24 @@ public class game1_SpawnBubble : MonoBehaviour
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
             txtHole2.text = (order + 1).ToString();
+            scoreBubble += 23;
+
+            // 시간 3초 증가
+            GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
+            gameTimeSlider.remainTime += 0.5f;   // remainTime멤버변수 가져옴
         }
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
             order = 5;
+            scoreBubble -= 300;
         }
+
+        txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
-            Director.PlayBubble();
-            Debug.Log("새로운 bubble 시작");
-            txtHole1.gameObject.SetActive(false);
-            txtHole2.text = "1";
+            NewBubble();
         }
     }
     void CompareOrder2()
@@ -224,20 +227,24 @@ public class game1_SpawnBubble : MonoBehaviour
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
             txtHole2.text = (order + 1).ToString();
+            scoreBubble += 23;
+
+            // 시간 3초 증가
+            GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
+            gameTimeSlider.remainTime += 0.5f;   // remainTime멤버변수 가져옴
         }
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
             order = 5;
+            scoreBubble -= 300;
         }
+
+        txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
-            Director.PlayBubble();
-            Debug.Log("새로운 bubble 시작");
-            txtHole1.gameObject.SetActive(false);
-            txtHole2.text = "1";
+            NewBubble();
         }
     }
     void CompareOrder3()
@@ -248,20 +255,24 @@ public class game1_SpawnBubble : MonoBehaviour
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
             txtHole2.text = (order + 1).ToString();
+            scoreBubble += 23;
+
+            // 시간 3초 증가
+            GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
+            gameTimeSlider.remainTime += 0.5f;   // remainTime멤버변수 가져옴
         }
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
             order = 5;
+            scoreBubble -= 300;
         }
+
+        txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
-            Director.PlayBubble();
-            Debug.Log("새로운 bubble 시작");
-            txtHole1.gameObject.SetActive(false);
-            txtHole2.text = "1";
+            NewBubble();
         }
     }
     void CompareOrder4()
@@ -271,20 +282,24 @@ public class game1_SpawnBubble : MonoBehaviour
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
             txtHole2.text = (order + 1).ToString();
+            scoreBubble += 23;
+
+            // 시간 3초 증가
+            GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
+            gameTimeSlider.remainTime += 0.5f;   // remainTime멤버변수 가져옴
         }
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
             order = 5;
+            scoreBubble -= 300;
         }
+
+        txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
-            Director.PlayBubble();
-            Debug.Log("새로운 bubble 시작");
-            txtHole1.gameObject.SetActive(false);
-            txtHole2.text = "1";
+            NewBubble();
         }
     }
     void CompareOrder5()
@@ -294,20 +309,37 @@ public class game1_SpawnBubble : MonoBehaviour
             Debug.Log(order + 1 + "번째 버블 클릭");
             order++;
             txtHole2.text = (order+1).ToString();
+            scoreBubble += 23;
+
+            // 시간 3초 증가
+            GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
+            gameTimeSlider.remainTime += 0.5f;   // remainTime멤버변수 가져옴
         }
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
             order = 5;
+            scoreBubble -= 300;
         }
+
+        txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
-            Director.PlayBubble();
-            Debug.Log("새로운 bubble 시작");
-            txtHole1.gameObject.SetActive(false);
-            txtHole2.text = "1";
+            NewBubble();
         }
+    }
+
+
+
+    void NewBubble()
+    {
+        game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
+        Director.PlayBubble();
+        Debug.Log("새로운 bubble 시작");
+
+        txtHole1.gameObject.SetActive(false);
+        txtHole2.text = "1";
+        scoreBubble += 300;
     }
 }
