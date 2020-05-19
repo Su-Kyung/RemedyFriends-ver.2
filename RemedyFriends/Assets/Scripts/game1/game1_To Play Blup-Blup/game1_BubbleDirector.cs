@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Numerics;
 using UnityEngine.UI;
 
 // 전체 진행로직
@@ -11,13 +10,22 @@ public class game1_BubbleDirector : MonoBehaviour
     
     void Start()
     {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-        if (Countdown.enableSpawn) newBubble = true;
+        Invoke("PlayBubble", 1.8f);
     }
-    void Update()
+  
+    public void PlayBubble()
     {
-        //GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
         //if (Countdown.enableSpawn) newBubble = true;
+        //game1_SpawnBubble SpawnBubble =  GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_SpawnBubble>();  // GameCountdown 스크립트의 객체 받아옴
+        
+        game1_SpawnBubble SpawnBubble =  GameObject.Find("GameObject_bubble").GetComponent<game1_SpawnBubble>();  
+        
+        if (Countdown.enableSpawn)
+        {
+            Debug.Log("Director: ShuffleBubble()");
+            SpawnBubble.ShuffleBubble();
+        }
     }
 
 }

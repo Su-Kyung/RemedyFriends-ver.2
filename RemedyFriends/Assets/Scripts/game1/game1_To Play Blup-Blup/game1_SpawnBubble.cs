@@ -90,7 +90,7 @@ public class game1_SpawnBubble : MonoBehaviour
         btnHole4.onClick.AddListener(CompareOrder4);
         btnHole5.onClick.AddListener(CompareOrder5);
     }
-    
+    /*
     void Update()
     {
         game1_BubbleDirector Director = GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
@@ -104,6 +104,7 @@ public class game1_SpawnBubble : MonoBehaviour
                 ShuffleBubble();
             }
 
+            
             // show bubble
             if (blup)
             {
@@ -112,14 +113,14 @@ public class game1_SpawnBubble : MonoBehaviour
             }
         }
         
-    }
+    }*/
     
     // bubble 섞는 함수
-    void ShuffleBubble()
+    public void ShuffleBubble()
     {
-        game1_BubbleDirector Director = GameObject.Find("Canvas_GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
+        game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();  // game1_BubbleDirector 스크립트의 객체 받아옴
 
-        Director.newBubble = false;
+        //Director.newBubble = false;
 
         // 사전 설정: Bubble 위치 지정
         Bubble1.transform.position = pos1;
@@ -151,21 +152,34 @@ public class game1_SpawnBubble : MonoBehaviour
 
         timer = 0.0f;
 
+        // 클릭 순서 비교
+        order = 0; clicked = 0;
         blup = true;
+        Debug.Log("SpawnBubble: ShowBubble");
+        //ShowBubble();
     }
-
+    
+    void Update()
+    {
+        if (blup)
+        {
+            ShowBubble();
+        }
+    }
     // 순서에 맞게 버블 나타낸 뒤 버튼 활성화 함수
     void ShowBubble()
     {
-
-        // 클릭 순서 비교
-        order = 0; clicked = 0;
-
+        Debug.Log("ShowBubble()");
+        Debug.Log(timer);
+        //timer = 0;
+        //Debug.Log(timer);
+        //Update();
         timer += Time.deltaTime;
 
         if (timer > 0 && timer < waitingTime)
         {
             BubbleList[BubbleOrder[0]].gameObject.SetActive(true);
+            
         }
         else if (timer > waitingTime && timer < waitingTime * 2)
         {
@@ -191,6 +205,8 @@ public class game1_SpawnBubble : MonoBehaviour
         {
             BubbleList[BubbleOrder[4]].gameObject.SetActive(false);
 
+            blup = false;
+
             // 분화구 버튼 활성화
             btnHole1.gameObject.SetActive(true);
             btnHole2.gameObject.SetActive(true);
@@ -199,6 +215,8 @@ public class game1_SpawnBubble : MonoBehaviour
             btnHole5.gameObject.SetActive(true);
             
         }
+        
+
     }
 
     // 버블 순서와 클릭 순서 비교
@@ -206,26 +224,61 @@ public class game1_SpawnBubble : MonoBehaviour
     {
         Debug.Log(order + 1 + "번째 버블 클릭");
         order++;
+
+        if (order == 5)
+        {
+            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
+            Director.PlayBubble();
+            Debug.Log("새로운 bubble 시작");
+        }
     }
     void CompareOrder2()
     {
         Debug.Log(order + 1 + "번째 버블 클릭");
         order++;
+
+        if (order == 5)
+        {
+            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
+            Director.PlayBubble();
+            Debug.Log("새로운 bubble 시작");
+        }
     }
     void CompareOrder3()
     {
         Debug.Log(order + 1 + "번째 버블 클릭");
         order++;
+
+        if (order == 5)
+        {
+            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
+            Director.PlayBubble();
+            Debug.Log("새로운 bubble 시작");
+        }
     }
     void CompareOrder4()
     {
         Debug.Log(order + 1 + "번째 버블 클릭");
         order++;
+
+        if (order == 5)
+        {
+            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
+            Director.PlayBubble();
+            Debug.Log("새로운 bubble 시작");
+        }
     }
     void CompareOrder5()
     {
         Debug.Log(order + 1 + "번째 버블 클릭");
         order++;
+
+        if (order == 5)
+        {
+            game1_BubbleDirector Director = GameObject.Find("GameObject_bubble").GetComponent<game1_BubbleDirector>();
+            Director.PlayBubble();
+            Debug.Log("새로운 bubble 시작");
+        }
     }
 
 
