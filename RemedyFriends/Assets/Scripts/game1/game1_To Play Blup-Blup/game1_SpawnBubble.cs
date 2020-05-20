@@ -142,8 +142,11 @@ public class game1_SpawnBubble : MonoBehaviour
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
         if (!Countdown.enableSpawn)
         {
-            scoreBubble = 0;
-            txtScore.text = scoreBubble.ToString();
+            if (scoreBubble < 0)
+            {
+                scoreBubble = 0;
+                txtScore.text = scoreBubble.ToString();
+            }
         }
     }
     // 순서에 맞게 버블 나타낸 뒤 버튼 활성화 함수
