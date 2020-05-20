@@ -17,6 +17,7 @@ public class Users_login : MonoBehaviour
     DatabaseReference reference;
 
     public string pw;
+    public bool userHavePw;
 
     void Awake()
     {
@@ -27,7 +28,7 @@ public class Users_login : MonoBehaviour
         //FirebaseApp.DefaultInstance.SetEditorServiceAccountEmail("remedy-stones@appspot.gserviceaccount.com");
         //FirebaseApp.DefaultInstance.SetEditorP12Password("notasecret");
     }
-    
+
 
     public string findPasswd()
     {
@@ -43,7 +44,7 @@ public class Users_login : MonoBehaviour
 
                 foreach (var userIds in snapshot.Children)
                 {
-                    //Debug.LogFormat("Key = {0}", userIds.Key);
+                    Debug.LogFormat("Key = {0}", userIds.Key);
                     if (userIds.Key == InputField_login_id.text)
                     {
                         pw = userIds.Child("password").Value.ToString();
@@ -62,14 +63,20 @@ public class Users_login : MonoBehaviour
         if (InputField_login_id.text != "")
         {
             StartCoroutine("findpw");
-            Debug.LogFormat("pw넘어온 값 = {0}", pw);
-            if (pw == InputField_login_pw.text)
+            if (userHavePw)
             {
-                Debug.Log("로그인 성공");
-                return true;
+                userHavePw = false;
+                Debug.LogFormat("pw넘어온 값 = {0}", pw);
+                if (pw == InputField_login_pw.text)
+                {
+                    Debug.Log("로그인 성공");
+                    return true;
+                }
+                else
+                    return false;
             }
-            else
-                return false;
+            else return false;
+
         }
         return false;
     }
@@ -78,8 +85,13 @@ public class Users_login : MonoBehaviour
     {
         findPasswd();
         Debug.Log("코루틴");
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.0f);
+        if (pw != "")
+            userHavePw = true;
+        else
+            userHavePw = false;
+        Debug.Log("비밀번호체크 끝");
     }
 
-   
+
 }

@@ -56,17 +56,29 @@ public class PopupChange : MonoBehaviour
             {
                 if (Login_Script.userLogin())
                 {
-                    loginObj.SetActive(false);
-                    Debug.Log("로그인 성공");
-                    if (Nickname_Script.checkNicknameOfUserId() != "") {
-                        Debug.Log("닉네임 있음 메인으로");
-                        SceneManager.LoadScene("main");
+                    Nickname_Script.startFindNick();
+                    Debug.Log(Nickname_Script.checkIsDone);
+                    if (Nickname_Script.checkIsDone == 1)
+                    {
+                        loginObj.SetActive(false);
+                        Debug.Log("로그인 성공");
+                        if (Nickname_Script.haveNickname())
+                        {
+                            Debug.Log("닉네임 있음 메인으로");
+                            Debug.Log(Nickname_Script.checkNicknameOfUserId());
+                            SceneManager.LoadScene(1);
+                        }
+                        else
+                        {
+                            Debug.Log("닉네임 창으로");
+                            Debug.Log(Nickname_Script.checkNicknameOfUserId());
+                            nicknameObj.SetActive(true);
+                        }
                     }
-                    else {
-                        Debug.Log(Nickname_Script.checkNicknameOfUserId());
-                        Debug.Log("닉네임 창으로");
-                        Debug.Log(Nickname_Script.checkNicknameOfUserId());
-                        nicknameObj.SetActive(true);}
+                    else
+                    {//로딩 
+                        Debug.Log("로딩");
+                    }
                 }
                 else
                 {

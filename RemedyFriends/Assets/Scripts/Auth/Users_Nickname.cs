@@ -15,6 +15,8 @@ public class Users_Nickname : MonoBehaviour
     public string nicknameOfUserId;
     public bool IsUserNickname;
 
+    public int checkIsDone;
+
     FirebaseApp firebaseApp;
     DatabaseReference reference;
 
@@ -25,6 +27,10 @@ public class Users_Nickname : MonoBehaviour
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
+    void Start()
+    {
+        checkIsDone = 0;
+    }
 
     public string checkNicknameOfUserId()
     {
@@ -40,7 +46,7 @@ public class Users_Nickname : MonoBehaviour
 
                 foreach (var userIds in snapshot.Children)
                 {
-                    //Debug.LogFormat("Key = {0}", userIds.Key);
+                    Debug.LogFormat("Key = {0}", userIds.Key);
                     if (userIds.Key == InputField_login_id.text)
                     {
                         nicknameOfUserId = userIds.Child("nickname").Value.ToString();
@@ -54,9 +60,9 @@ public class Users_Nickname : MonoBehaviour
 
     //닉네임 존재 여부
     public bool haveNickname() {
-        StartCoroutine("checkNickname");
         if (IsUserNickname)
         {
+            IsUserNickname = false;
             return true;
         }
         else
@@ -64,15 +70,20 @@ public class Users_Nickname : MonoBehaviour
         return false;
     }
 
+    public void startFindNick() {
+        StartCoroutine("checkNickname");
+    }
 
     IEnumerator checkNickname()
     {
         checkNicknameOfUserId();
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
         if (nicknameOfUserId != "")
-            IsUserNickname = false;
-        else
             IsUserNickname = true;
+        else
+            IsUserNickname = false;
+        checkIsDone = 1;
+        Debug.Log("닉네임체크 끝");
     }
 
 

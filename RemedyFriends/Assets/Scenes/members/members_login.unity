@@ -145,7 +145,8 @@ MonoBehaviour:
   InputField_join_id: {fileID: 1349562666}
   InputField_join_pw: {fileID: 1424142960}
   InputField_pw_check: {fileID: 374862091}
-  dublecheckText: {fileID: 0}
+  dublecheckText: {fileID: 269928023}
+  currentStatus: 
   dbId: 
 --- !u!4 &70844968
 Transform:
@@ -176,6 +177,8 @@ MonoBehaviour:
   InputField_login_id: {fileID: 159437726}
   InputField_nickname: {fileID: 2090304890}
   nicknameOfUserId: 
+  IsUserNickname: 0
+  checkIsDone: 0
 --- !u!1 &159437724
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +849,7 @@ MonoBehaviour:
   InputField_login_id: {fileID: 159437726}
   InputField_login_pw: {fileID: 1630004359}
   pw: 
+  userHavePw: 0
 --- !u!1 &628907240
 GameObject:
   m_ObjectHideFlags: 0
