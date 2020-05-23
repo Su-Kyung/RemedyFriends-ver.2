@@ -35,26 +35,27 @@ public class GetUserData : MonoBehaviour
 
     }
     */
-
+    private User_data UserData_Script;
     public Text nickname;
-/*
-    string character;
+    /*
+        string character;
 
 
 
-    GameObject surl;
+        GameObject surl;
 
-    GameObject golden;
+        GameObject golden;
 
-    GameObject harf;
+        GameObject harf;
 
-    GameObject luna;
+        GameObject luna;
 
 
-    */
+        */
     void Awake()
 
     {
+        UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
         /*
         surl = GameObject.Find("surl_simple_char");
 
@@ -76,7 +77,7 @@ public class GetUserData : MonoBehaviour
 
 
     */
-        nickname.text = PlayerPrefs.GetString("Nickname");
+        //nickname.text = PlayerPrefs.GetString("Nickname");
         /*
         character = PlayerPrefs.GetString("Character");
 
@@ -124,5 +125,9 @@ public class GetUserData : MonoBehaviour
 
 
 */
+    }
+    void Start()
+    {
+        nickname.text = UserData_Script.userNickname;
     }
 }
