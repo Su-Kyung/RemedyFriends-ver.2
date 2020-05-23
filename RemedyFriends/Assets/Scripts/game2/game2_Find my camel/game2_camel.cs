@@ -33,12 +33,18 @@ public class game2_camel : MonoBehaviour
 
     public float delay = 1.88f;
 
+    private Save_game2_data SaveData_Script;
+
     bool first = true;
     // Update is called once per frame
+    void Awake()
+    {
+        SaveData_Script = GameObject.Find("camelGameManager").GetComponent<Save_game2_data>();
+    }
     void Update()
     {
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
-        if (!Countdown.enableSpawn)
+        if (!Countdown.enableSpawn && first == false)
         {
             if (score < 0)
             {
@@ -47,8 +53,10 @@ public class game2_camel : MonoBehaviour
             }
             else
                 txtScore.text = score.ToString();
+            SaveData_Script.SaveGame2CamelScore(score);
             StopAllCoroutines();
             GetComponent<AudioSource>().Stop();
+            first = true;
         }
         else if (Countdown.enableSpawn && first == true)
         {
@@ -81,7 +89,7 @@ public class game2_camel : MonoBehaviour
         for (int i = 0; i < nAnswer;)
         {
             int nTemp = Random.Range(0, question.Length);//음성 문제 랜덤 ( 정답 아님)
-            Debug.Log("nTemp" + nTemp);
+            //Debug.Log("nTemp" + nTemp);
             if (bCheckExistOfNum[nTemp] == false)
             {
                 bCheckExistOfNum[nTemp] = true;
@@ -93,7 +101,7 @@ public class game2_camel : MonoBehaviour
         for (int i = nAnswer + 1; i < nMAX;)
         {
             int nTemp = Random.Range(0, question.Length);
-            Debug.Log("nTemp" + nTemp);
+            //Debug.Log("nTemp" + nTemp);
             if (bCheckExistOfNum[nTemp] == false)
             {
                 bCheckExistOfNum[nTemp] = true;
