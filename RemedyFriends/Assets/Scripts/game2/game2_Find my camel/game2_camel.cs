@@ -10,6 +10,9 @@ public class game2_camel : MonoBehaviour
     public AudioClip sound;
     public string sound_string;
 
+    public AudioClip[] correctSound;
+    public AudioClip wrongSound;
+
     public Button camel1;
     public Button camel2;
     public Button camel3;
@@ -21,19 +24,33 @@ public class game2_camel : MonoBehaviour
     public int answer_button;
     public int[] answer;
 
-    public int score = 180;
+    public Text txtScore;
+    public int score = 63;
     public int random;
 
-    [SerializeField]
-    private float delay = 1f;
+    //[SerializeField]
+    //private float delay = 2.0f;
+
+    public float delay = 1.88f;
 
     bool first = true;
     // Update is called once per frame
     void Update()
     {
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
-
-        if (Countdown.enableSpawn && first == true)
+        if (!Countdown.enableSpawn)
+        {
+            if (score < 0)
+            {
+                score = 0;
+                txtScore.text = score.ToString();
+            }
+            else
+                txtScore.text = score.ToString();
+            StopAllCoroutines();
+            GetComponent<AudioSource>().Stop();
+        }
+        else if (Countdown.enableSpawn && first == true)
         {
             StartCamelGame();
             first = false;
@@ -56,10 +73,10 @@ public class game2_camel : MonoBehaviour
         bCheckExistOfNum[random] = true; //정답 중복 방지
         nImg[nAnswer] = random;//정답 저장
 
-        Debug.Log(nImg[0]);
-        Debug.Log(nImg[1]);
-        Debug.Log(nImg[2]);
-        Debug.Log(nImg[3]);
+        //Debug.Log(nImg[0]);
+        // Debug.Log(nImg[1]);
+        // Debug.Log(nImg[2]);
+        //Debug.Log(nImg[3]);
 
         for (int i = 0; i < nAnswer;)
         {
@@ -84,12 +101,12 @@ public class game2_camel : MonoBehaviour
                 ++i;
             }
         }
-        Debug.Log(nImg[0]);
-        Debug.Log(nImg[1]);
-        Debug.Log(nImg[2]);
-        Debug.Log(nImg[3]);
+        //Debug.Log(nImg[0]);
+        //Debug.Log(nImg[1]);
+        //Debug.Log(nImg[2]);
+        // Debug.Log(nImg[3]);
 
-        camel1.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[0]+"_l", typeof(Sprite)) as Sprite;
+        camel1.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[0] + "_l", typeof(Sprite)) as Sprite;
         camel2.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[1] + "_r", typeof(Sprite)) as Sprite;
         camel3.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[2] + "_l", typeof(Sprite)) as Sprite;
         camel4.GetComponent<Image>().sprite = Resources.Load("game2/camel/img_camel_" + nImg[3] + "_r", typeof(Sprite)) as Sprite;
@@ -106,7 +123,7 @@ public class game2_camel : MonoBehaviour
     {
         sound = playQuestion();
         sound_string = sound.name.ToString();
-        
+
     }
 
     AudioClip playQuestion()
@@ -122,12 +139,14 @@ public class game2_camel : MonoBehaviour
         if (random == nImg[0])
         {
             Debug.Log("correct");
-            score += 30;
+            soundCorrect();
+            score += 133;
         }
         else
         {
             Debug.Log("wrong");
-            score -= 30;
+            soundWrong();
+            score -= 7;
         }
         StartCoroutine(TransitionToNextQuesion());
     }
@@ -137,12 +156,14 @@ public class game2_camel : MonoBehaviour
         if (random == nImg[1])
         {
             Debug.Log("correct");
-            score += 30;
+            soundCorrect();
+            score += 133;
         }
         else
         {
             Debug.Log("wrong");
-            score -= 30;
+            soundWrong();
+            score -= 7;
         }
         StartCoroutine(TransitionToNextQuesion());
     }
@@ -152,12 +173,14 @@ public class game2_camel : MonoBehaviour
         if (random == nImg[2])
         {
             Debug.Log("correct");
-            score += 30;
+            soundCorrect();
+            score += 133;
         }
         else
         {
             Debug.Log("wrong");
-            score -= 30;
+            soundWrong();
+            score -= 7;
         }
         StartCoroutine(TransitionToNextQuesion());
     }
@@ -167,13 +190,28 @@ public class game2_camel : MonoBehaviour
         if (random == nImg[3])
         {
             Debug.Log("correct");
-            score += 30;
+            soundCorrect();
+            score += 133;
         }
         else
         {
             Debug.Log("wrong");
-            score -= 30;
+            soundWrong();
+            score -= 7;
         }
         StartCoroutine(TransitionToNextQuesion());
+    }
+
+    public void soundCorrect() {
+        int correctRandom = Random.Range(0, correctSound.Length);
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = correctSound[correctRandom];
+        audio.Play();
+    }
+
+    public void soundWrong() {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = wrongSound;
+        audio.Play();
     }
 }
