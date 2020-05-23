@@ -747,8 +747,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 374862092}
   m_TextComponent: {fileID: 1027655806}
   m_Placeholder: {fileID: 1578006672}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -850,6 +850,8 @@ MonoBehaviour:
   InputField_login_pw: {fileID: 1630004359}
   pw: 
   userHavePw: 0
+  nicknameOfUserId: 
+  IsUserNickname: 0
 --- !u!1 &628907240
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,8 +3137,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1424142961}
   m_TextComponent: {fileID: 1025982511}
   m_Placeholder: {fileID: 1192387548}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -3661,8 +3663,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1630004360}
   m_TextComponent: {fileID: 758790635}
   m_Placeholder: {fileID: 1314419550}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -3862,6 +3864,7 @@ MonoBehaviour:
   InputField_login_pw: {fileID: 1630004359}
   InputField_join_id: {fileID: 1349562666}
   InputField_join_pw: {fileID: 1424142960}
+  InputField_nickname: {fileID: 2090304890}
   selected_Character: 0
 --- !u!4 &1657094201
 Transform:
@@ -4118,6 +4121,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1731793805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1731793807}
+  - component: {fileID: 1731793806}
+  m_Layer: 0
+  m_Name: UserData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1731793806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731793805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b357838ac15584480e5c31e982b2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userId: 
+  userPasswd: 
+  userNickname: 
+--- !u!4 &1731793807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731793805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 377.5975, y: 235.9975, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1797721963
 GameObject:

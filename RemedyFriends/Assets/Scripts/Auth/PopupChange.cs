@@ -20,12 +20,14 @@ public class PopupChange : MonoBehaviour
     public InputField InputField_login_pw;
     public InputField InputField_join_id;
     public InputField InputField_join_pw;
+    public InputField InputField_nickname;
 
     public int selected_Character;
 
     private Sign_up SignUp_Script;
     private Users_login Login_Script;
     private Users_Nickname Nickname_Script;
+    private User_data UserData_Script;
     //private Select_char Character_Script;
 
     void Awake()
@@ -43,10 +45,25 @@ public class PopupChange : MonoBehaviour
         SignUp_Script = GameObject.Find("SignUp").GetComponent<Sign_up>();
         Login_Script = GameObject.Find("Login_user").GetComponent<Users_login>();
         Nickname_Script = GameObject.Find("SignUp").GetComponent<Users_Nickname>();
+        UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
         //Character_Script = GameObject.Find("Select_Character").GetComponent<Select_char>();
-        //DontDestroyOnLoad(GameObject.Find("LoginObj")); //향후 수정 가능하면 수정바람...
-        //DontDestroyOnLoad(GameObject.Find("Select_Character"));
-        DontDestroyOnLoad(this);
+    }
+
+    void LockInput(InputField input)
+    {
+        if (input.text.Length > 0)
+        {
+            Login_Script.findPasswdAndNickname();
+            Debug.Log("Text has been entered");
+        }
+        else if (input.text.Length == 0)
+        {
+            Debug.Log("아이디를 입력해주세요");
+        }
+    }
+    void Start()
+    {
+        InputField_login_id.onEndEdit.AddListener(delegate { LockInput(InputField_login_id); });
     }
     public void clickLoginSubmitButton()
     {
@@ -54,35 +71,26 @@ public class PopupChange : MonoBehaviour
         {
             if (InputField_login_pw.text != "")
             {
-                if (Login_Script.userLogin())
+                if (Login_Script.checkPasswordAndNickname() && Login_Script.pw == InputField_login_pw.text)
                 {
-                    Nickname_Script.startFindNick();
-                    Debug.Log(Nickname_Script.checkIsDone);
-                    if (Nickname_Script.checkIsDone == 1)
+                    Debug.Log("로그인 성공");
+                    if (Login_Script.haveNickname())
                     {
-                        loginObj.SetActive(false);
-                        Debug.Log("로그인 성공");
-                        if (Nickname_Script.haveNickname())
-                        {
-                            Debug.Log("닉네임 있음 메인으로");
-                            Debug.Log(Nickname_Script.checkNicknameOfUserId());
-                            SceneManager.LoadScene(1);
-                        }
-                        else
-                        {
-                            Debug.Log("닉네임 창으로");
-                            Debug.Log(Nickname_Script.checkNicknameOfUserId());
-                            nicknameObj.SetActive(true);
-                        }
+                        Debug.Log("닉네임 있음 메인으로");
+                        UserData_Script.saveUserIdpw(InputField_login_id.text, InputField_login_pw.text);
+                        UserData_Script.saveUserNickname(Login_Script.nicknameOfUserId);
+                        SceneManager.LoadScene(1);
                     }
                     else
-                    {//로딩 
-                        Debug.Log("로딩");
+                    {
+                        loginObj.SetActive(false);
+                        Debug.Log("닉네임 창으로");
+                        nicknameObj.SetActive(true);
                     }
                 }
                 else
                 {
-                    Debug.Log("로그인실패");
+                    Debug.Log("해당 아이디가 존재하지 않음 || 비밀번호가 다름");
                 }
             }
             else
@@ -113,6 +121,8 @@ public class PopupChange : MonoBehaviour
     {
         if (Nickname_Script.Save_nick())
         {
+            UserData_Script.saveUserIdpw(InputField_login_id.text, InputField_login_pw.text);
+            UserData_Script.saveUserNickname(InputField_nickname.text);
             nicknameObj.SetActive(false);
             SceneManager.LoadScene("main");
             //select_charObj.SetActive(true);
