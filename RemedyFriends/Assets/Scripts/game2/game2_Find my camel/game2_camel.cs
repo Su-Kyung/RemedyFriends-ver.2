@@ -34,12 +34,14 @@ public class game2_camel : MonoBehaviour
     public float delay = 1.88f;
 
     private Save_game2_data SaveData_Script;
+    private Get_game2_data GetData_Script;
 
     bool first = true;
     // Update is called once per frame
     void Awake()
     {
         SaveData_Script = GameObject.Find("camelGameManager").GetComponent<Save_game2_data>();
+        GetData_Script = GameObject.Find("camelGameManager").GetComponent<Get_game2_data>();
     }
     void Update()
     {
@@ -53,13 +55,18 @@ public class game2_camel : MonoBehaviour
             }
             else
                 txtScore.text = score.ToString();
-            SaveData_Script.SaveGame2CamelScore(score);
+            SaveData_Script.saveGame2CamelScore(score);
             StopAllCoroutines();
             GetComponent<AudioSource>().Stop();
             first = true;
         }
         else if (Countdown.enableSpawn && first == true)
         {
+            //점수 받아오는 부분
+            string date = System.DateTime.Now.ToString("yyyy/MM/dd");
+            int getScore = int.Parse(GetData_Script.getGame2CamelScore(date));
+            Debug.LogFormat("getScore = {0}", getScore);
+            //여기까지
             StartCamelGame();
             first = false;
         }
