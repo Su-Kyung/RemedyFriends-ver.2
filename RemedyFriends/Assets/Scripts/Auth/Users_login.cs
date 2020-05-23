@@ -19,6 +19,9 @@ public class Users_login : MonoBehaviour
     public string pw;
     public bool userHavePw;
 
+    public string nicknameOfUserId;
+    public bool IsUserNickname;
+
     void Awake()
     {
         firebaseApp = FirebaseDatabase.DefaultInstance.App;
@@ -30,7 +33,7 @@ public class Users_login : MonoBehaviour
     }
 
 
-    public string findPasswd()
+    public string findPasswdAndNickname()
     {
         FirebaseDatabase.DefaultInstance.GetReference("users").GetValueAsync().ContinueWith(task =>
         {
@@ -44,10 +47,12 @@ public class Users_login : MonoBehaviour
 
                 foreach (var userIds in snapshot.Children)
                 {
-                    Debug.LogFormat("Key = {0}", userIds.Key);
+                    //Debug.LogFormat("Key = {0}", userIds.Key);
                     if (userIds.Key == InputField_login_id.text)
                     {
                         pw = userIds.Child("password").Value.ToString();
+                        nicknameOfUserId = userIds.Child("nickname").Value.ToString();
+                        Debug.LogFormat("nickname = {0}", nicknameOfUserId);
                         Debug.LogFormat("pw = {0}", pw);
                     }
                 }
@@ -62,7 +67,9 @@ public class Users_login : MonoBehaviour
         Debug.Log("Users_Login 실행");
         if (InputField_login_id.text != "")
         {
-            StartCoroutine("findpw");
+            StartCoroutine("checkPassword");
+            return true;
+            /*
             if (userHavePw)
             {
                 userHavePw = false;
@@ -76,22 +83,38 @@ public class Users_login : MonoBehaviour
                     return false;
             }
             else return false;
-
+*/
         }
         return false;
     }
 
-    IEnumerator findpw()
-    {
-        findPasswd();
+    public bool checkPasswordAndNickname()
+    {/*
+        findPasswdAndNickname();
         Debug.Log("코루틴");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);*/
         if (pw != "")
-            userHavePw = true;
+        {
+            if (nicknameOfUserId != "")
+                IsUserNickname = true;
+            else
+                IsUserNickname = false;
+            return true;
+        }
         else
-            userHavePw = false;
-        Debug.Log("비밀번호체크 끝");
+            return false;
+        return false;
     }
 
-
+    public bool haveNickname()
+    {
+        if (IsUserNickname)
+        {
+            IsUserNickname = false;
+            return true;
+        }
+        else
+            return false;
+        return false;
+    }
 }
