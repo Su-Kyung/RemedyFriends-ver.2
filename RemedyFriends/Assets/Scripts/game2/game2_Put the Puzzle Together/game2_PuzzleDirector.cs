@@ -14,6 +14,8 @@ public class game2_PuzzleDirector : MonoBehaviour
     public Text txtScore;   // 스코어 팝업에 나타낼 텍스트
     // 점수 위한 변수
     public int scorePuzzle;    // 점수
+    // 퍼즐 한 조각당 중복 채점 안되도록 조각 수 세는 변수
+    //public int countPiece;
 
 
     // 각 퍼즐판의 스크립트 가져오기 (해당 스크립트의 함수 참조 위해서)
@@ -37,16 +39,31 @@ public class game2_PuzzleDirector : MonoBehaviour
         // 게임 시작 시 모든 퍼즐 안보이게
         setPuzzle(false);
 
-        // 점수 초기화
+        // 점수 초기화, 조각 수 초기화
         scorePuzzle = 0;
+        //countPiece = 0;
 
         // 최초 시작
         Invoke("PlayPuzzle", 1.2f);
-      }
+    }
+
+    // 여기서 db에 점수 넘기기
+    void Update()
+    {
+        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+
+        if (!Countdown.enableSpawn)
+        {
+            txtScore.text = scorePuzzle.ToString();
+        }
+    }
 
     // 퍼즐 리스트중에 하나 골라서 보이기, 흐트러트리기
     public void PlayPuzzle()
     {
+        // 조각 수 초기화
+        //countPiece = 0;
+
         // 게임오브젝트로 받아온 퍼즐 목록중에 하나 고르기
         int temp = Random.Range(0, PuzzleList.Count);    // 랜덤으로 숫자 하나 뽑기
         Debug.Log(PuzzleList[temp].name);
@@ -72,63 +89,5 @@ public class game2_PuzzleDirector : MonoBehaviour
         Puzzle4.SetActive(b);
         Puzzle5.SetActive(b);
     }
-
-
-
-    /*
-    // 게임 흐름 제어 변수
-    public bool newPuzzle;   // 1: 비활성화, 2: 퍼즐 있을 때 기다리기, 3: 새 퍼즐 출력
-    public int countPiece;
-
-    // 점수 변수
-    public Text txtResult; // 점수
-    public int puzzleResult;   // 점수
-
-    // 퍼즐 캔버스
-    public GameObject canvasPuzzle;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // GameCountdown.cs의 enablespawn 가져오기
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
-
-        // 처음에는 출력 안함
-        newPuzzle = true;
-
-        // 점수 0
-        puzzleResult = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // 가장 먼저 enableSpawn 일 때
-        // GameCountdown.cs의 enablespawn 가져오기
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
-
-        
-
-        if (Countdown.enableSpawn)
-        {
-            // 퍼즐 출력 해야 할 때
-            if (newPuzzle)
-            {
-                canvasPuzzle.SetActive(true);   //트루일 때 회전은 다른 스크립트로. 점수도
-                newPuzzle = false;
-                countPiece = 0;
-            }
-            
-        }
-
-        // 퍼즐 조각 15개 모두 맞추면
-        if (countPiece == 15)
-        {
-            // 퍼즐 지우기
-            canvasPuzzle.SetActive(false);
-            // 새로운 퍼즐 나타나도록 하기
-            newPuzzle = true;
-        }
-    }
-    */
+    
 }

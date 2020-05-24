@@ -24,6 +24,7 @@ public class game2_PuzzlePieceScore : MonoBehaviour
         {
             PuzzleDirector.scorePuzzle += 13;
             Debug.Log(piece.name + " is matched");
+            //PuzzleDirector.countPiece += 1;
         }
     }
 }

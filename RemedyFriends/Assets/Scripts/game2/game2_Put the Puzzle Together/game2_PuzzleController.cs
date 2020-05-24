@@ -11,12 +11,6 @@ public class game2_PuzzleController : MonoBehaviour
     public Button piece1, piece2, piece3, piece4, piece5, piece6, piece7,
         piece8, piece9, piece10, piece11, piece12, piece13, piece14, piece15;
 
-    /*
-    // 조각당 점수 한번만 체킹하기 위한 변수
-    bool score1, score2, score3, score4, score5, score6, score7, score8,
-        score9, score10, score11, score12, score13, score14, score15;
-    */
-
     // 맞춘 조각 세기
     public int matchedPiece;
 
@@ -50,7 +44,7 @@ public class game2_PuzzleController : MonoBehaviour
         b.transform.Rotate(0, 0, 90 * r);
     }
 
-    // 점수 계산 -> update로?
+    // 퍼즐 다 맞추면 새로운 퍼즐 생성
     void Update()
     {
         game2_PuzzleDirector PuzzleDirector = GameObject.Find("Canvas_puzzle_GameObject").GetComponent<game2_PuzzleDirector>();  // game2_PuzzleDirector 스크립트의 객체 받아옴
@@ -67,50 +61,14 @@ public class game2_PuzzleController : MonoBehaviour
             && Math.Truncate(piece15.transform.rotation.eulerAngles.z) == 0)
         {
             PuzzleDirector.scorePuzzle += 300;
+            // 시간 5초 증가
+            GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
+            gameTimeSlider.remainTime += 5;   // remainTime멤버변수 가져옴
+
             PuzzleDirector.setPuzzle(false);    // 퍼즐 전부 안보이게
             PuzzleDirector.PlayPuzzle();    // 새 퍼즐 시작
         }
         
     }
     
-    /*
-    // 점수 체킹 변수 제어
-    void enableScore(bool b)
-    {
-        score1 = b;
-        score2 = b;
-        score3 = b;
-        score4 = b;
-        score5 = b;
-        score6 = b;
-        score7 = b;
-        score8 = b;
-        score9 = b;
-        score10 = b;
-        score11 = b;
-        score12 = b;
-        score13 = b;
-        score14 = b;
-        score15 = b;
-    }
-    */
-
-    /*
-    // 조각 클릭하면 회전하는 함수: 합치면안됨 (AddListener 때문에)
-    void RotatePiece1() { piece1.transform.Rotate(0, 0, -90); }
-    void RotatePiece2() { piece2.transform.Rotate(0, 0, -90); }
-    void RotatePiece3() { piece3.transform.Rotate(0, 0, -90); }
-    void RotatePiece4() { piece4.transform.Rotate(0, 0, -90); }
-    void RotatePiece5() { piece5.transform.Rotate(0, 0, -90); }
-    void RotatePiece6() { piece6.transform.Rotate(0, 0, -90); }
-    void RotatePiece7() { piece7.transform.Rotate(0, 0, -90); }
-    void RotatePiece8() { piece8.transform.Rotate(0, 0, -90); }
-    void RotatePiece9() { piece9.transform.Rotate(0, 0, -90); }
-    void RotatePiece10() { piece10.transform.Rotate(0, 0, -90); }
-    void RotatePiece11() { piece11.transform.Rotate(0, 0, -90); }
-    void RotatePiece12() { piece12.transform.Rotate(0, 0, -90); }
-    void RotatePiece13() { piece13.transform.Rotate(0, 0, -90); }
-    void RotatePiece14() { piece14.transform.Rotate(0, 0, -90); }
-    void RotatePiece15() { piece15.transform.Rotate(0, 0, -90); }
-    */
 }
