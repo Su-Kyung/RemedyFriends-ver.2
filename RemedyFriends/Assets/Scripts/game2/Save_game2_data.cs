@@ -34,7 +34,7 @@ public class Save_game2_data : MonoBehaviour
         }
     }
     //게임 2 우리는 목이 말라요 (시각)
-    public bool SaveGame2WaterScore(int score)
+    public bool saveGame2WaterScore(int score)
     {
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)

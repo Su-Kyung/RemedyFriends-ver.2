@@ -34,7 +34,7 @@ public class Users_Nickname : MonoBehaviour
         string userId = InputField_login_id.text;
         string nickname = InputField_nickname.text;
 
-        if (nickname != "")
+        if (nickname.Trim() != "")
         {
             //PlayerPrefs.SetString("Nickname", nickname);
             reference.Child("users").Child(userId).Child("nickname").SetValueAsync(nickname);

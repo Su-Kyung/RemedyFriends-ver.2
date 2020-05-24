@@ -1507,6 +1507,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: text_score
       objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
+        type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7199816870519086590, guid: 1e112c86fddf9f24381d99a51d92bc79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1611,46 +1651,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_FontData.m_AlignByGeometry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199816870519086589, guid: 1e112c86fddf9f24381d99a51d92bc79,
-        type: 3}
-      propertyPath: m_Text
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7199816870519086563, guid: 1e112c86fddf9f24381d99a51d92bc79,
         type: 3}

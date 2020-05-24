@@ -34,7 +34,7 @@ public class Save_game1_data : MonoBehaviour
         }
     }
     //게임 1 진주조개 찾기 (시각)
-    public bool SaveGame1ShellScore(int score)
+    public bool saveGame1ShellScore(int score)
     {
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
