@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// 퍼즐 깔릴 때 최초 회전
 public class game2_PuzzleController : MonoBehaviour
 {
-    
     // 스크립트를 적용한 퍼즐조각
-    public Button piece1;
-    public Button piece2;
-    public Button piece3;
-    public Button piece4;
-    public Button piece5;
-    public Button piece6;
-    public Button piece7;
-    public Button piece8;
-    public Button piece9;
-    public Button piece10;
-    public Button piece11;
-    public Button piece12;
-    public Button piece13;
-    public Button piece14;
-    public Button piece15;
+    public Button piece1, piece2, piece3, piece4, piece5, piece6, piece7,
+        piece8, piece9, piece10, piece11, piece12, piece13, piece14, piece15;
+
+    /*
+    // 조각당 점수 한번만 체킹하기 위한 변수
+    bool score1, score2, score3, score4, score5, score6, score7, score8,
+        score9, score10, score11, score12, score13, score14, score15;
+    */
+
+    // 맞춘 조각 세기
+    public int matchedPiece;
 
     // director에서 호출
     public void StartPuzzle()
@@ -42,75 +38,61 @@ public class game2_PuzzleController : MonoBehaviour
         StartPiece(piece13);
         StartPiece(piece14);
         StartPiece(piece15);
-        Debug.Log("호출되었음");
+
+        //enableScore(true);
     }
 
     void StartPiece(Button b)
     {
         // 처음 보일 때 랜덤하게 회전한 상태
-        int r = Random.Range(0, 4);
-        Debug.Log(r);
+        int r = Random.Range(1, 4);
         b.transform.Rotate(0, 0, 90 * r);
-        Debug.Log(b.transform.eulerAngles.z);
     }
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // 클릭 시 회전하는 함수 호출
-        piece1.onClick.AddListener(RotatePiece1);
-        piece2.onClick.AddListener(RotatePiece2);
-        piece3.onClick.AddListener(RotatePiece3);
-        piece4.onClick.AddListener(RotatePiece4);
-        piece5.onClick.AddListener(RotatePiece5);
-        piece6.onClick.AddListener(RotatePiece6);
-        piece7.onClick.AddListener(RotatePiece7);
-        piece8.onClick.AddListener(RotatePiece8);
-        piece9.onClick.AddListener(RotatePiece9);
-        piece10.onClick.AddListener(RotatePiece10);
-        piece11.onClick.AddListener(RotatePiece11);
-        piece12.onClick.AddListener(RotatePiece12);
-        piece13.onClick.AddListener(RotatePiece13);
-        piece14.onClick.AddListener(RotatePiece14);
-        piece15.onClick.AddListener(RotatePiece15);
-    }
-
-
-    /*
-    // Update is called once per frame
+    // 점수 계산 -> update로?
     void Update()
     {
-        // GameCountdown.cs의 enablespawn 가져오기
-        game2_PuzzleDirector Puzzle = GameObject.Find("Canvas_puzzle_GameObject").GetComponent<game2_PuzzleDirector>();
-        
-        // GameCountdown.cs의 enablespawn 가져오기
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
+        game2_PuzzleDirector PuzzleDirector = GameObject.Find("Canvas_puzzle_GameObject").GetComponent<game2_PuzzleDirector>();  // game2_PuzzleDirector 스크립트의 객체 받아옴
 
-        // 게임 진행중이고 퍼즐 출력해야 할 때
-        if (Countdown.enableSpawn)
+
+        // 모두 맞췄을 때
+        if (piece1.transform.rotation.z == 0 && piece2.transform.rotation.z == 0 && piece3.transform.rotation.z == 0 &&
+            piece4.transform.rotation.z == 0 && piece5.transform.rotation.z == 0 && piece6.transform.rotation.z == 0 &&
+            piece7.transform.rotation.z == 0 && piece8.transform.rotation.z == 0 && piece9.transform.rotation.z == 0 &&
+            piece10.transform.rotation.z == 0 && piece11.transform.rotation.z == 0 && piece12.transform.rotation.z == 0 &&
+            piece13.transform.rotation.z == 0 && piece14.transform.rotation.z == 0 && piece15.transform.rotation.z == 0)
         {
-            if (Puzzle.newPuzzle)
-            {
-                StartPuzzle();
-
-                /*
-                if (piece.transform.eulerAngles.z == 0)
-                {
-                    Puzzle.countPiece += 1;
-                    Debug.Log("맞춘 퍼즐 개수: " + Puzzle.countPiece);
-                }
-                //
-            }
+            PuzzleDirector.scorePuzzle += 300;
+            PuzzleDirector.setPuzzle(false);    // 퍼즐 전부 안보이게
+            PuzzleDirector.PlayPuzzle();    // 새 퍼즐 시작
         }
         
     }
+    
+    /*
+    // 점수 체킹 변수 제어
+    void enableScore(bool b)
+    {
+        score1 = b;
+        score2 = b;
+        score3 = b;
+        score4 = b;
+        score5 = b;
+        score6 = b;
+        score7 = b;
+        score8 = b;
+        score9 = b;
+        score10 = b;
+        score11 = b;
+        score12 = b;
+        score13 = b;
+        score14 = b;
+        score15 = b;
+    }
     */
 
-    
-   
+    /*
+    // 조각 클릭하면 회전하는 함수: 합치면안됨 (AddListener 때문에)
     void RotatePiece1() { piece1.transform.Rotate(0, 0, -90); }
     void RotatePiece2() { piece2.transform.Rotate(0, 0, -90); }
     void RotatePiece3() { piece3.transform.Rotate(0, 0, -90); }
@@ -126,5 +108,5 @@ public class game2_PuzzleController : MonoBehaviour
     void RotatePiece13() { piece13.transform.Rotate(0, 0, -90); }
     void RotatePiece14() { piece14.transform.Rotate(0, 0, -90); }
     void RotatePiece15() { piece15.transform.Rotate(0, 0, -90); }
-
+    */
 }
