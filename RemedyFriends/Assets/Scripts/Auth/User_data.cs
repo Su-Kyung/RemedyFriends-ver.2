@@ -8,16 +8,19 @@ public class User_data : MonoBehaviour
     public string userPasswd;
     public string userNickname;
 
-    void Awake() {
+    void Awake()
+    {
         DontDestroyOnLoad(this);
     }
 
-    public void saveUserIdpw(string id, string pw) {
+    public void saveUserIdpw(string id, string pw)
+    {
         userId = id;
         userPasswd = pw;
     }
 
-    public void saveUserNickname(string nickname) {
+    public void saveUserNickname(string nickname)
+    {
         userNickname = nickname;
     }
 }

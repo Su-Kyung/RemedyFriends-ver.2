@@ -55,9 +55,9 @@ public class game2_camel : MonoBehaviour
             }
             else
                 txtScore.text = score.ToString();
-            SaveData_Script.saveGame2CamelScore(score);
             StopAllCoroutines();
             GetComponent<AudioSource>().Stop();
+            SaveData_Script.saveGame2CamelScore(score);
             first = true;
         }
         else if (Countdown.enableSpawn && first == true)
@@ -69,6 +69,20 @@ public class game2_camel : MonoBehaviour
             //여기까지
             StartCamelGame();
             first = false;
+        }
+
+        if (Countdown.enableSpawn)
+        {
+            camel1.interactable = true;
+            camel2.interactable = true;
+            camel3.interactable = true;
+            camel4.interactable = true;
+        }
+        else{
+            camel1.interactable = false;
+            camel2.interactable = false;
+            camel3.interactable = false;
+            camel4.interactable = false;
         }
     }
     // Start is called before the first frame update
@@ -217,14 +231,16 @@ public class game2_camel : MonoBehaviour
         StartCoroutine(TransitionToNextQuesion());
     }
 
-    public void soundCorrect() {
+    public void soundCorrect()
+    {
         int correctRandom = Random.Range(0, correctSound.Length);
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = correctSound[correctRandom];
         audio.Play();
     }
 
-    public void soundWrong() {
+    public void soundWrong()
+    {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = wrongSound;
         audio.Play();
