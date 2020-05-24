@@ -23,14 +23,43 @@ public class game2_PuzzleController : MonoBehaviour
     public Button piece14;
     public Button piece15;
 
+    // director에서 호출
+    public void StartPuzzle()
+    {
+        // 각각의 조각 시작
+        StartPiece(piece1);
+        StartPiece(piece2);
+        StartPiece(piece3);
+        StartPiece(piece4);
+        StartPiece(piece5);
+        StartPiece(piece6);
+        StartPiece(piece7);
+        StartPiece(piece8);
+        StartPiece(piece9);
+        StartPiece(piece10);
+        StartPiece(piece11);
+        StartPiece(piece12);
+        StartPiece(piece13);
+        StartPiece(piece14);
+        StartPiece(piece15);
+        Debug.Log("호출되었음");
+    }
+
+    void StartPiece(Button b)
+    {
+        // 처음 보일 때 랜덤하게 회전한 상태
+        int r = Random.Range(0, 4);
+        Debug.Log(r);
+        b.transform.Rotate(0, 0, 90 * r);
+        Debug.Log(b.transform.eulerAngles.z);
+    }
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        // GameCountdown.cs의 enablespawn 가져오기
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();
-
-        StartPuzzle();
-
         // 클릭 시 회전하는 함수 호출
         piece1.onClick.AddListener(RotatePiece1);
         piece2.onClick.AddListener(RotatePiece2);
@@ -49,7 +78,8 @@ public class game2_PuzzleController : MonoBehaviour
         piece15.onClick.AddListener(RotatePiece15);
     }
 
-    
+
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -72,40 +102,15 @@ public class game2_PuzzleController : MonoBehaviour
                     Puzzle.countPiece += 1;
                     Debug.Log("맞춘 퍼즐 개수: " + Puzzle.countPiece);
                 }
-                */
+                //
             }
         }
         
     }
+    */
 
-    void StartPiece(Button b)
-    {
-        // 처음 보일 때 랜덤하게 회전한 상태
-        int r = Random.Range(0, 4);
-        Debug.Log(r);
-        b.transform.Rotate(0, 0, 90 * r);
-        Debug.Log(b.transform.eulerAngles.z);
-    }
-
-    void StartPuzzle()
-    {
-        StartPiece(piece1);
-        StartPiece(piece2);
-        StartPiece(piece3);
-        StartPiece(piece4);
-        StartPiece(piece5);
-        StartPiece(piece6);
-        StartPiece(piece7);
-        StartPiece(piece8);
-        StartPiece(piece9);
-        StartPiece(piece10);
-        StartPiece(piece11);
-        StartPiece(piece12);
-        StartPiece(piece13);
-        StartPiece(piece14);
-        StartPiece(piece15);
-    }
-
+    
+   
     void RotatePiece1() { piece1.transform.Rotate(0, 0, -90); }
     void RotatePiece2() { piece2.transform.Rotate(0, 0, -90); }
     void RotatePiece3() { piece3.transform.Rotate(0, 0, -90); }
