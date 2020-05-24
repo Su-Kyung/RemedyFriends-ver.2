@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 // 퍼즐 깔릴 때 최초 회전
 public class game2_PuzzleController : MonoBehaviour
@@ -45,7 +46,7 @@ public class game2_PuzzleController : MonoBehaviour
     void StartPiece(Button b)
     {
         // 처음 보일 때 랜덤하게 회전한 상태
-        int r = Random.Range(1, 4);
+        int r = UnityEngine.Random.Range(1, 4);
         b.transform.Rotate(0, 0, 90 * r);
     }
 
@@ -56,11 +57,14 @@ public class game2_PuzzleController : MonoBehaviour
 
 
         // 모두 맞췄을 때
-        if (piece1.transform.rotation.z == 0 && piece2.transform.rotation.z == 0 && piece3.transform.rotation.z == 0 &&
-            piece4.transform.rotation.z == 0 && piece5.transform.rotation.z == 0 && piece6.transform.rotation.z == 0 &&
-            piece7.transform.rotation.z == 0 && piece8.transform.rotation.z == 0 && piece9.transform.rotation.z == 0 &&
-            piece10.transform.rotation.z == 0 && piece11.transform.rotation.z == 0 && piece12.transform.rotation.z == 0 &&
-            piece13.transform.rotation.z == 0 && piece14.transform.rotation.z == 0 && piece15.transform.rotation.z == 0)
+        if (Math.Truncate(piece1.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece2.transform.rotation.eulerAngles.z) == 0
+            && Math.Truncate(piece3.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece4.transform.rotation.eulerAngles.z) == 0
+            && Math.Truncate(piece5.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece6.transform.rotation.eulerAngles.z) == 0
+            && Math.Truncate(piece7.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece8.transform.rotation.eulerAngles.z) == 0
+            && Math.Truncate(piece9.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece10.transform.rotation.eulerAngles.z) == 0
+            && Math.Truncate(piece11.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece12.transform.rotation.eulerAngles.z) == 0
+            && Math.Truncate(piece13.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece14.transform.rotation.eulerAngles.z) == 0
+            && Math.Truncate(piece15.transform.rotation.eulerAngles.z) == 0)
         {
             PuzzleDirector.scorePuzzle += 300;
             PuzzleDirector.setPuzzle(false);    // 퍼즐 전부 안보이게
