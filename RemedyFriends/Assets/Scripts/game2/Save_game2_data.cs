@@ -24,18 +24,10 @@ public class Save_game2_data : MonoBehaviour
 
         UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        userId = UserData_Script.userId;
-        if (userId == "")
-        {
-            userId = "test1";
-        }
-    }
     //게임 2 우리는 목이 말라요 (시각)
     public bool saveGame2WaterScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
@@ -48,6 +40,7 @@ public class Save_game2_data : MonoBehaviour
     //게임 2 내 낙타를 찾아줘 (청각)
     public bool saveGame2CamelScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
@@ -60,6 +53,7 @@ public class Save_game2_data : MonoBehaviour
     //게임 2 가방 속 물건을 찾아줘 (기억력)
     public bool saveGame2StuffScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
@@ -72,6 +66,7 @@ public class Save_game2_data : MonoBehaviour
     //게임 2 루나와 숨바꼭질 ( 행동조절)
     public bool saveGame2LunaScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
@@ -84,6 +79,7 @@ public class Save_game2_data : MonoBehaviour
     //게임2 소중한 추억을 맞춰줘 ( 문제해결 범주화)
     public bool saveGame2PuzzleScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
