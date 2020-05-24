@@ -30,22 +30,11 @@ public class Get_game2_data : MonoBehaviour
 
         UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (UserData_Script.userId == null || UserData_Script.userId =="")
-        {
-            userId = "test1";
-        }
-        else
-        {
-            userId = UserData_Script.userId;
-        } 
-    }
     //게임 2 우리는 목이 말라요 (시각) 
     public string getGame2WaterScore(string currentDate)
     {
         date = currentDate;
+        userId = UserData_Script.userId;
         Debug.LogFormat("UserID = {0}", userId);
         FirebaseDatabase.DefaultInstance.GetReference("game2").GetValueAsync().ContinueWith(task =>
         {
@@ -76,6 +65,7 @@ public class Get_game2_data : MonoBehaviour
     public string getGame2CamelScore(string currentDate)
     {
         date = currentDate;
+        userId = UserData_Script.userId;
         Debug.LogFormat("UserID = {0}", userId);
         FirebaseDatabase.DefaultInstance.GetReference("game2").GetValueAsync().ContinueWith(task =>
         {
@@ -136,6 +126,7 @@ public class Get_game2_data : MonoBehaviour
     public string getGame2LunaScore(string currentDate)
     {
         date = currentDate;
+        userId = UserData_Script.userId;
         Debug.LogFormat("UserID = {0}", userId);
         FirebaseDatabase.DefaultInstance.GetReference("game2").GetValueAsync().ContinueWith(task =>
         {
@@ -166,6 +157,7 @@ public class Get_game2_data : MonoBehaviour
     public string getGame2PuzzleScore(string currentDate)
     {
         date = currentDate;
+        userId = UserData_Script.userId;
         Debug.LogFormat("UserID = {0}", userId);
         FirebaseDatabase.DefaultInstance.GetReference("game2").GetValueAsync().ContinueWith(task =>
         {

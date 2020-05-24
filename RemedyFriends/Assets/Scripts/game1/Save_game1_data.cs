@@ -24,18 +24,11 @@ public class Save_game1_data : MonoBehaviour
 
         UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        userId = UserData_Script.userId;
-        if (userId == "")
-        {
-            userId = "test1";
-        }
-    }
+   
     //게임 1 진주조개 찾기 (시각)
     public bool saveGame1ShellScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
@@ -48,6 +41,7 @@ public class Save_game1_data : MonoBehaviour
     //게임 1 고장난 잠수함을 고쳐줘 (청각)
     public bool saveGame1SubmarineScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
@@ -60,6 +54,7 @@ public class Save_game1_data : MonoBehaviour
     //게임 1 뽀글뽀글 연주하기 (기억력)
     public bool saveGame1BubbleScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
@@ -72,6 +67,7 @@ public class Save_game1_data : MonoBehaviour
     //게임 1 상어몰래 사냥하기 (행동조절)
     public bool saveGame1SharkScore(int score)
     {
+        userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
