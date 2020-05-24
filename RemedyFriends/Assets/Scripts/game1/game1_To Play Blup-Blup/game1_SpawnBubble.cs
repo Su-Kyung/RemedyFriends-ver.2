@@ -44,9 +44,27 @@ public class game1_SpawnBubble : MonoBehaviour
     // 분화구 텍스트
     public Text txtHole1, txtHole2;
 
+    //점수 가져오기/저장 스크립트
+    private Save_game1_data SaveData_Script;
+    private Get_game1_data GetData_Script;
+
+    public bool isFirst;
+
     // Start is called before the first frame update
     void Start()
     {
+        //점수 받아오는 부분
+        GetData_Script = GameObject.Find("Game_data").GetComponent<Get_game1_data>();
+        SaveData_Script = GameObject.Find("Game_data").GetComponent<Save_game1_data>();
+
+        string date = System.DateTime.Now.ToString("yyyy/MM/dd");
+        int getScore = int.Parse(GetData_Script.getGame1BubbleScore(date));
+        Debug.LogFormat("getScore = {0}", getScore);
+        //여기까지
+
+        //끝낼 때 한번만 하기위한 변수
+        isFirst = true;
+
         blup = false;
 
         // 버블 위치 저장
@@ -130,6 +148,7 @@ public class game1_SpawnBubble : MonoBehaviour
         blup = true;
         Debug.Log("SpawnBubble: ShowBubble");
         //ShowBubble();
+        isFirst = false;
     }
     
     void Update()
@@ -140,13 +159,17 @@ public class game1_SpawnBubble : MonoBehaviour
         }
 
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-        if (!Countdown.enableSpawn)
+        if (!Countdown.enableSpawn && !isFirst)
         {
             if (scoreBubble < 0)
             {
                 scoreBubble = 0;
                 txtScore.text = scoreBubble.ToString();
             }
+            //끝나면 저장
+            Debug.LogFormat("scoreBubble = {0}", scoreBubble);
+            SaveData_Script.saveGame1BubbleScore(scoreBubble);
+            isFirst = true;
         }
     }
     // 순서에 맞게 버블 나타낸 뒤 버튼 활성화 함수

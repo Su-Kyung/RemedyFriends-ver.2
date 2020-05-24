@@ -61,7 +61,7 @@ public class Sign_up : MonoBehaviour
                     allcount++;
                     Debug.LogFormat("allcount = {0}", allcount);
                     //Debug.LogFormat("Key = {0}", userIds.Key);
-                    if (userIds.Key == InputField_join_id.text)
+                    if (userIds.Key == InputField_join_id.text.Trim())
                     {
                         Debug.Log("이미 있는 아이디 입니다.");
                         currentStatus = "존재하는 아이디입니다.";
@@ -89,7 +89,7 @@ public class Sign_up : MonoBehaviour
         string passwd = InputField_join_pw.text;
 
         //StartCoroutine("checkuserId");
-        if (userId != "")
+        if (userId.Trim() != "")
         {
 
             if (dbId != "" && dbId != InputField_join_id.text)
