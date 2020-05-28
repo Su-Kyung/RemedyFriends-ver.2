@@ -10136,9 +10136,9 @@ MonoBehaviour:
   btn1: {fileID: 862806037}
   btn2: {fileID: 206430945}
   btn3: {fileID: 1340133543}
-  activeBtn1: {fileID: 0}
-  activeBtn2: {fileID: 0}
-  activeBtn3: {fileID: 0}
+  activeBtn1: {fileID: 1542159780}
+  activeBtn2: {fileID: 8412900}
+  activeBtn3: {fileID: 877973560}
 --- !u!114 &2027615303
 MonoBehaviour:
   m_ObjectHideFlags: 0
