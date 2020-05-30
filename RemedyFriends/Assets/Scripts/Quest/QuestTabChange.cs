@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeQuestTab : MonoBehaviour
+public class QuestTabChange : MonoBehaviour
 {
     public Canvas Stage1, Stage2, Stage3;
     public Button btn1, btn2, btn3; // 탭 변경하는 버튼
