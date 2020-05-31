@@ -44,7 +44,7 @@ public class Save_game2_data : MonoBehaviour
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
         if (score != null)
         {
-            reference.Child("game2").Child(userId).Child("auditory").Child(date).SetValueAsync(score);
+            reference.Child("game2").Child(userId).Child("auditory").Child("date").Child(date).Child("score").SetValueAsync(score);
             Debug.Log("score 저장 성공");
             return true;
         }

@@ -52,8 +52,8 @@ public class Users_login : MonoBehaviour
                     {
                         pw = userIds.Child("password").Value.ToString();
                         nicknameOfUserId = userIds.Child("nickname").Value.ToString();
-                        Debug.LogFormat("nickname = {0}", nicknameOfUserId);
                         Debug.LogFormat("pw = {0}", pw);
+                        Debug.LogFormat("nickname = {0}", nicknameOfUserId);
                     }
                 }
             }
