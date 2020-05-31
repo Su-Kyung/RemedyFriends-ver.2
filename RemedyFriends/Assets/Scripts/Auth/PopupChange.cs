@@ -122,8 +122,8 @@ public class PopupChange : MonoBehaviour
         if (Nickname_Script.Save_nick())
         {
             UserData_Script.saveUserIdpw(InputField_login_id.text, InputField_login_pw.text);
-            UserData_Script.saveUserNickname(InputField_nickname.text);
-            nicknameObj.SetActive(false);
+            UserData_Script.saveUserNickname(InputField_nickname.text.Trim());
+            //nicknameObj.SetActive(false);
             SceneManager.LoadScene("main");
             //select_charObj.SetActive(true);
         }
