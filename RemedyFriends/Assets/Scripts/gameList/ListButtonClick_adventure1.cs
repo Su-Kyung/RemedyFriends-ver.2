@@ -10,23 +10,23 @@ public class ListButtonClick_adventure1 : MonoBehaviour
 {
     //리스트 버튼
     public Button shell_button; //버튼
-    public Sprite shell_Nclick; //클릭 X 이미지
-    public Sprite shell_Oclick; //클릭 O 이미지
+    //public Sprite shell_Nclick; //클릭 X 이미지
+    //public Sprite shell_Oclick; //클릭 O 이미지
     public const int SHELL = 1;       // 선택?
 
     public Button listening_button;
-    public Sprite listening_Nclick;
-    public Sprite listening_Oclick;
+    //public Sprite listening_Nclick;
+    //public Sprite listening_Oclick;
     public const int LISTENING = 2;
 
     public Button bubble_button;
-    public Sprite bubble_Nclick;
-    public Sprite bubble_Oclick;
+    //public Sprite bubble_Nclick;
+    //public Sprite bubble_Oclick;
     public const int BUBBLE = 3;
 
     public Button face_button;
-    public Sprite face_Nclick;
-    public Sprite face_Oclick;
+    //public Sprite face_Nclick;
+    //public Sprite face_Oclick;
     public const int FACE = 4;
 
     // 화면 이미지
@@ -77,10 +77,10 @@ public class ListButtonClick_adventure1 : MonoBehaviour
         if (screen == SHELL)
         {
             //리스트 버튼 이미지 번경
-            shell_button.image.overrideSprite = shell_Oclick;
-            listening_button.image.overrideSprite = listening_Nclick;
-            bubble_button.image.overrideSprite = bubble_Nclick;
-            face_button.image.overrideSprite = face_Nclick;
+            //shell_button.image.overrideSprite = shell_Oclick;
+            //listening_button.image.overrideSprite = listening_Nclick;
+            //bubble_button.image.overrideSprite = bubble_Nclick;
+            //face_button.image.overrideSprite = face_Nclick;
 
             //화면 이미지&소개 변경
             //추후 default인 shell로 변경
@@ -92,10 +92,10 @@ public class ListButtonClick_adventure1 : MonoBehaviour
         }
         else if (screen == LISTENING) {
             //리스트 버튼 이미지 번경
-            listening_button.image.overrideSprite = listening_Oclick;
-            shell_button.image.overrideSprite = shell_Nclick;
-            bubble_button.image.overrideSprite = bubble_Nclick;
-            face_button.image.overrideSprite = face_Nclick;
+            //listening_button.image.overrideSprite = listening_Oclick;
+            //shell_button.image.overrideSprite = shell_Nclick;
+            //bubble_button.image.overrideSprite = bubble_Nclick;
+            //face_button.image.overrideSprite = face_Nclick;
 
             //화면 이미지&소개 변경
             //추후 default인 shell로 변경
@@ -108,10 +108,10 @@ public class ListButtonClick_adventure1 : MonoBehaviour
         else if (screen == BUBBLE)
         {
             //리스트 버튼 이미지 번경
-            bubble_button.image.overrideSprite = bubble_Oclick;
-            shell_button.image.overrideSprite = shell_Nclick;
-            listening_button.image.overrideSprite = listening_Nclick;
-            face_button.image.overrideSprite = face_Nclick;
+            //bubble_button.image.overrideSprite = bubble_Oclick;
+            //shell_button.image.overrideSprite = shell_Nclick;
+            //listening_button.image.overrideSprite = listening_Nclick;
+            //face_button.image.overrideSprite = face_Nclick;
 
             //화면 이미지&소개 변경
             //추후 default인 shell로 변경
@@ -124,10 +124,10 @@ public class ListButtonClick_adventure1 : MonoBehaviour
         else if (screen == FACE)
         {
             //리스트 버튼 이미지 번경
-            face_button.image.overrideSprite = face_Oclick;
-            shell_button.image.overrideSprite = shell_Nclick;
-            listening_button.image.overrideSprite = listening_Nclick;
-            bubble_button.image.overrideSprite = bubble_Nclick;
+            //face_button.image.overrideSprite = face_Oclick;
+            //shell_button.image.overrideSprite = shell_Nclick;
+            //listening_button.image.overrideSprite = listening_Nclick;
+            //bubble_button.image.overrideSprite = bubble_Nclick;
 
             //화면 이미지&소개 변경
             //추후 default인 shell로 변경
