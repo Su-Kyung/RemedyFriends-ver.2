@@ -100,6 +100,7 @@ public class Sign_up : MonoBehaviour
                     //PlayerPrefs.SetString("PW", passwd);
 
                     reference.Child("users").Child(userId).Child("password").SetValueAsync(passwd);
+                    reference.Child("users").Child(userId).Child("nickname").SetValueAsync("");
                     Debug.Log("회원가입 성공");
 
                     return true;
