@@ -14,10 +14,7 @@ public class Get_game1_data : MonoBehaviour
     string userId;
     string date;
 
-    string scoreShell;
-    string scoreSubmarine;
-    string scoreBubble;
-    string scoreShark;
+    public int score;
 
     private User_data UserData_Script;
 
@@ -29,10 +26,9 @@ public class Get_game1_data : MonoBehaviour
 
         UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
     }
-    //게임 1 진주조개 찾기 (시각)
-    public string getGame1ShellScore(string currentDate)
+    //게임 1
+    public void getGame1Score(string part, string currentDate)
     {
-        date = currentDate;
         userId = UserData_Script.userId;
         Debug.LogFormat("UserID = {0}", userId);
         FirebaseDatabase.DefaultInstance.GetReference("game1").GetValueAsync().ContinueWith(task =>
@@ -50,16 +46,27 @@ public class Get_game1_data : MonoBehaviour
                     //Debug.LogFormat("Key = {0}", userIds.Key);
                     if (userIds.Key == userId)
                     {
-                        scoreShell = userIds.Child("visual").Child(date).Value.ToString();
-                        //Debug.LogFormat("scoreShell = {0}", scoreShell);
+                        ScoreList list = JsonUtility.FromJson<ScoreList>(userIds.Child(part).GetRawJsonValue());
+                        int count = list.Score.Length - 1;
+                        Debug.Log(count);
+                        Debug.Log(list.Score[count].date);
+                        if (list.Score[count].date == currentDate)
+                        {
+                            score = list.Score[count].userscore;
+                            Debug.Log("날짜 같음");
+                            Debug.Log("userscore" + score);
+                        }
+                        else
+                        {
+                            score = 0;
+                            Debug.Log("날짜 다름");
+                        }
                     }
                 }
             }
         });
-        if (scoreShell == null || scoreShell == "")
-            return "0";
-        return scoreShell;
     }
+    /*
     //게임 1 고장난 잠수함을 고쳐줘 (청각)
     public string getGame1SubmarineScore(string currentDate)
     {
@@ -152,5 +159,5 @@ public class Get_game1_data : MonoBehaviour
         if (scoreShark == null || scoreShark == "")
             return "0";
         return scoreShark;
-    }
+    }*/
 }

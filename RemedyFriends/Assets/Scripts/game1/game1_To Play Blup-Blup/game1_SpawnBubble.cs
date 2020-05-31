@@ -48,6 +48,8 @@ public class game1_SpawnBubble : MonoBehaviour
     private Save_game1_data SaveData_Script;
     private Get_game1_data GetData_Script;
 
+    public int getScore;
+
     public bool isFirst;
 
     // Start is called before the first frame update
@@ -58,8 +60,9 @@ public class game1_SpawnBubble : MonoBehaviour
         SaveData_Script = GameObject.Find("Game_data").GetComponent<Save_game1_data>();
 
         string date = System.DateTime.Now.ToString("yyyy/MM/dd");
-        int getScore = int.Parse(GetData_Script.getGame1BubbleScore(date));
-        Debug.LogFormat("getScore = {0}", getScore);
+        Debug.Log(date);
+        GetData_Script.getGame1Score("memory", date);
+        
         //여기까지
 
         //끝낼 때 한번만 하기위한 변수
@@ -161,6 +164,10 @@ public class game1_SpawnBubble : MonoBehaviour
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
         if (!Countdown.enableSpawn && !isFirst)
         {
+
+            getScore = GetData_Script.score;
+            Debug.LogFormat("getScore = {0}", getScore);
+
             if (scoreBubble < 0)
             {
                 scoreBubble = 0;
@@ -168,7 +175,7 @@ public class game1_SpawnBubble : MonoBehaviour
             }
             //끝나면 저장
             Debug.LogFormat("scoreBubble = {0}", scoreBubble);
-            SaveData_Script.saveGame1BubbleScore(scoreBubble);
+            SaveData_Script.saveGame1Score("memory",scoreBubble, getScore);
             isFirst = true;
         }
     }
