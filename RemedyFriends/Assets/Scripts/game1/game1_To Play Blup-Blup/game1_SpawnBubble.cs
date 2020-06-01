@@ -44,29 +44,32 @@ public class game1_SpawnBubble : MonoBehaviour
     // 분화구 텍스트
     public Text txtHole1, txtHole2;
 
+    //지영 추가-------------------------------------------
     //점수 가져오기/저장 스크립트
     private Save_game1_data SaveData_Script;
     private Get_game1_data GetData_Script;
 
     public int getScore;
+    public int count;
 
     public bool isFirst;
+    //---------------------------- 추가( 확인 후 지워도 됨다)
 
     // Start is called before the first frame update
     void Start()
     {
-        //점수 받아오는 부분
+        //지영 추가-------------------------------------------
+        //스크립트
         GetData_Script = GameObject.Find("Game_data").GetComponent<Get_game1_data>();
         SaveData_Script = GameObject.Find("Game_data").GetComponent<Save_game1_data>();
-
+        
+        //점수 받아오는 부분
         string date = System.DateTime.Now.ToString("yyyy/MM/dd");
-        Debug.Log(date);
         GetData_Script.getGame1Score("memory", date);
         
-        //여기까지
-
         //끝낼 때 한번만 하기위한 변수
         isFirst = true;
+        //---------------------------여기까지
 
         blup = false;
 
@@ -151,6 +154,8 @@ public class game1_SpawnBubble : MonoBehaviour
         blup = true;
         Debug.Log("SpawnBubble: ShowBubble");
         //ShowBubble();
+
+        //지영 추가-------------------------------------------
         isFirst = false;
     }
     
@@ -164,9 +169,12 @@ public class game1_SpawnBubble : MonoBehaviour
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
         if (!Countdown.enableSpawn && !isFirst)
         {
-
-            getScore = GetData_Script.score;
+            //지영 추가-------------------------------------------
+            //점수 불러오는 시간이 차이 있어서 시작 시 함수 호출 후 끝날 때 받아옴
+            getScore = GetData_Script.score; // 평균 구하려고 받아옴
+            count = GetData_Script.count; // 데이터 저장 시 필요
             Debug.LogFormat("getScore = {0}", getScore);
+            Debug.LogFormat("count = {0}", count);
 
             if (scoreBubble < 0)
             {
@@ -175,8 +183,9 @@ public class game1_SpawnBubble : MonoBehaviour
             }
             //끝나면 저장
             Debug.LogFormat("scoreBubble = {0}", scoreBubble);
-            SaveData_Script.saveGame1Score("memory",scoreBubble, getScore);
-            isFirst = true;
+            SaveData_Script.saveGame1Score("memory",scoreBubble, getScore, count); // 파라미터 : 분류( 기억력) , 현 스코어, 이전 스코어 , 데이터 수
+            isFirst = true; //반복 안되도록
+            //여기까지
         }
     }
     // 순서에 맞게 버블 나타낸 뒤 버튼 활성화 함수
