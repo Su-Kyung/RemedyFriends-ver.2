@@ -45,7 +45,7 @@ public class game1_shell : MonoBehaviour
                 {
                     // 찾은 진주 조개 수에 1 더하기 (추후에 점수로 변경)
                     countPearlShell += 1;
-                    scorePearlShell += 23;  // 진주조개 하나 찾을 때 마다 점수 23 더하기
+                    scorePearlShell += 13;  // 진주조개 하나 찾을 때 마다 점수 23 더하기
                     numPearlShell.text = countPearlShell.ToString();
 
                     // 진주조개 10의 배수만큼 찾을 때마다
@@ -56,7 +56,7 @@ public class game1_shell : MonoBehaviour
                         gameTimeSlider.remainTime += 5;   // remainTime멤버변수 가져옴
 
                         // 점수 500 추가
-                        scorePearlShell += 300;
+                        scorePearlShell += 100;
                     }
                     txtScore.text = scorePearlShell.ToString();
                 }
