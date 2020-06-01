@@ -65,3 +65,9 @@ RemedyFriends/Assets/ExternalDependencyManager/
 RemedyFriends/Assets/Firebase/
 RemedyFriends/Assets/StreamingAssets/
 RemedyFriends/Assets/Parse/
+RemedyFriends/Assets/Plugins/Android/
+RemedyFriends/Assets/Plugins/iOS/
+RemedyFriends/Assets/Plugins/Android.meta
+RemedyFriends/Assets/Plugins/iOS.meta
+
+RemedyFriends/Library/
