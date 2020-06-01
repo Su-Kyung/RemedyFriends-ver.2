@@ -43,7 +43,7 @@ public class game1_SpawnShells : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnPearlShell", 1, 0.7f);
-        InvokeRepeating("SpawnShell", 1, 1.5f);
+        InvokeRepeating("SpawnPearlShell", 0.5f, 0.7f);
+        InvokeRepeating("SpawnShell", 0.5f, 1.5f);
     }
 }

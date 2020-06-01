@@ -14,11 +14,11 @@ public class GamePause : MonoBehaviour
     public Button pBtnPlay;    // 계속하기
     public Button pBtnReplay;  // 다시하기
     public Button pBtnExit;    // 나가기
-    public Button pBtnSound;   // 소리 켜고 끄기
+    //public Button pBtnSound;   // 소리 켜고 끄기
 
     // 소리 상태
-    public bool sound = true;
-    public GameObject soundCheck;
+    //public bool sound = true;
+    //public GameObject soundCheck;
 
     // 씬 전환 위한 변수
     public Scene replayScene;   // 현재 게임중이던 씬
@@ -32,7 +32,7 @@ public class GamePause : MonoBehaviour
         Pause.SetActive(false);
 
         // 소리 켜진 상태로 시작
-        soundCheck.SetActive(true);
+        //soundCheck.SetActive(true);
 
         // 힌트 버튼 클릭했을 때 ShowHint 함수 실행
         btnPause.onClick.AddListener(ShowPause);
