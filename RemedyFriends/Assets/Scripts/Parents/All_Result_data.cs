@@ -6,19 +6,6 @@ using Firebase;
 using Firebase.Database;
 using Firebase.Unity.Editor;
 
-[System.Serializable]
-public class Data
-{
-    public string date;
-    public int score;
-
-    public void printData()
-    {
-        Debug.Log("date : " + date);
-        Debug.Log("score : " + score);
-    }
-}
-
 public class All_Result_data : MonoBehaviour
 {
     FirebaseApp firebaseApp;
@@ -26,7 +13,7 @@ public class All_Result_data : MonoBehaviour
 
     string userId;
     string date;
-   // string[] userdate;
+    // string[] userdate;
     string scoreShell;
 
     private User_data UserData_Script;
@@ -42,10 +29,10 @@ public class All_Result_data : MonoBehaviour
 
     void Start()
     {
-        getGame1ShellAllScore();
+        getGame1AllScore();
     }
 
-    public string getGame1ShellAllScore()
+    public string getGame1AllScore()
     {
         //date = currentDate;
         //userId = UserData_Script.userId;
@@ -53,51 +40,31 @@ public class All_Result_data : MonoBehaviour
         Debug.LogFormat("UserID = {0}", userId);
         FirebaseDatabase.DefaultInstance.GetReference("game1")
                 .LimitToLast(20).GetValueAsync().ContinueWith(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.Log("error");
-            }
-            else if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-
-                foreach (var userIds in snapshot.Children)
                 {
-                    //Debug.LogFormat("Key = {0}", userIds.Key);
-                    int i = 0;
-                    if (userIds.Key == userId)
+                    if (task.IsFaulted)
                     {
-                        //IDictionary rank = (IDictionary)userIds.Child("auditory").Value;
-                        //Debug.Log("이름: " + rank["date"] + ", 점수: " + rank["score"]);
-
-                        //scoreShell= userIds.Child("auditory").Value.ToString();
-                        //Debug.Log(scoreShell);
-                        //i++;
-                        //Data d = JsonUtility.FromJson(userIds.Child("auditory").Value);
-                        //Debug.Log(d.date);
-                        //IDictionary<string, GameObject> dictDate = new IDictionary<string, GameObject>();
-                        //Dictionary<string ,string> dictDate = (Dictionary)userIds.Child("auditory").Child("date").Value;
-                        //var list = new List<int>(dictDate.Values);
-                        //for (int i = 0; i < list.Count; i++)
-                        // {
-                        // Debug.Log(list[i]);
-                        // }
-
-                        //IDictionary dictScore = (IDictionary)userIds.Child("auditory").Child("date").Value;
-                        // Debug.Log(dictScore["score"]);
-
-                        //userdate[i] = userIds.Child("auditory").Child("date").Value.ToString();
-                        //Debug.Log(userdate[i]);
-                        //i++;
-                        // Debug.Log(userIds.Child("visual").Child("date").GetRawJsonValue());
-                        Debug.Log(userIds.Child("visual").GetRawJsonValue());
+                        Debug.Log("error");
                     }
-                }
-            }
-        });
+                    else if (task.IsCompleted)
+                    {
+                        DataSnapshot snapshot = task.Result;
+
+                        foreach (var userIds in snapshot.Children)
+                        {
+                            //Debug.LogFormat("Key = {0}", userIds.Key);
+                            int i = 0;
+                            if (userIds.Key == userId)
+                            {
+                                ScoreList list = JsonUtility.FromJson<ScoreList>(userIds.Child("visual").GetRawJsonValue());
+                                int count = list.Score.Length - 1;
+                                Debug.Log(count);
+                                Debug.Log(list.Score[count].date);
+                            }
+                        }
+                    }
+                });
         //if (scoreShell == null || scoreShell == "")
-            //return "0";
+        //return "0";
         return "0";
     }
 

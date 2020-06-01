@@ -6,15 +6,37 @@ using Firebase;
 using Firebase.Database;
 using Firebase.Unity.Editor;
 
+[System.Serializable]
+public class ScoreList
+{
+    public ScoreData[] Score;
+}
+[System.Serializable]
+public class ScoreData
+{
+    public string date;
+    public int userscore;
+    //public ScoreData(string date, int userscore)
+    //{
+    //this.date = date;
+    //this.userscore = userscore;
+    //}
+}
+
 public class Save_game1_data : MonoBehaviour
 {
     FirebaseApp firebaseApp;
     DatabaseReference reference;
 
+    public ScoreList scoreList;
+    public ScoreData scoreData;
+
     string userId;
     string date;
 
     private User_data UserData_Script;
+
+    List<ScoreData> objectList = new List<ScoreData>();
 
     void Awake()
     {
@@ -24,54 +46,61 @@ public class Save_game1_data : MonoBehaviour
 
         UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
     }
-   
-    //게임 1 진주조개 찾기 (시각)
-    public bool saveGame1ShellScore(int score)
+    public ScoreData createSubObject(string date, int score)
     {
-        userId = UserData_Script.userId;
-        date = System.DateTime.Now.ToString("yyyy/MM/dd");
-        if (score != null)
-        {
-            reference.Child("game1").Child(userId).Child("visual").Child(date).SetValueAsync(score);
-            Debug.Log("score 저장 성공");
-            return true;
-        }
-        return false;
+        ScoreData myscore = new ScoreData();
+        myscore.date = date;
+        myscore.userscore = score;
+        return myscore;
     }
-    //게임 1 고장난 잠수함을 고쳐줘 (청각)
-    public bool saveGame1SubmarineScore(int score)
+
+    public Dictionary<string, object> ToDictionary(string date, int score)
     {
-        userId = UserData_Script.userId;
-        date = System.DateTime.Now.ToString("yyyy/MM/dd");
-        if (score != null)
-        {
-            reference.Child("game1").Child(userId).Child("auditory").Child(date).SetValueAsync(score);
-            Debug.Log("score 저장 성공");
-            return true;
-        }
-        return false;
+        Dictionary<string, object> result = new Dictionary<string, object>();
+        result["date"] = date;
+        result["userscore"] = score;
+
+        return result;
     }
-    //게임 1 뽀글뽀글 연주하기 (기억력)
-    public bool saveGame1BubbleScore(int score)
+
+    //게임 1
+    public bool saveGame1Score(string part, int score, int preScore, int count)
     {
+        int sumscore;
+
         userId = UserData_Script.userId;
         date = System.DateTime.Now.ToString("yyyy/MM/dd");
-        if (score != null)
+
+        if (preScore == 0)
         {
-            reference.Child("game1").Child(userId).Child("memory").Child(date).SetValueAsync(score);
-            Debug.Log("score 저장 성공");
-            return true;
+            if (count == 0)
+            {
+                count = 0;
+            }
+            else { count++; }
+
+            sumscore = score;
         }
-        return false;
-    }
-    //게임 1 상어몰래 사냥하기 (행동조절)
-    public bool saveGame1SharkScore(int score)
-    {
-        userId = UserData_Script.userId;
-        date = System.DateTime.Now.ToString("yyyy/MM/dd");
+        else
+        {
+            sumscore = (int)(score + preScore) / 2;
+        }
+        //data 저장
+        //ScoreData data = new ScoreData(date, score);
+        //리스트에 담기
+        //objectList.Add(createSubObject(date, sumscore));
+        //scoreList.Score = objectList.ToArray();
+
+        //json 으로 변경
+        //string json = JsonUtility.ToJson(scoreList);
+        //Debug.Log("json" + json);
+
         if (score != null)
         {
-            reference.Child("game1").Child(userId).Child("control").Child(date).SetValueAsync(score);
+            //firebase에 저장
+            Dictionary<string, object> update = ToDictionary(date, sumscore);
+            //string key = reference.Child("game1").Child(userId).Child(part).Child("Score").Push().Key;
+            reference.Child("game1").Child(userId).Child(part).Child("Score").Child(count.ToString()).UpdateChildrenAsync(update);
             Debug.Log("score 저장 성공");
             return true;
         }
