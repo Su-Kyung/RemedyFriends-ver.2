@@ -27,6 +27,11 @@ public class SpawnFish : MonoBehaviour
     {
         int temp = Random.Range(0, FishList.Count); // temp: 리스트 중 하나 무작위로 뽑는다.
 
+        // 뽑은 수를 FishDirector.cs의 indexFish에 저장한다
+        game1_FishDirector Fish = GameObject.Find("Fishes").GetComponent<game1_FishDirector>();  // game1_FishDirector 스크립트의 객체 받아옴
+        Fish.indexFish = temp;
+        Debug.Log("indexFish: " + Fish.indexFish + " / temp: " + temp);
+
         FishList[temp].SetActive(true); // 뽑힌 물고기 보여주기
         Debug.Log(temp + 1 + "번째 물고기 맞춰야함~");
 
