@@ -16,7 +16,7 @@ public class game1_FishDirector : MonoBehaviour
     int countFish = 0;
 
     // 점수 위한 변수
-    private int scoreShark = 0;    // 점수
+    public int scoreShark = 0;    // 점수
     public Text txtScore;
     //--------------------------- DB에 넘길 점수 변수 ---------------------------
 
@@ -34,6 +34,11 @@ public class game1_FishDirector : MonoBehaviour
         btnPurple.onClick.AddListener(CheckPurple);
     }
 
+    void Update()
+    {
+        txtScore.text = scoreShark.ToString();
+    }
+
     void CheckBonus()
     {
         GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
@@ -47,7 +52,6 @@ public class game1_FishDirector : MonoBehaviour
 
                 // 점수 200 추가
                 scoreShark += 200;
-                txtScore.text = scoreShark.ToString();
             }
         
     }
@@ -55,101 +59,141 @@ public class game1_FishDirector : MonoBehaviour
     // 빨간 버튼 클릭했을 때
     void CheckRed()
     {
-        if (indexFish == 0)
+        game1_SpawnShark Fish = GameObject.Find("Fishes").GetComponent<game1_SpawnShark>();  // game1_SpawnShark 스크립트의 객체 받아옴
+
+        if (Fish.isShark)   // 상어 있으면
         {
-            countFish += 1; // 찾은 물고기 수에 1 추가
-
-            // 점수 더하기
-            scoreShark += 13;
-            txtScore.text = scoreShark.ToString();
-            CheckBonus();
-
-            resultYes.SetActive(true);
-            Debug.Log("빨강 딩동댕");
+            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            scoreShark -= 50;
+            Debug.Log("상어 땡");
         }
-        else
+        else    // 상어 없을 때라면
         {
-            resultNo.SetActive(true);
-            Debug.Log("빨강 땡");
+            if (indexFish == 0)
+            {
+                countFish += 1; // 찾은 물고기 수에 1 추가
+
+                // 점수 더하기
+                scoreShark += 13;
+                CheckBonus();
+
+                resultYes.SetActive(true);
+                Debug.Log("빨강 딩동댕");
+            }
+            else
+            {
+                resultNo.SetActive(true);
+                Debug.Log("빨강 땡");
+            }
         }
 
         // 1.5초 뒤 팝업 없애기
-        Invoke("HideResult", 1.5f);
+        Invoke("HideResult", 1.0f);
     }
 
     // 노랑 버튼 클릭했을 때
     void CheckYellow()
     {
-        if (indexFish == 1)
+        game1_SpawnShark Fish = GameObject.Find("Fishes").GetComponent<game1_SpawnShark>();  // game1_SpawnShark 스크립트의 객체 받아옴
+
+        if (Fish.isShark)   // 상어 있으면
         {
-            countFish += 1; // 찾은 물고기 수에 1 추가
-
-            // 점수 더하기
-            scoreShark += 13;
-            txtScore.text = scoreShark.ToString();
-            CheckBonus();
-
-            resultYes.SetActive(true);
-            Debug.Log("노랑 딩동댕");
+            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            scoreShark -= 50;
+            Debug.Log("상어 땡");
         }
-        else
+        else    // 상어 없을 때라면
         {
-            resultNo.SetActive(true);
-            Debug.Log("노랑 땡");
+            if (indexFish == 1)
+            {
+                countFish += 1; // 찾은 물고기 수에 1 추가
+
+                // 점수 더하기
+                scoreShark += 13;
+                CheckBonus();
+
+                resultYes.SetActive(true);
+                Debug.Log("노랑 딩동댕");
+            }
+            else
+            {
+                resultNo.SetActive(true);
+                Debug.Log("노랑 땡");
+            }
         }
 
         // 1.5초 뒤 팝업 없애기
-        Invoke("HideResult", 1.5f);
+        Invoke("HideResult", 1.0f);
     }
 
     // 초록 버튼 클릭했을 때
     void CheckGreen()
     {
-        if (indexFish == 2)
+        game1_SpawnShark Fish = GameObject.Find("Fishes").GetComponent<game1_SpawnShark>();  // game1_SpawnShark 스크립트의 객체 받아옴
+
+        if (Fish.isShark)   // 상어 있으면
         {
-            countFish += 1; // 찾은 물고기 수에 1 추가
-
-            // 점수 더하기
-            scoreShark += 13;
-            txtScore.text = scoreShark.ToString();
-            CheckBonus();
-
-            resultYes.SetActive(true);
-            Debug.Log("초록 딩동댕");
+            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            scoreShark -= 50;
+            Debug.Log("상어 땡");
         }
-        else
+        else    // 상어 없을 때라면
         {
-            resultNo.SetActive(true);
-            Debug.Log("초록 땡");
+            if (indexFish == 2)
+            {
+                countFish += 1; // 찾은 물고기 수에 1 추가
+
+                // 점수 더하기
+                scoreShark += 13;
+                CheckBonus();
+
+                resultYes.SetActive(true);
+                Debug.Log("초록 딩동댕");
+            }
+            else
+            {
+                resultNo.SetActive(true);
+                Debug.Log("초록 땡");
+            }
         }
 
         // 1.5초 뒤 팝업 없애기
-        Invoke("HideResult", 1.5f);
+        Invoke("HideResult", 1.0f);
     }
 
     // 보라 버튼 클릭했을 때
     void CheckPurple()
     {
-        if (indexFish == 3)
+        game1_SpawnShark Fish = GameObject.Find("Fishes").GetComponent<game1_SpawnShark>();  // game1_SpawnShark 스크립트의 객체 받아옴
+
+        if (Fish.isShark)   // 상어 있으면
         {
-            countFish += 1; // 찾은 물고기 수에 1 추가
-
-            // 점수 더하기
-            scoreShark += 13;
-            txtScore.text = scoreShark.ToString();
-            CheckBonus();
-
-            resultYes.SetActive(true);
-            Debug.Log("보라 딩동댕");
+            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            scoreShark -= 50;
+            Debug.Log("상어 땡");
         }
-        else
+        else    // 상어 없을 때라면
         {
-            resultNo.SetActive(true);
-            Debug.Log("보라 땡");
+            if (indexFish == 3)
+            {
+                countFish += 1; // 찾은 물고기 수에 1 추가
+
+                // 점수 더하기
+                scoreShark += 13;
+                CheckBonus();
+
+                resultYes.SetActive(true);
+                Debug.Log("보라 딩동댕");
+            }
+            else
+            {
+                resultNo.SetActive(true);
+                Debug.Log("보라 땡");
+            }
         }
 
         // 1.5초 뒤 팝업 없애기
-        Invoke("HideResult", 1.5f);
+        Invoke("HideResult", 1.0f);
     }
 
     // 맞은 경우, 틀린 경우 이미지 팝업 없애기

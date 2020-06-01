@@ -19,7 +19,7 @@ public class SpawnFish : MonoBehaviour
         HideFish();
 
         // 게임 최초 시작
-        Invoke("ShowFish", 1);
+        Invoke("ShowFish", 1.2f);
     }
 
     // 랜덤으로 물고기 보여주는 함수
