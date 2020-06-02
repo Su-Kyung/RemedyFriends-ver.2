@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 53ffa3505b7efd247ad8144b8a52ec2e
+guid: 17b92fad8a88fe94f9a6a46bf9014291
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -75,7 +75,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6d75cbc67516a014db277a44b4416893
+    spriteID: 9e7e308387b44a747becf644294929b4
     vertices: []
     indices: 
     edges: []
