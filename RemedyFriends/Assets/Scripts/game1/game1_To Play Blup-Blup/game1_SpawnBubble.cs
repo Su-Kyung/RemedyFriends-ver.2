@@ -43,7 +43,8 @@ public class game1_SpawnBubble : MonoBehaviour
     private int scoreBubble = 0;    // 점수
 
     // 분화구 텍스트
-    public Text txtHole1, txtHole2;
+    public GameObject txtHole1;
+    public Text txtHole2;
 
     //지영 추가-------------------------------------------
     //점수 가져오기/저장 스크립트
