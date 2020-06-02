@@ -5750,9 +5750,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2116511919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecd03dd7fe357014cbabc0621e6fec55, type: 3}
+  m_Script: {fileID: 11500000, guid: 49a0e3b5c642fd843993bf4999506f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreList:
+    Score: []
+  scoreData:
+    date: 
+    userscore: 0
 --- !u!114 &2116511921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5762,9 +5767,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2116511919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b751584ef65b3f468cbe0674bb6a356, type: 3}
+  m_Script: {fileID: 11500000, guid: 0aafeb7639aa8164bbcc699931dd191a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  count: 0
 --- !u!4 &2116511922
 Transform:
   m_ObjectHideFlags: 0

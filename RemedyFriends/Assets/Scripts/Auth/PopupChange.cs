@@ -124,7 +124,7 @@ public class PopupChange : MonoBehaviour
             UserData_Script.saveUserIdpw(InputField_login_id.text, InputField_login_pw.text);
             UserData_Script.saveUserNickname(InputField_nickname.text.Trim());
             //nicknameObj.SetActive(false);
-            SceneManager.LoadScene("main");
+            SceneManager.LoadScene("intro");
             //select_charObj.SetActive(true);
         }
     }
