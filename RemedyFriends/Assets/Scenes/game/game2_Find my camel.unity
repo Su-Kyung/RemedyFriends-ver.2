@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 287827259}
   - component: {fileID: 287827261}
   - component: {fileID: 287827262}
+  - component: {fileID: 287827263}
   m_Layer: 0
   m_Name: camelGameManager
   m_TagString: Untagged
@@ -887,6 +888,7 @@ MonoBehaviour:
   score: 180
   random: 0
   delay: 1.88
+  questCamel: 0
   getScore: 0
   count: 0
 --- !u!114 &287827261
@@ -915,6 +917,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f404ce3f05277064395f2baea4330cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &287827263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287827257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df8a013c125fb0488a6e197bbaa17c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questdata: 0
 --- !u!1 &340398900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,7 +3032,7 @@ SpriteRenderer:
   m_SortingLayerID: -1504905647
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b9e014bcce7ab0f4daaafabd9fb9ef65, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 172c1411244e8e84ea96647182f3c58f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
