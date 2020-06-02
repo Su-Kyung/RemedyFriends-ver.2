@@ -22,13 +22,24 @@ public class All_Result_data : MonoBehaviour
     public Text scoreText4;
     public Text scoreText5;
 
-    public string score1;
-    public string score2;
-    public string score3;
-    public string score4;
-    public string score5;
+    string score1;
+    string score2;
+    string score3;
+    string score4;
+    string score5;
+/*
+    public Text dateText1;
+    public Text dateText2;
+    public Text dateText3;
+    public Text dateText4;
+    public Text dateText5;
 
-
+    string day1;
+    string day2;
+    string day3;
+    string day4;
+    string day5;
+    */
     private User_data UserData_Script;
 
     void Awake()
@@ -42,11 +53,19 @@ public class All_Result_data : MonoBehaviour
 
     void Start()
     {
+        
         score1 = "-";
         score2 = "-";
         score3 = "-";
         score4 = "-";
         score5 = "-";
+/*
+        day1 = "00/00";
+        day2 = "00/00";
+        day3 = "00/00";
+        day4 = "00/00";
+        day5 = "00/00";
+        */
     }
     void Update()
     {
@@ -55,6 +74,13 @@ public class All_Result_data : MonoBehaviour
         scoreText3.text = score3;
         scoreText4.text = score4;
         scoreText5.text = score5;
+        /*
+        dateText1.text = day1;
+        dateText2.text = day2;
+        dateText3.text = day3;
+        dateText4.text = day4;
+        dateText5.text = day5;*/
+
     }
 
     public void getGameAllScore(string game, string part)
@@ -88,51 +114,19 @@ public class All_Result_data : MonoBehaviour
                                 score4 = list.Score[count - 3].userscore + "";
                                 score5 = list.Score[count - 4].userscore + "";
                                 /*
-                                if (count == 0)
-                                {
-                                    score5 = "-";
-                                    score4 = "-";
-                                    score3 = "-";
-                                    score2 = "-";
-                                    score1 = list.Score[count].userscore + "";
-                                }
-                                else if (count == 1)
-                                {
-                                    score5 = "-";
-                                    score4 = "-";
-                                    score3 = "-";
-                                    score2 = list.Score[count - 1].userscore + "";
-                                    score1 = list.Score[count].userscore + "";
-                                }
-                                else if (count == 2)
-                                {
-                                    score5 = "-";
-                                    score4 = "-";
-                                    score1 = list.Score[count].userscore + "";
-                                    score2 = list.Score[count - 1].userscore + "";
-                                    score3 = list.Score[count - 2].userscore + "";
-                                }else if(count == 3){
-                                    score5 = "-";
-                                    score1 = list.Score[count].userscore + "";
-                                    score2 = list.Score[count - 1].userscore + "";
-                                    score3 = list.Score[count - 2].userscore + "";
-                                    score4 = list.Score[count - 3].userscore + "";
-                                }
-                                else if (count >= 4)
-                                {
-                                    score1 = list.Score[count].userscore + "";
-                                    score2 = list.Score[count - 1].userscore + "";
-                                    score3 = list.Score[count - 2].userscore + "";
-                                    score4 = list.Score[count - 3].userscore + "";
-                                    score5 = list.Score[count - 4].userscore + "";
-                                }
-                                else {
-                                    score5 = "-";
-                                    score4 = "-";
-                                    score3 = "-";
-                                    score2 = "-";
-                                    score1 = "-";
-                                }
+                                day1 = list.Score[count].date.Substring(5);
+                                //day1.Replace("-", "/");
+                                Debug.LogFormat("day1 = {0}", day1);
+                                day2 = list.Score[count-1].date.Substring(5);
+                                //day2.Replace("-", "/");
+                                Debug.LogFormat("day2 = {0}", day2);
+                                day3 = list.Score[count-2].date.Substring(5);
+                                //day3.Replace("-", "/");
+                                Debug.LogFormat("day3 = {0}", day3);
+                                day4 = list.Score[count-3].date.Substring(5);
+                                //day4.Replace("-", "/");
+                                day5 = list.Score[count-4].date.Substring(5);
+                                //day5.Replace("-", "/");
                                 */
                             }
                         }
@@ -180,6 +174,12 @@ public class All_Result_data : MonoBehaviour
         score3 = "-";
         score2 = "-";
         score1 = "-";
+        /*
+        day1 = "00/00";
+        day2 = "00/00";
+        day3 = "00/00";
+        day4 = "00/00";
+        day5 = "00/00";*/
     }
 
 }
