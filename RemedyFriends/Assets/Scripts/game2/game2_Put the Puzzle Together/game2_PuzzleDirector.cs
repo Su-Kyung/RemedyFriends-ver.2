@@ -47,15 +47,10 @@ public class game2_PuzzleDirector : MonoBehaviour
         Invoke("PlayPuzzle", 1.2f);
     }
 
-    // 여기서 db에 점수 넘기기
+ 
     void Update()
     {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
-
-        if (!Countdown.enableSpawn)
-        {
-            txtScore.text = scorePuzzle.ToString();
-        }
+       txtScore.text = scorePuzzle.ToString();
     }
 
     // 퍼즐 리스트중에 하나 골라서 보이기, 흐트러트리기
