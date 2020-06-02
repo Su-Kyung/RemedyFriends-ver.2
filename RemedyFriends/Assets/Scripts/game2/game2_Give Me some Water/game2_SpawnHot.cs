@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // 레머디 프렌즈 각각 적용
 public class game2_SpawnHot : MonoBehaviour
 {
     public GameObject Hot1, Hot2, Hot3, Hot4;
     List<GameObject> HotList = new List<GameObject>(); // 위 더위단계 리스트
+
+    // 해당 프렌즈 버튼
+    public Button btnFriend;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +24,14 @@ public class game2_SpawnHot : MonoBehaviour
         // 처음에 다 안보이게
         HideHot();
 
-        // 최초 실행
-        Invoke("ShowHot", 1.8f);
+        // 캐릭터 버튼 리스터
+        btnFriend.onClick.AddListener(btnFriendClicked);
     }
 
     // director에서 호출하면 .. 그 변수에 따라서 보이게 하기
-    void ShowHot()
+    public void ShowHot(int i)
     {
-        // 임시 랜덤 변수
-        int temp = Random.Range(0, 4);
-
-        HotList[temp].SetActive(true);
+        HotList[i].SetActive(true);
 
         Invoke("HideHot", 2);
     }
@@ -42,5 +43,14 @@ public class game2_SpawnHot : MonoBehaviour
         Hot2.SetActive(false);
         Hot3.SetActive(false);
         Hot4.SetActive(false);
+
+        // 버튼 활성화
+        btnFriend.gameObject.SetActive(true);
+    }
+
+    void btnFriendClicked()
+    {
+        game2_HotDirector Director = GameObject.Find("FriendsFaceObject").GetComponent<game2_HotDirector>();
+        Director.ShuffleHot();
     }
 }
