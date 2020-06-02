@@ -73,6 +73,9 @@ public class game2_PuzzleController : MonoBehaviour
             GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
             gameTimeSlider.remainTime += 5;   // remainTime멤버변수 가져옴
 
+            //퀘스트변수 추가
+            PuzzleDirector.questPuzzle += 1;
+
             isCorrect.SetActive(true);
             PuzzleDirector.setPuzzle(false);    // 퍼즐 전부 안보이게
             Invoke("AfterCorrect", 1.5f);
