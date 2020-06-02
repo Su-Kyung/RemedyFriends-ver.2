@@ -12,6 +12,7 @@ public class game1_SpawnBubble : MonoBehaviour
 {
     public Button Bubble1, Bubble2, Bubble3, Bubble4, Bubble5;  // 버블
     public Button btnHole1, btnHole2, btnHole3, btnHole4, btnHole5; // 분화구 버튼
+    public GameObject isYes, isNo;  // 맞았는지, 틀렸는지 이미지
 
     // 랜덤으로 순서 맞출 리스트
     List<Button> BubbleList = new List<Button>();
@@ -72,6 +73,10 @@ public class game1_SpawnBubble : MonoBehaviour
         //---------------------------여기까지
 
         blup = false;
+
+        // 처음에 맞고, 틀리고 이미지 안보이게
+        isYes.SetActive(false);
+        isNo.SetActive(false);
 
         // 버블 위치 저장
         pos1 = Bubble1.transform.position;
@@ -256,15 +261,19 @@ public class game1_SpawnBubble : MonoBehaviour
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            isNo.SetActive(true);
             order = 5;
-            scoreBubble -= 300;
+            scoreBubble -= 100;
         }
 
         txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            NewBubble();
+            if (!isNo.activeSelf) isYes.SetActive(true);
+
+            Invoke("NewBubble", 1.5f);
+            //NewBubble();
         }
     }
     void CompareOrder2()
@@ -284,15 +293,19 @@ public class game1_SpawnBubble : MonoBehaviour
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            isNo.SetActive(true);
             order = 5;
-            scoreBubble -= 300;
+            scoreBubble -= 100;
         }
 
         txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            NewBubble();
+            if (!isNo.activeSelf) isYes.SetActive(true);
+
+            Invoke("NewBubble", 1.5f);
+            //NewBubble();
         }
     }
     void CompareOrder3()
@@ -312,15 +325,19 @@ public class game1_SpawnBubble : MonoBehaviour
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            isNo.SetActive(true);
             order = 5;
-            scoreBubble -= 300;
+            scoreBubble -= 100;
         }
 
         txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            NewBubble();
+            if (!isNo.activeSelf) isYes.SetActive(true);
+
+            Invoke("NewBubble", 1.5f);
+            //NewBubble();
         }
     }
     void CompareOrder4()
@@ -339,15 +356,19 @@ public class game1_SpawnBubble : MonoBehaviour
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            isNo.SetActive(true);
             order = 5;
-            scoreBubble -= 300;
+            scoreBubble -= 100;
         }
 
         txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            NewBubble();
+            if(!isNo.activeSelf) isYes.SetActive(true);
+
+            Invoke("NewBubble", 1.5f);
+            //NewBubble();
         }
     }
     void CompareOrder5()
@@ -366,15 +387,19 @@ public class game1_SpawnBubble : MonoBehaviour
         else
         {
             Debug.Log(order + 1 + "번째 버블이 아닙니다!");
+            isNo.SetActive(true);
             order = 5;
-            scoreBubble -= 300;
+            scoreBubble -= 100;
         }
 
         txtScore.text = scoreBubble.ToString();
 
         if (order == 5)
         {
-            NewBubble();
+            if (!isNo.activeSelf) isYes.SetActive(true);
+
+            Invoke("NewBubble", 1.5f);
+            //NewBubble();
         }
     }
 
@@ -388,8 +413,12 @@ public class game1_SpawnBubble : MonoBehaviour
 
         txtHole1.gameObject.SetActive(false);
         txtHole2.text = "1";
-        scoreBubble += 300;
+        scoreBubble += 100;
         txtScore.text = scoreBubble.ToString();
+
+        // 정답, 오답 이미지 둘다 안보이게
+        isYes.SetActive(false);
+        isNo.SetActive(false);
     }
 
 }
