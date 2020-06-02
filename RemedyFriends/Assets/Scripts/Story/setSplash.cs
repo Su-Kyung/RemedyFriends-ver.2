@@ -8,6 +8,8 @@ public class setSplash : MonoBehaviour
     public Button btnGameStart;
     public GameObject canvasSplash;
 
+    public AudioSource audioStartApp;
+
     
     void Awake()
     {
@@ -19,6 +21,8 @@ public class setSplash : MonoBehaviour
 
     void gogoGame()
     {
+        audioStartApp.Play();
+
         btnGameStart.gameObject.SetActive(false);
         canvasSplash.SetActive(false);
     }
