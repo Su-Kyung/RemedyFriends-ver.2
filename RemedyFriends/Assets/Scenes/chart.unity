@@ -524,11 +524,11 @@ MonoBehaviour:
   scoreText3: {fileID: 641252751}
   scoreText4: {fileID: 1545986215}
   scoreText5: {fileID: 1241973979}
-  score1: 
-  score2: 
-  score3: 
-  score4: 
-  score5: 
+  dateText1: {fileID: 40399965}
+  dateText2: {fileID: 501575147}
+  dateText3: {fileID: 1245825917}
+  dateText4: {fileID: 822217642}
+  dateText5: {fileID: 1545594887}
 --- !u!4 &107428482
 Transform:
   m_ObjectHideFlags: 0
