@@ -9,7 +9,7 @@ public class game1_FishDirector : MonoBehaviour
     public Button btnRed, btnYellow, btnGreen, btnPurple;   // 버튼들
     public int indexFish;   // 물고기 색 판별 위한 변수 (SpawnFish와 연결됨)
 
-    public GameObject resultYes, resultNo;  // 맞았을 때 혹은 틀렸을 때 팝업 이미지
+    public GameObject resultYes, resultNo, resultShark;  // 맞았을 때 혹은 틀렸을 때 팝업 이미지
 
     //--------------------------- DB에 넘길 변수 ---------------------------
     // 맞은 물고기 수 세기 위한 변수
@@ -63,7 +63,7 @@ public class game1_FishDirector : MonoBehaviour
 
         if (Fish.isShark)   // 상어 있으면
         {
-            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            resultShark.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
             scoreShark -= 50;
             Debug.Log("상어 땡");
         }
@@ -98,7 +98,7 @@ public class game1_FishDirector : MonoBehaviour
 
         if (Fish.isShark)   // 상어 있으면
         {
-            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            resultShark.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
             scoreShark -= 50;
             Debug.Log("상어 땡");
         }
@@ -133,7 +133,7 @@ public class game1_FishDirector : MonoBehaviour
 
         if (Fish.isShark)   // 상어 있으면
         {
-            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            resultShark.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
             scoreShark -= 50;
             Debug.Log("상어 땡");
         }
@@ -168,7 +168,7 @@ public class game1_FishDirector : MonoBehaviour
 
         if (Fish.isShark)   // 상어 있으면
         {
-            resultNo.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
+            resultShark.SetActive(true);   // 추후에 상어 있어서 안된다는 거 추가?
             scoreShark -= 50;
             Debug.Log("상어 땡");
         }
@@ -201,6 +201,7 @@ public class game1_FishDirector : MonoBehaviour
     {
         resultYes.SetActive(false);
         resultNo.SetActive(false);
+        resultShark.SetActive(false);
 
         // 0.5초 뒤 새로운 물고기 호출
         Invoke("NewFish", 0.5f);
