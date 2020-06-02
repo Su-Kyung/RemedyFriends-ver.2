@@ -294,7 +294,7 @@ SpriteRenderer:
   m_Size: {x: 25.6, y: 16.01}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &46652835
@@ -1519,7 +1519,7 @@ GameObject:
   - component: {fileID: 897998311}
   - component: {fileID: 897998310}
   m_Layer: 0
-  m_Name: game_1st_listening_correct_1
+  m_Name: game_1st_submarine_bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
