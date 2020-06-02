@@ -887,6 +887,8 @@ MonoBehaviour:
   score: 180
   random: 0
   delay: 1.88
+  getScore: 0
+  count: 0
 --- !u!114 &287827261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,9 +898,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 287827257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a08b69611e89464a8b7c460d308b949, type: 3}
+  m_Script: {fileID: 11500000, guid: 2855a9cfce2e8744ca76cd01373e12c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  count: 0
 --- !u!114 &287827262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,7 +912,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 287827257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864c217615d619a4b8ba20bf8ef35f36, type: 3}
+  m_Script: {fileID: 11500000, guid: f404ce3f05277064395f2baea4330cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &340398900
