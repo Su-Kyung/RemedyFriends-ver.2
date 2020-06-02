@@ -36,6 +36,9 @@ public class game2_camel : MonoBehaviour
     private Save_game2_data SaveData_Script;
     private Get_game2_data GetData_Script;
 
+    public int getScore;
+    public int count;
+
     bool first = true;
     // Update is called once per frame
     void Awake()
@@ -57,15 +60,19 @@ public class game2_camel : MonoBehaviour
                 txtScore.text = score.ToString();
             StopAllCoroutines();
             GetComponent<AudioSource>().Stop();
-            SaveData_Script.saveGame2CamelScore(score);
+            getScore = GetData_Script.score; // 평균 구하려고 받아옴
+            count = GetData_Script.count; // 데이터 저장 시 필요
+            Debug.LogFormat("getScore = {0}", getScore);
+            Debug.LogFormat("count = {0}", count);
+            Debug.LogFormat("score = {0}", score);
+            SaveData_Script.saveGame2Score("auditory", score, getScore, count);
             first = true;
         }
         else if (Countdown.enableSpawn && first == true)
         {
             //점수 받아오는 부분
             string date = System.DateTime.Now.ToString("yyyy/MM/dd");
-            int getScore = int.Parse(GetData_Script.getGame2CamelScore(date));
-            Debug.LogFormat("getScore = {0}", getScore);
+            GetData_Script.getGame2Score("auditory", date);
             //여기까지
             StartCamelGame();
             first = false;
