@@ -79,6 +79,10 @@ public class game1_SpawnBubble : MonoBehaviour
         isYes.SetActive(false);
         isNo.SetActive(false);
 
+        // 순서 묻는 텍스트 안보이게
+        txtHole1.SetActive(false);
+        txtHole2.gameObject.SetActive(false);
+
         // 버블 위치 저장
         pos1 = Bubble1.transform.position;
         pos2 = Bubble2.transform.position;
@@ -167,6 +171,7 @@ public class game1_SpawnBubble : MonoBehaviour
     
     void Update()
     {
+        if (txtHole2.text == "6") txtHole2.text = "5";
         if (blup)
         {
             ShowBubble();
@@ -239,7 +244,7 @@ public class game1_SpawnBubble : MonoBehaviour
             btnHole5.gameObject.SetActive(true);
 
             txtHole1.gameObject.SetActive(true);
-            
+            txtHole2.gameObject.SetActive(true);
         }
         
 
@@ -413,6 +418,7 @@ public class game1_SpawnBubble : MonoBehaviour
         Debug.Log("새로운 bubble 시작");
 
         txtHole1.gameObject.SetActive(false);
+        txtHole2.gameObject.SetActive(false);
         txtHole2.text = "1";
         scoreBubble += 100;
         txtScore.text = scoreBubble.ToString();
