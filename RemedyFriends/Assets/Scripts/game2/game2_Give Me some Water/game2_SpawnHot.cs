@@ -23,9 +23,6 @@ public class game2_SpawnHot : MonoBehaviour
 
         // 처음에 다 안보이게
         HideHot();
-
-        // 캐릭터 버튼 리스터
-        btnFriend.onClick.AddListener(btnFriendClicked);
     }
 
     // director에서 호출하면 .. 그 변수에 따라서 보이게 하기
@@ -46,11 +43,5 @@ public class game2_SpawnHot : MonoBehaviour
 
         // 버튼 활성화
         btnFriend.gameObject.SetActive(true);
-    }
-
-    void btnFriendClicked()
-    {
-        game2_HotDirector Director = GameObject.Find("FriendsFaceObject").GetComponent<game2_HotDirector>();
-        Director.ShuffleHot();
     }
 }

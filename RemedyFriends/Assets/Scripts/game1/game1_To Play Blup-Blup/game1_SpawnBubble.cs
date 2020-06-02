@@ -28,7 +28,7 @@ public class game1_SpawnBubble : MonoBehaviour
     bool blup;
 
     // 비교 위한 변수
-    int order = 0; int clicked = 0;
+    int order = 0;
 
     // 위치 저장
     private UnityEngine.Vector3 pos1;
@@ -155,7 +155,7 @@ public class game1_SpawnBubble : MonoBehaviour
         timer = 0.0f;
 
         // 클릭 순서 비교
-        order = 0; clicked = 0;
+        order = 0;
         blup = true;
         Debug.Log("SpawnBubble: ShowBubble");
         //ShowBubble();
