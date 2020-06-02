@@ -37,7 +37,7 @@ public class All_Result_data : MonoBehaviour
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://remedy-stones.firebaseio.com/");
         reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        //UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
+        UserData_Script = GameObject.Find("UserData").GetComponent<User_data>();
     }
 
     void Start()
@@ -59,8 +59,7 @@ public class All_Result_data : MonoBehaviour
 
     public void getGameAllScore(string game, string part)
     {
-        //userId = UserData_Script.userId;
-        userId = "test1";
+        userId = UserData_Script.userId;
         Debug.LogFormat("UserID = {0}", userId);
         FirebaseDatabase.DefaultInstance.GetReference(game)
                 .LimitToLast(20).GetValueAsync().ContinueWith(task =>
@@ -83,6 +82,12 @@ public class All_Result_data : MonoBehaviour
                                 count = list.Score.Length - 1;
                                 Debug.Log(count);
 
+                                score1 = list.Score[count].userscore + "";
+                                score2 = list.Score[count - 1].userscore + "";
+                                score3 = list.Score[count - 2].userscore + "";
+                                score4 = list.Score[count - 3].userscore + "";
+                                score5 = list.Score[count - 4].userscore + "";
+                                /*
                                 if (count == 0)
                                 {
                                     score5 = "-";
@@ -128,7 +133,7 @@ public class All_Result_data : MonoBehaviour
                                     score2 = "-";
                                     score1 = "-";
                                 }
-                                
+                                */
                             }
                         }
                     }
@@ -137,31 +142,39 @@ public class All_Result_data : MonoBehaviour
 
     public void onClickVisual()
     {
+        setNull();
         //진주조개
         getGameAllScore("game1", "visual");
     }
     public void onClickAuditory()
     {
+        setNull();
         //낙타
         getGameAllScore("game2", "auditory");
     }
     public void onClickMemory()
     {
+        setNull();
         //버블
         getGameAllScore("game1", "memory");
     }
     public void onClickControl()
     {
+        setNull();
         //상어
         getGameAllScore("game1", "control");
     }
     public void onClickOrganization()
     {
+        setNull();
         //퍼즐
         getGameAllScore("game2", "organization");
     }
     public void onClickActivate()
     {
+        setNull();
+    }
+    public void setNull() {
         score5 = "-";
         score4 = "-";
         score3 = "-";
