@@ -17,6 +17,8 @@ public class OpenChart : MonoBehaviour
     // 입력한 비밀번호
     public Text txtPW;
 
+    public InputField InputField_master_pw;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +51,7 @@ public class OpenChart : MonoBehaviour
     void GotoChart()
     {
         // 비밀번호 맞으면 (임시로 123456으로 함)
-        if (txtPW.text == "123456")
+        if (InputField_master_pw.text == "123456")
         {
             SceneManager.LoadScene(14); //14: Chart 씬 번호
         }

@@ -378,8 +378,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 280676241}
   m_TextComponent: {fileID: 1665783080}
   m_Placeholder: {fileID: 413904070}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -2027,6 +2027,7 @@ MonoBehaviour:
   canvasChart2: {fileID: 1563293005}
   canvasError: {fileID: 1361121498}
   txtPW: {fileID: 1665783080}
+  InputField_master_pw: {fileID: 280676240}
 --- !u!1 &1211987554
 GameObject:
   m_ObjectHideFlags: 0
