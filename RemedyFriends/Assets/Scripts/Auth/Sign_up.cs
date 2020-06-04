@@ -19,6 +19,8 @@ public class Sign_up : MonoBehaviour
 
     public string dbId;
 
+    //public GameObject popup_joinError;
+
     FirebaseApp firebaseApp;
     DatabaseReference reference;
 
@@ -35,6 +37,7 @@ public class Sign_up : MonoBehaviour
     }
     void Start()
     {
+        //popup_joinError.SetActive(false);
         currentStatus = "중복확인 해주세요.";
     }
     void Update()
@@ -63,6 +66,7 @@ public class Sign_up : MonoBehaviour
                     //Debug.LogFormat("Key = {0}", userIds.Key);
                     if (userIds.Key == InputField_join_id.text.Trim())
                     {
+                        //showIdError();
                         Debug.Log("이미 있는 아이디 입니다.");
                         currentStatus = "존재하는 아이디입니다.";
                         dbId = userIds.Key;
@@ -132,5 +136,14 @@ public class Sign_up : MonoBehaviour
         Debug.Log("코루틴");
         yield return new WaitForSeconds(2.1f);
     }
-
+/*
+   public void showIdError() {
+        popup_joinError.SetActive(true);
+        Invoke("HideError", 2);
+    }
+    public void HideError()
+    {
+        popup_joinError.SetActive(false);
+    }
+    */
 }

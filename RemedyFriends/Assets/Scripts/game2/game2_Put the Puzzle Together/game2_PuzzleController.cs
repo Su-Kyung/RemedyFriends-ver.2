@@ -14,6 +14,14 @@ public class game2_PuzzleController : MonoBehaviour
     // 맞춘 조각 세기
     public int matchedPiece;
 
+    // 맞았다는 이미지
+    public GameObject isCorrect;
+
+    void Start()
+    {
+        isCorrect.SetActive(false);
+    }
+
     // director에서 호출
     public void StartPuzzle()
     {
@@ -60,15 +68,27 @@ public class game2_PuzzleController : MonoBehaviour
             && Math.Truncate(piece13.transform.rotation.eulerAngles.z) == 0 && Math.Truncate(piece14.transform.rotation.eulerAngles.z) == 0
             && Math.Truncate(piece15.transform.rotation.eulerAngles.z) == 0)
         {
-            PuzzleDirector.scorePuzzle += 300;
+            PuzzleDirector.scorePuzzle += 100;
             // 시간 5초 증가
             GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
             gameTimeSlider.remainTime += 5;   // remainTime멤버변수 가져옴
 
+            //퀘스트변수 추가
+            PuzzleDirector.questPuzzle += 1;
+
+            isCorrect.SetActive(true);
             PuzzleDirector.setPuzzle(false);    // 퍼즐 전부 안보이게
-            PuzzleDirector.PlayPuzzle();    // 새 퍼즐 시작
+            Invoke("AfterCorrect", 1.5f);
         }
         
+    }
+
+    void AfterCorrect()
+    {
+        game2_PuzzleDirector PuzzleDirector = GameObject.Find("Canvas_puzzle_GameObject").GetComponent<game2_PuzzleDirector>();  // game2_PuzzleDirector 스크립트의 객체 받아옴
+
+        isCorrect.SetActive(false);
+        PuzzleDirector.PlayPuzzle();    // 새 퍼즐 시작
     }
     
 }

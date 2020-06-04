@@ -10,6 +10,8 @@ public class PopupChange : MonoBehaviour
 {
     private GameObject target;
 
+    public AudioSource soundClick;
+
     //팝업을 위해 생성
     GameObject loginObj;
     GameObject joinObj;
@@ -67,6 +69,8 @@ public class PopupChange : MonoBehaviour
     }
     public void clickLoginSubmitButton()
     {
+        soundClick.Play();
+
         if (InputField_login_id.text != "")
         {
             if (InputField_login_pw.text != "")
@@ -105,12 +109,16 @@ public class PopupChange : MonoBehaviour
     }
     public void clickLoginJoinButton()
     {
+        soundClick.Play();
+
         //로그인 화면 숨기고 회원가입 창 열기
         loginObj.SetActive(false);
         joinObj.SetActive(true);
     }
     public void clickJoinSubmitButton()
     {
+        soundClick.Play();
+
         if (SignUp_Script.signUp())
         {
             loginObj.SetActive(true);
@@ -119,12 +127,14 @@ public class PopupChange : MonoBehaviour
     }
     public void clickNicknameSubmitButton()
     {
+        soundClick.Play();
+
         if (Nickname_Script.Save_nick())
         {
             UserData_Script.saveUserIdpw(InputField_login_id.text, InputField_login_pw.text);
             UserData_Script.saveUserNickname(InputField_nickname.text.Trim());
             //nicknameObj.SetActive(false);
-            SceneManager.LoadScene("main");
+            SceneManager.LoadScene("intro");
             //select_charObj.SetActive(true);
         }
     }

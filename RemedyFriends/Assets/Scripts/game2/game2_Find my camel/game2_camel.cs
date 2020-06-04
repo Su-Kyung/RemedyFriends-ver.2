@@ -33,8 +33,14 @@ public class game2_camel : MonoBehaviour
 
     public float delay = 1.88f;
 
+    public int questCamel;
+
     private Save_game2_data SaveData_Script;
     private Get_game2_data GetData_Script;
+    private QuestData Quest_Script;
+
+    public int getScore;
+    public int count;
 
     bool first = true;
     // Update is called once per frame
@@ -42,6 +48,7 @@ public class game2_camel : MonoBehaviour
     {
         SaveData_Script = GameObject.Find("camelGameManager").GetComponent<Save_game2_data>();
         GetData_Script = GameObject.Find("camelGameManager").GetComponent<Get_game2_data>();
+        Quest_Script = GameObject.Find("camelGameManager").GetComponent<QuestData>();
     }
     void Update()
     {
@@ -57,15 +64,25 @@ public class game2_camel : MonoBehaviour
                 txtScore.text = score.ToString();
             StopAllCoroutines();
             GetComponent<AudioSource>().Stop();
-            SaveData_Script.saveGame2CamelScore(score);
+            getScore = GetData_Script.score; // 평균 구하려고 받아옴
+            count = GetData_Script.count; // 데이터 저장 시 필요
+            Debug.LogFormat("getScore = {0}", getScore);
+            Debug.LogFormat("count = {0}", count);
+            Debug.LogFormat("score = {0}", score);
+            SaveData_Script.saveGame2Score("auditory", score, getScore, count);
+
+            //퀘스트
+            int questNum = Quest_Script.questdata;
+            int totalQuest = questCamel + questNum;
+            Quest_Script.saveQuestData("quest2", "camel", totalQuest);
             first = true;
         }
         else if (Countdown.enableSpawn && first == true)
         {
             //점수 받아오는 부분
             string date = System.DateTime.Now.ToString("yyyy/MM/dd");
-            int getScore = int.Parse(GetData_Script.getGame2CamelScore(date));
-            Debug.LogFormat("getScore = {0}", getScore);
+            GetData_Script.getGame2Score("auditory", date);
+            Quest_Script.getQuestData("quest2", "camel");
             //여기까지
             StartCamelGame();
             first = false;
@@ -170,6 +187,7 @@ public class game2_camel : MonoBehaviour
             Debug.Log("correct");
             soundCorrect();
             score += 133;
+            questCamel++;
         }
         else
         {
@@ -187,6 +205,7 @@ public class game2_camel : MonoBehaviour
             Debug.Log("correct");
             soundCorrect();
             score += 133;
+            questCamel++;
         }
         else
         {
@@ -204,6 +223,7 @@ public class game2_camel : MonoBehaviour
             Debug.Log("correct");
             soundCorrect();
             score += 133;
+            questCamel++;
         }
         else
         {
@@ -221,6 +241,7 @@ public class game2_camel : MonoBehaviour
             Debug.Log("correct");
             soundCorrect();
             score += 133;
+            questCamel++;
         }
         else
         {

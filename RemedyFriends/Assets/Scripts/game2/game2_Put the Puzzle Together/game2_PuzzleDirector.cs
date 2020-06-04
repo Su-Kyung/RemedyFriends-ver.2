@@ -25,6 +25,17 @@ public class game2_PuzzleDirector : MonoBehaviour
     public game2_PuzzleController PuzzleControl4;
     public game2_PuzzleController PuzzleControl5;
 
+    //data
+    private Save_game2_data SaveData_Script;
+    private Get_game2_data GetData_Script;
+    private QuestData Quest_Script;
+
+    public int getScore;
+    public int count;
+    public int questPuzzle;
+
+    bool isFirst;
+    //------
 
     void Start()
     {
@@ -43,18 +54,48 @@ public class game2_PuzzleDirector : MonoBehaviour
         scorePuzzle = 0;
         //countPiece = 0;
 
+        //data
+        GetData_Script = GameObject.Find("puzzleData").GetComponent<Get_game2_data>();
+        SaveData_Script = GameObject.Find("puzzleData").GetComponent<Save_game2_data>();
+        Quest_Script = GameObject.Find("puzzleData").GetComponent<QuestData>();
+
+        //점수 받아오는 부분
+        string date = System.DateTime.Now.ToString("yyyy/MM/dd");
+        GetData_Script.getGame2Score("organization", date);
+        Quest_Script.getQuestData("quest2", "puzzle");
+
+        isFirst = true;
+        //---------
         // 최초 시작
         Invoke("PlayPuzzle", 1.2f);
     }
 
-    // 여기서 db에 점수 넘기기
+ 
     void Update()
     {
-        GameCountdown Countdown = GameObject.Find("countdown_PanelUI").GetComponent<GameCountdown>();  // GameCountdown 스크립트의 객체 받아옴
+       txtScore.text = scorePuzzle.ToString();
+        GameTimeSlider gameTimeSlider = GameObject.Find("TimeSlider").GetComponent<GameTimeSlider>();  // GameTimeSlider 스크립트의 객체 받아옴
+        if (gameTimeSlider.remainTime <= 0 && isFirst) {
+            getScore = GetData_Script.score; // 평균 구하려고 받아옴
+            count = GetData_Script.count; // 데이터 저장 시 필요
+            Debug.LogFormat("getScore = {0}", getScore);
+            Debug.LogFormat("count = {0}", count);
 
-        if (!Countdown.enableSpawn)
-        {
-            txtScore.text = scorePuzzle.ToString();
+            if (scorePuzzle < 0)
+            {
+                scorePuzzle = 0;
+                txtScore.text = scorePuzzle.ToString();
+            }
+            //끝나면 저장
+            Debug.LogFormat("scorePuzzle = {0}", scorePuzzle);
+            SaveData_Script.saveGame2Score("organization", scorePuzzle, getScore, count);
+
+            //퀘스트
+            int questNum = Quest_Script.questdata;
+            Debug.LogFormat("questNum = {0}", questNum);
+            int totalQuest = questPuzzle + questNum;
+            Quest_Script.saveQuestData("quest2", "puzzle", totalQuest);
+            isFirst = false;
         }
     }
 
